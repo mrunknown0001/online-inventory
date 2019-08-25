@@ -16,6 +16,7 @@ class CreateTransantionsTable extends Migration
         Schema::create('transantions', function (Blueprint $table) {
             $table->bigIncrements('transantion_id');
             $table->tinyInteger('transantion_type')->nullable(); // 1 for in, 0 for out
+            $table->string('reference_number', 20)->nullable();
             $table->bigInteger('supplier_id')->unsigned()->nullable();
             $table->foreign('supplier_id')->references('supplier_id')->on('suppliers');
             $table->bigInteger('customer_id')->unsigned()->nullable();
