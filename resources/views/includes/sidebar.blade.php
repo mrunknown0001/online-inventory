@@ -44,6 +44,14 @@
             </span>
           </a>
         </li>
+        <li>
+          <a href="#">
+            <i class="fa fa-info"></i> <span>Public Information</span>
+            <span class="pull-right-container">
+              <small class="label pull-right bg-green"></small>
+            </span>
+          </a>
+        </li>
         <li class="treeview">
           <a href="#">
             <i class="fa fa-gears"></i>
@@ -58,6 +66,8 @@
             <li><a href="#"><i class="fa fa-circle-o"></i> Species</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i> Animals</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i> Item Categories</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Farms</a></li>
+
           </ul>
         </li>
         <li class="header">LABELS</li>
