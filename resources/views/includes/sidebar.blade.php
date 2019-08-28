@@ -46,7 +46,7 @@
         </li>
         <li>
           <a href="#">
-            <i class="fa fa-info"></i> <span>Public Information</span>
+            <i class="fa fa-info"></i> <span>Public Info Management</span>
             <span class="pull-right-container">
               <small class="label pull-right bg-green"></small>
             </span>
@@ -61,12 +61,13 @@
             </span>
           </a>
           <ul class="treeview-menu">
+            <li><a href="#"><i class="fa fa-circle-o"></i> Item Categories</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Farms</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i> Municipalities</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i> Barangays</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i> Species</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i> Animals</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Item Categories</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Farms</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Breed</a></li>
 
           </ul>
         </li>
