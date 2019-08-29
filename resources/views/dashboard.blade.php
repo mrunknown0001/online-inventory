@@ -370,18 +370,18 @@
 <!-- Bootstrap 3.3.7 -->
 <script src="{{ asset('dist/js/bootstrap.min.js') }}"></script>
 <!-- FastClick -->
-<script src="dist/js/fastclick.js"></script>
+<script src="{{ asset('dist/js/fastclick.js') }}"></script>
 <!-- AdminLTE App -->
-<script src="dist/js/adminlte.min.js"></script>
+<script src="{{ asset('dist/js/adminlte.min.js') }}"></script>
 <!-- Sparkline -->
-<script src="dist/js/jquery.sparkline.min.js"></script>
+<script src="{{ asset('dist/js/jquery.sparkline.min.js') }}"></script>
 <!-- jvectormap  -->
-<script src="jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
-<script src="jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+<script src="{{ asset('jvectormap/jquery-jvectormap-1.2.2.min.js') }}"></script>
+<script src="{{ asset('vectormap/jquery-jvectormap-world-mill-en.js') }}"></script>
 <!-- SlimScroll -->
-<script src="dist/js/jquery.slimscroll.min.js"></script>
+<script src="{{ asset('dist/js/jquery.slimscroll.min.js') }}"></script>
 <!-- ChartJS -->
-<script src="dist/chart.js/Chart.js"></script>
+<script src="{{ asset('dist/chart.js/Chart.js') }}"></script>
 
 </body>
 </html>

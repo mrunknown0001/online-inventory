@@ -29,14 +29,14 @@
   <div class="login-box-body">
     <p class="login-box-msg">Sign in to start your session</p>
 
-    <form action="" method="post">
+    <form action="{{ route('post.login') }}" method="post">
       @csrf
       <div class="form-group has-feedback">
-        <input type="email" class="form-control" placeholder="Email">
-        <span class="fa fa-envelope form-control-feedback"></span>
+        <input type="text" name="username" id="username" class="form-control" placeholder="Username">
+        <span class="fa fa-user form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Password">
+        <input type="password" name="password" id="password" class="form-control" placeholder="Password">
         <span class="fa fa-lock form-control-feedback"></span>
       </div>
       <div class="row">
