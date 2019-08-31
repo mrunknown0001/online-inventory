@@ -12,6 +12,12 @@ class LoginController extends Controller
      */
     public function login()
     {
+        // check if there is an existing active session
+        // redirect to the user's dashboard
+        if(Auth::check()) {
+            return $this->auth_check();
+        }
+        
     	return view('login');
     }
 
@@ -21,6 +27,12 @@ class LoginController extends Controller
      */
     public function postLogin(Request $request)
     {
+        // check if there is an existing active session
+        // redirect to the user's dashboard
+        if(Auth::check()) {
+            return $this->auth_check();
+        }
+
     	$request->validate([
     		'username' => 'required',
     		'password' => 'required'
@@ -33,7 +45,7 @@ class LoginController extends Controller
     		return redirect()->route('admin.dashboard');
     	}
     	else {
-    		return 'Authentication Failed!';
+    		return redirect()->route('login')->with('error', 'Invalid Username or Password!');
     	}
     }
 
@@ -47,5 +59,25 @@ class LoginController extends Controller
     	Auth::logout();
 
     	return redirect()->route('login');
+    }
+
+
+
+
+    /*************************
+    * Miscelleneous function *
+    * ***********************/
+
+    /**
+     * check auth if what user
+     */
+    public function auth_check()
+    {
+        if(Auth::user()->user_type == 1) {
+            return redirect()->route('admin.dashboard');
+        }
+        else if(Auth::user()->user_type == 2) {
+            return 'Not Admin, redirect to employee dashboard';
+        }
     }
 }

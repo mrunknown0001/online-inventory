@@ -28,7 +28,8 @@
   <!-- /.login-logo -->
   <div class="login-box-body">
     <p class="login-box-msg">Sign in to start your session</p>
-
+    @include('includes.success')
+    @include('includes.error')
     <form action="{{ route('post.login') }}" method="post">
       @csrf
       <div class="form-group has-feedback">
