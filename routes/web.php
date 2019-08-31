@@ -17,7 +17,7 @@ Route::get('/logout', 'LoginController@logout')->name('logout');
 /*********************
  * Admin Route Group *
  ********************/
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'prevent-back-history']], function () {
 	Route::get('/dashboard', 'AdminController@dashboard')->name('admin.dashboard');
 });
 
@@ -26,6 +26,6 @@ Route::group(['prefix' => 'admin'], function () {
 /***********************
 * Employee Route Group *
 ************************/
-Route::group(['prefix' => 'emp'], function () {
+Route::group(['prefix' => 'emp', 'middleware' => ['employee', 'prevent-back-history']], function () {
 	Route::get('/dashboard', 'EmployeeController@dashboard')->name('emp.dashboard');
 });

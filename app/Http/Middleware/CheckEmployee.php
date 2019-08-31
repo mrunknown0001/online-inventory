@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Auth;
 
 class CheckEmployee
 {
@@ -15,6 +16,16 @@ class CheckEmployee
      */
     public function handle($request, Closure $next)
     {
+    {
+        if(Auth::user()) {
+            if(Auth::user()->user_type != 2) {
+                return abort(403, 'Unauthorize Access');
+            }
+        }
+        else {
+            return redirect()->route('login')->with('error', 'Login First!');
+        }
+
         return $next($request);
     }
 }
