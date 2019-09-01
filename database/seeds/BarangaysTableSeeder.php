@@ -1566,6 +1566,524 @@ class BarangaysTableSeeder extends Seeder
         		'name' => 'Villa Bacolor',
         		'municipality_id' => 13,
         	],
+
+        	// Victoria
+        	[
+        		'name' => 'Baculong',
+        		'municipality_id' => 14,
+        	],
+        	[
+        		'name' => 'Balayang',
+        		'municipality_id' => 14,
+        	],
+        	[
+        		'name' => 'Balbaloto',
+        		'municipality_id' => 14,
+        	],
+        	[
+        		'name' => 'Bangar',
+        		'municipality_id' => 14,
+        	],
+        	[
+        		'name' => 'Bantog',
+        		'municipality_id' => 14,
+        	],
+        	[
+        		'name' => 'Batang-batang',
+        		'municipality_id' => 14,
+        	],
+        	[
+        		'name' => 'Bulo',
+        		'municipality_id' => 14,
+        	],
+        	[
+        		'name' => 'Cabuluan',
+        		'municipality_id' => 14,
+        	],
+        	[
+        		'name' => 'Calibungan',
+        		'municipality_id' => 14,
+        	],
+        	[
+        		'name' => 'Canarem',
+        		'municipality_id' => 14,
+        	],
+        	[
+        		'name' => 'Cruz',
+        		'municipality_id' => 14,
+        	],
+        	[
+        		'name' => 'Lalapac',
+        		'municipality_id' => 14,
+        	],
+        	[
+        		'name' => 'Maluid',
+        		'municipality_id' => 14,
+        	],
+        	[
+        		'name' => 'Mangolago',
+        		'municipality_id' => 14,
+        	],
+        	[
+        		'name' => 'Masalasa',
+        		'municipality_id' => 14,
+        	],
+        	[
+        		'name' => 'Palac-palac',
+        		'municipality_id' => 14,
+        	],
+        	[
+        		'name' => 'San Agustin',
+        		'municipality_id' => 14,
+        	],
+        	[
+        		'name' => 'San Andres',
+        		'municipality_id' => 14,
+        	],
+        	[
+        		'name' => 'San Fernando',
+        		'municipality_id' => 14,
+        	],
+        	[
+        		'name' => 'San Francisco',
+        		'municipality_id' => 14,
+        	],
+        	[
+        		'name' => 'San Gavino',
+        		'municipality_id' => 14,
+        	],
+        	[
+        		'name' => 'San Jacinto',
+        		'municipality_id' => 14,
+        	],
+        	[
+        		'name' => 'San Nicolas',
+        		'municipality_id' => 14,
+        	],
+        	[
+        		'name' => 'San Vicente',
+        		'municipality_id' => 14,
+        	],
+        	[
+        		'name' => 'Santa Barbara',
+        		'municipality_id' => 14,
+        	],
+        	[
+        		'name' => 'Santa Lucia',
+        		'municipality_id' => 14,
+        	],
+
+        	// Bamban
+        	[
+        		'name' => 'Anupul',
+        		'municipality_id' => 15,
+        	],
+        	[
+        		'name' => 'Banaba',
+        		'municipality_id' => 15,
+        	],
+        	[
+        		'name' => 'Bangcu',
+        		'municipality_id' => 15,
+        	],
+        	[
+        		'name' => 'Culubasa',
+        		'municipality_id' => 15,
+        	],
+        	[
+        		'name' => 'Dela Cruz',
+        		'municipality_id' => 15,
+        	],
+        	[
+        		'name' => 'La Paz',
+        		'municipality_id' => 15,
+        	],
+        	[
+        		'name' => 'Lourdes',
+        		'municipality_id' => 15,
+        	],
+        	[
+        		'name' => 'Malonzo',
+        		'municipality_id' => 15,
+        	],
+        	[
+        		'name' => 'San Nicolas',
+        		'municipality_id' => 15,
+        	],
+        	[
+        		'name' => 'San Pedro',
+        		'municipality_id' => 15,
+        	],
+        	[
+        		'name' => 'San Rafael',
+        		'municipality_id' => 15,
+        	],
+        	[
+        		'name' => 'San Roque',
+        		'municipality_id' => 15,
+        	],
+        	[
+        		'name' => 'San Vicente',
+        		'municipality_id' => 15,
+        	],
+        	[
+        		'name' => 'Santo Niño',
+        		'municipality_id' => 15,
+        	],
+        	[
+        		'name' => 'Virgen de los Remedios',
+        		'municipality_id' => 15,
+        	],
+
+        	// Capas
+        	[
+        		'name' => 'Aranguren',
+        		'municipality_id' => 16,
+        	],
+        	[
+        		'name' => 'Bueno',
+        		'municipality_id' => 16,
+        	],
+        	[
+        		'name' => 'Cristo Rey',
+        		'municipality_id' => 16,
+        	],
+        	[
+        		'name' => 'Cubcub',
+        		'municipality_id' => 16,
+        	],
+        	[
+        		'name' => 'Cutcut 1st',
+        		'municipality_id' => 16,
+        	],
+        	[
+        		'name' => 'Cutcut 2nd',
+        		'municipality_id' => 16,
+        	],
+        	[
+        		'name' => 'Dolores',
+        		'municipality_id' => 16,
+        	],
+        	[
+        		'name' => 'Estrada',
+        		'municipality_id' => 16,
+        	],
+        	[
+        		'name' => 'Lawy',
+        		'municipality_id' => 16,
+        	],
+        	[
+        		'name' => 'Manga',
+        		'municipality_id' => 16,
+        	],
+        	[
+        		'name' => 'Manlapig',
+        		'municipality_id' => 16,
+        	],
+        	[
+        		'name' => 'Maruglu',
+        		'municipality_id' => 16,
+        	],
+        	[
+        		'name' => "O'Donnell",
+        		'municipality_id' => 16,
+        	],
+        	[
+        		'name' => 'Santa Juliana',
+        		'municipality_id' => 16,
+        	],
+        	[
+        		'name' => 'Santa Lucia',
+        		'municipality_id' => 16,
+        	],
+        	[
+        		'name' => 'Santa Rita',
+        		'municipality_id' => 16,
+        	],
+        	[
+        		'name' => 'Santo Domingo 1st',
+        		'municipality_id' => 16,
+        	],
+        	[
+        		'name' => 'Santo Domingo 2nd',
+        		'municipality_id' => 16,
+        	],
+        	[
+        		'name' => 'Santo Rosario',
+        		'municipality_id' => 16,
+        	],
+        	[
+        		'name' => 'Talaga',
+        		'municipality_id' => 16,
+        	],
+
+        	// Concepcion
+        	[
+        		'name' => 'Alfonso',
+        		'municipality_id' => 17,
+        	],
+        	[
+        		'name' => 'Balutu',
+        		'municipality_id' => 17,
+        	],
+        	[
+        		'name' => 'Cafe',
+        		'municipality_id' => 17,
+        	],
+        	[
+        		'name' => 'Calius Gueco',
+        		'municipality_id' => 17,
+        	],
+        	[
+        		'name' => 'Caluluan',
+        		'municipality_id' => 17,
+        	],
+        	[
+        		'name' => 'Castillo',
+        		'municipality_id' => 17,
+        	],
+        	[
+        		'name' => 'Corazon de Jesus',
+        		'municipality_id' => 17,
+        	],
+        	[
+        		'name' => 'Culatingan',
+        		'municipality_id' => 17,
+        	],
+        	[
+        		'name' => 'Dungan',
+        		'municipality_id' => 17,
+        	],
+        	[
+        		'name' => 'Datung-A-Matas',
+        		'municipality_id' => 17,
+        	],
+        	[
+        		'name' => 'Lilibangan',
+        		'municipality_id' => 17,
+        	],
+        	[
+        		'name' => 'Mabilog',
+        		'municipality_id' => 17,
+        	],
+        	[
+        		'name' => 'Magao',
+        		'municipality_id' => 17,
+        	],
+        	[
+        		'name' => 'Malupa',
+        		'municipality_id' => 17,
+        	],
+        	[
+        		'name' => 'Minane',
+        		'municipality_id' => 17,
+        	],
+        	[
+        		'name' => 'Panalicsican',
+        		'municipality_id' => 17,
+        	],
+        	[
+        		'name' => 'Pando',
+        		'municipality_id' => 17,
+        	],
+        	[
+        		'name' => 'Parang',
+        		'municipality_id' => 17,
+        	],
+        	[
+        		'name' => 'Parulung',
+        		'municipality_id' => 17,
+        	],
+        	[
+        		'name' => 'Pitabunan',
+        		'municipality_id' => 17,
+        	],
+        	[
+        		'name' => 'San Agustin',
+        		'municipality_id' => 17,
+        	],
+        	[
+        		'name' => 'San Antonio',
+        		'municipality_id' => 17,
+        	],
+        	[
+        		'name' => 'San Bartolome',
+        		'municipality_id' => 17,
+        	],
+        	[
+        		'name' => 'San Francisco',
+        		'municipality_id' => 17,
+        	],
+        	[
+        		'name' => 'San Isidro',
+        		'municipality_id' => 17,
+        	],
+        	[
+        		'name' => 'San Jose',
+        		'municipality_id' => 17,
+        	],
+        	[
+        		'name' => 'San Juan',
+        		'municipality_id' => 17,
+        	],
+        	[
+        		'name' => 'San Martin',
+        		'municipality_id' => 17,
+        	],
+        	[
+        		'name' => 'San Nicolas',
+        		'municipality_id' => 17,
+        	],
+        	[
+        		'name' => 'San Nicolas',
+        		'municipality_id' => 17,
+        	],
+        	[
+        		'name' => 'San Nicolas Batas',
+        		'municipality_id' => 17,
+        	],
+        	[
+        		'name' => 'SAnto Niño',
+        		'municipality_id' => 17,
+        	],
+        	[
+        		'name' => 'Santa Cruz',
+        		'municipality_id' => 17,
+        	],
+        	[
+        		'name' => 'Santa Maria',
+        		'municipality_id' => 17,
+        	],
+        	[
+        		'name' => 'Santa Monica',
+        		'municipality_id' => 17,
+        	],
+        	[
+        		'name' => 'Santa Rita',
+        		'municipality_id' => 17,
+        	],
+        	[
+        		'name' => 'Santa Rosa',
+        		'municipality_id' => 17,
+        	],
+        	[
+        		'name' => 'Santiago',
+        		'municipality_id' => 17,
+        	],
+        	[
+        		'name' => 'Santo Cristo',
+        		'municipality_id' => 17,
+        	],
+        	[
+        		'name' => 'Santo Rosario',
+        		'municipality_id' => 17,
+        	],
+        	[
+        		'name' => 'San Vicente',
+        		'municipality_id' => 17,
+        	],
+        	[
+        		'name' => 'Talimundoc Marimla',
+        		'municipality_id' => 17,
+        	],
+        	[
+        		'name' => 'Talimundoc San Miguel',
+        		'municipality_id' => 17,
+        	],
+        	[
+        		'name' => 'Telabanca',
+        		'municipality_id' => 17,
+        	],
+        	[
+        		'name' => 'Tinang',
+        		'municipality_id' => 17,
+        	],
+
+        	// Lapaz
+        	[
+        		'name' => 'Balanoy',
+        		'municipality_id' => 18,
+        	],
+        	[
+        		'name' => 'Bantog-Caricutan',
+        		'municipality_id' => 18,
+        	],
+        	[
+        		'name' => 'Caramutan',
+        		'municipality_id' => 18,
+        	],
+        	[
+        		'name' => 'Caut',
+        		'municipality_id' => 18,
+        	],
+        	[
+        		'name' => 'Comillas',
+        		'municipality_id' => 18,
+        	],
+        	[
+        		'name' => 'Dumarais',
+        		'municipality_id' => 18,
+        	],
+        	[
+        		'name' => 'Guevarra',
+        		'municipality_id' => 18,
+        	],
+        	[
+        		'name' => 'Kapanikian',
+        		'municipality_id' => 18,
+        	],
+        	[
+        		'name' => 'La Purisima',
+        		'municipality_id' => 18,
+        	],
+        	[
+        		'name' => 'Lara',
+        		'municipality_id' => 18,
+        	],
+        	[
+        		'name' => 'Laungcupang',
+        		'municipality_id' => 18,
+        	],
+        	[
+        		'name' => 'Lomboy',
+        		'municipality_id' => 18,
+        	],
+        	[
+        		'name' => 'Macalong',
+        		'municipality_id' => 18,
+        	],
+        	[
+        		'name' => 'Matayumtayum',
+        		'municipality_id' => 18,
+        	],
+        	[
+        		'name' => 'Mayang',
+        		'municipality_id' => 18,
+        	],
+        	[
+        		'name' => 'Motrico',
+        		'municipality_id' => 18,
+        	],
+        	[
+        		'name' => 'Paludpud',
+        		'municipality_id' => 18,
+        	],
+        	[
+        		'name' => 'Rizal',
+        		'municipality_id' => 18,
+        	],
+        	[
+        		'name' => 'San Isidro',
+        		'municipality_id' => 18,
+        	],
+        	[
+        		'name' => 'San Roque',
+        		'municipality_id' => 18,
+        	],
+        	[
+        		'name' => 'Sierra',
+        		'municipality_id' => 18,
+        	],
         ]);
     }
 }
