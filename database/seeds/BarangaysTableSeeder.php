@@ -1338,6 +1338,234 @@ class BarangaysTableSeeder extends Seeder
         		'name' => 'Buenavista',
         		'municipality_id' => 13,
         	],
+        	[
+        		'name' => 'Buhilit',
+        		'municipality_id' => 13,
+        	],
+        	[
+        		'name' => 'Burot',
+        		'municipality_id' => 13,
+        	],
+        	[
+        		'name' => 'Calingcuan',
+        		'municipality_id' => 13,
+        	],
+        	[
+        		'name' => 'Capehan',
+        		'municipality_id' => 13,
+        	],
+        	[
+        		'name' => 'Carangian',
+        		'municipality_id' => 13,
+        	],
+        	[
+        		'name' => 'Care',
+        		'municipality_id' => 13,
+        	],
+        	[
+        		'name' => 'Central',
+        		'municipality_id' => 13,
+        	],
+        	[
+        		'name' => 'Culipat',
+        		'municipality_id' => 13,
+        	],
+        	[
+        		'name' => 'Cut-cut I',
+        		'municipality_id' => 13,
+        	],
+        	[
+        		'name' => 'Cut-cut II',
+        		'municipality_id' => 13,
+        	],
+        	[
+        		'name' => 'Dalayap',
+        		'municipality_id' => 13,
+        	],
+        	[
+        		'name' => 'Dela Paz',
+        		'municipality_id' => 13,
+        	],
+        	[
+        		'name' => 'Dolores',
+        		'municipality_id' => 13,
+        	],
+        	[
+        		'name' => 'Laoang',
+        		'municipality_id' => 13,
+        	],
+        	[
+        		'name' => 'Ligtasan',
+        		'municipality_id' => 13,
+        	],
+        	[
+        		'name' => 'Lourdes',
+        		'municipality_id' => 13,
+        	],
+        	[
+        		'name' => 'Mabini',
+        		'municipality_id' => 13,
+        	],
+        	[
+        		'name' => 'Maligaya',
+        		'municipality_id' => 13,
+        	],
+        	[
+        		'name' => 'Maliwalo',
+        		'municipality_id' => 13,
+        	],
+        	[
+        		'name' => 'Mapalacsiao',
+        		'municipality_id' => 13,
+        	],
+        	[
+        		'name' => 'Mapalad',
+        		'municipality_id' => 13,
+        	],
+        	[
+        		'name' => 'Matatalaib',
+        		'municipality_id' => 13,
+        	],
+        	[
+        		'name' => 'Paraiso',
+        		'municipality_id' => 13,
+        	],
+        	[
+        		'name' => 'Poblacion',
+        		'municipality_id' => 13,
+        	],
+        	[
+        		'name' => 'Salapungan',
+        		'municipality_id' => 13,
+        	],
+        	[
+        		'name' => 'San Carlos',
+        		'municipality_id' => 13,
+        	],
+        	[
+        		'name' => 'San Francisco',
+        		'municipality_id' => 13,
+        	],
+        	[
+        		'name' => 'San Isidro',
+        		'municipality_id' => 13,
+        	],
+        	[
+        		'name' => 'San Jose',
+        		'municipality_id' => 13,
+        	],
+        	[
+        		'name' => 'San Jose',
+        		'municipality_id' => 13,
+        	],
+        	[
+        		'name' => 'San Jose de Urquico',
+        		'municipality_id' => 13,
+        	],
+        	[
+        		'name' => 'San Juan Bautista',
+        		'municipality_id' => 13,
+        	],
+        	[
+        		'name' => 'San Juan de Mata',
+        		'municipality_id' => 13,
+        	],
+        	[
+        		'name' => 'San Luis',
+        		'municipality_id' => 13,
+        	],
+        	[
+        		'name' => 'San Manuel',
+        		'municipality_id' => 13,
+        	],
+        	[
+        		'name' => 'San Miguel',
+        		'municipality_id' => 13,
+        	],
+        	[
+        		'name' => 'San Nicolas',
+        		'municipality_id' => 13,
+        	],
+        	[
+        		'name' => 'San Pablo',
+        		'municipality_id' => 13,
+        	],
+        	[
+        		'name' => 'San Pascual',
+        		'municipality_id' => 13,
+        	],
+        	[
+        		'name' => 'San Rafael',
+        		'municipality_id' => 13,
+        	],
+        	[
+        		'name' => 'San Roque',
+        		'municipality_id' => 13,
+        	],
+        	[
+        		'name' => 'San Sebastian',
+        		'municipality_id' => 13,
+        	],
+        	[
+        		'name' => 'San Vicente',
+        		'municipality_id' => 13,
+        	],
+        	[
+        		'name' => 'Santa Cruz',
+        		'municipality_id' => 13,
+        	],
+        	[
+        		'name' => 'Santa Maria',
+        		'municipality_id' => 13,
+        	],
+        	[
+        		'name' => 'Santos Cristo',
+        		'municipality_id' => 13,
+        	],
+        	[
+        		'name' => 'Sapang Maragul',
+        		'municipality_id' => 13,
+        	],
+        	[
+        		'name' => 'Sapang Tagalong',
+        		'municipality_id' => 13,
+        	],
+        	[
+        		'name' => 'Sepung Calzada',
+        		'municipality_id' => 13,
+        	],
+        	[
+        		'name' => 'Sinait',
+        		'municipality_id' => 13,
+        	],
+        	[
+        		'name' => 'Suizo',
+        		'municipality_id' => 13,
+        	],
+        	[
+        		'name' => 'Tariji',
+        		'municipality_id' => 13,
+        	],
+        	[
+        		'name' => 'Tibag',
+        		'municipality_id' => 13,
+        	],
+        	[
+        		'name' => 'Tibagan',
+        		'municipality_id' => 13,
+        	],
+        	[
+        		'name' => 'Trinidad',
+        		'municipality_id' => 13,
+        	],
+        	[
+        		'name' => 'Ungot',
+        		'municipality_id' => 13,
+        	],
+        	[
+        		'name' => 'Villa Bacolor',
+        		'municipality_id' => 13,
+        	],
         ]);
     }
 }
