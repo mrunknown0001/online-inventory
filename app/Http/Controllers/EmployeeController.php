@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class AdminController extends Controller
+class EmployeeController extends Controller
 {
     /**
-     * Admin Dashboard
+     * Dashboard
      */
     public function dashboard()
     {

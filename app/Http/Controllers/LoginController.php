@@ -42,7 +42,7 @@ class LoginController extends Controller
     	$password = $request['password'];
 
     	if(Auth::attempt(['username' => $username, 'password' => $password])) {
-    		return redirect()->route('admin.dashboard');
+    		return $this->auth_check();
     	}
     	else {
     		return redirect()->route('login')->with('error', 'Invalid Username or Password!');
@@ -77,7 +77,7 @@ class LoginController extends Controller
             return redirect()->route('admin.dashboard');
         }
         else if(Auth::user()->user_type == 2) {
-            return 'Not Admin, redirect to employee dashboard';
+            return redirect()->route('emp.dashboard');
         }
     }
 }

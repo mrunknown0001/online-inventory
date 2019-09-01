@@ -16,7 +16,6 @@ class CheckEmployee
      */
     public function handle($request, Closure $next)
     {
-    {
         if(Auth::user()) {
             if(Auth::user()->user_type != 2) {
                 return abort(403, 'Unauthorize Access');
