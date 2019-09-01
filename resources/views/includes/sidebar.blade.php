@@ -15,32 +15,16 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
-        <li class="active">
-          <a href="#">
+        <li class="{{ route('admin.dashboard') == url()->current() || route('emp.dashboard') == url()->current() ? 'active' : ''}}">
+          <a href="{{ Auth::user()->user_type == 1 ? route('admin.dashboard') : route('emp.dashboard') }}">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <i class="fa fa-exchange"></i> <span>Transactions</span>
-            <span class="pull-right-container">
-              <small class="label pull-right bg-green"></small>
-            </span>
           </a>
         </li>
 
         {{-- Start of Admin Only Access --}}
         @if(Auth::user()->user_type == 1)
-        <li>
-          <a href="#">
-            <i class="fa fa-list"></i> <span>Items</span>
-            <span class="pull-right-container">
-              <small class="label pull-right bg-green"></small>
-            </span>
-            </a>
-          </li>
-          <li>
-            <a href="#">
+          <li class="{{ route('users') == url()->current() ? 'active' : '' }}">
+            <a href="{{ route('users') }}">
               <i class="fa fa-users"></i> <span>User Management</span>
               <span class="pull-right-container">
                 <small class="label pull-right bg-green"></small>
@@ -49,7 +33,15 @@
           </li>
           <li>
             <a href="#">
-              <i class="fa fa-info"></i> <span>Public Info Management</span>
+              <i class="fa fa-exchange"></i> <span>Transactions</span>
+              <span class="pull-right-container">
+                <small class="label pull-right bg-green"></small>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa fa-history"></i> <span>Audit Trail</span>
               <span class="pull-right-container">
                 <small class="label pull-right bg-green"></small>
               </span>
@@ -64,7 +56,7 @@
               </span>
             </a>
             <ul class="treeview-menu">
-              <li><a href="#"><i class="fa fa-circle-o"></i> Suppliers</a></li>
+              <li class=""><a href="#"><i class="fa fa-circle-o"></i> Suppliers</a></li>
               <li><a href="#"><i class="fa fa-circle-o"></i> Item Categories</a></li>
               <li><a href="#"><i class="fa fa-circle-o"></i> Farms</a></li>
               <li><a href="#"><i class="fa fa-circle-o"></i> Municipalities</a></li>
@@ -78,7 +70,36 @@
         @endif
         {{-- End of Admin Only Access --}}
 
+        {{-- Start of Employee Only Access --}}
+        @if(Auth::user()->user_type == 2)
+          <li>
+            <a href="#">
+            <i class="fa fa-list"></i> <span>Inventory Management</span>
+            <span class="pull-right-container">
+              <small class="label pull-right bg-green"></small>
+            </span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa fa-truck"></i> <span>Shipping Permit Management</span>
+              <span class="pull-right-container">
+                <small class="label pull-right bg-green"></small>
+              </span>
+            </a>
+          </li>
+        @endif
+        {{-- End of Employee Only Access --}}
 
+
+        <li>
+          <a href="#">
+            <i class="fa fa-info"></i> <span>Public Info Management</span>
+            <span class="pull-right-container">
+              <small class="label pull-right bg-green"></small>
+            </span>
+          </a>
+        </li>
 
 
         {{-- <li class="header">LABELS</li>

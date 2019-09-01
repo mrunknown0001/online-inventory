@@ -18,7 +18,15 @@ Route::get('/logout', 'LoginController@logout')->name('logout');
  * Admin Route Group *
  ********************/
 Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'prevent-back-history']], function () {
+	// Admin Login
 	Route::get('/dashboard', 'AdminController@dashboard')->name('admin.dashboard');
+
+	// User Management
+	Route::get('/users', 'UserController@index')->name('users');
+
+
+	// Municipalities
+	Route::get('/municipalities', 'MunicipalityController@index')->name('municipalities');
 });
 
 
