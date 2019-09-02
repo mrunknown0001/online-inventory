@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('email', 60)->unique()->nullable();
             $table->string('password', 80)->nullable();
             $table->tinyInteger('user_type')->nullable()->default(2); // admin and employee
+            $table->boolean('active')->default(1);
             $table->rememberToken();
             $table->timestamps();
         });

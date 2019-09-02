@@ -18,6 +18,7 @@ class CreateBarangaysTable extends Migration
             $table->string('name', 40)->nullable();
             $table->bigInteger('municipality_id')->unsigned();
             $table->foreign('municipality_id')->references('municipality_id')->on('municipalities');
+            $table->boolean('active')->default(1);
             $table->timestamps();
         });
     }

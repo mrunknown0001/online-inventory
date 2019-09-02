@@ -17,6 +17,7 @@ class CreateUnitOfMeasurementsTable extends Migration
             $table->bigIncrements('unit_of_measurement_id');
             $table->string('name', 40)->nullable();
             $table->string('code', 10)->nullable();
+            $table->boolean('active')->default(1);
             $table->timestamps();
         });
     }

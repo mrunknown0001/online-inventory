@@ -16,6 +16,7 @@ class CreateMunicipalitiesTable extends Migration
         Schema::create('municipalities', function (Blueprint $table) {
             $table->bigIncrements('municipality_id');
             $table->string('name', 40)->nullable();
+            $table->boolean('active')->default(1);
             $table->timestamps();
         });
     }

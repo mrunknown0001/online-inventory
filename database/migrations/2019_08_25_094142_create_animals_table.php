@@ -18,6 +18,7 @@ class CreateAnimalsTable extends Migration
             $table->string('name', 40)->nullable();
             $table->bigInteger('specy_id')->unsigned();
             $table->foreign('specy_id')->references('specy_id')->on('species');
+            $table->boolean('active')->default(1);
             $table->timestamps();
         });
     }

@@ -18,6 +18,7 @@ class CreateSuppliersTable extends Migration
             $table->string('supplier_name', 100)->nullable();
             $table->string('address', 100)->nullable();
             $table->string('note', 255)->nullable();
+            $table->boolean('active')->default(1);
             $table->timestamps();
         });
     }

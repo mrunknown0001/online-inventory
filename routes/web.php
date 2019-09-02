@@ -24,9 +24,14 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'prevent-back-histo
 	// User Management
 	Route::get('/users', 'UserController@index')->name('users');
 
+	// All users
+	Route::get('/all/users', 'UserController@all')->name('all.users');
+
 
 	// Municipalities
 	Route::get('/municipalities', 'MunicipalityController@index')->name('municipalities');
+
+
 });
 
 

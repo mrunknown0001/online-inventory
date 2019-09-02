@@ -18,6 +18,7 @@ class CreateBreedsTable extends Migration
             $table->string('name', 40)->nullable();
             $table->bigInteger('animal_id')->unsigned();
             $table->foreign('animal_id')->references('animal_id')->on('animals');
+            $table->boolean('active')->default(1);
             $table->timestamps();
         });
     }

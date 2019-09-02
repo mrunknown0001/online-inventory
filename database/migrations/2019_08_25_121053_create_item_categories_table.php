@@ -17,6 +17,7 @@ class CreateItemCategoriesTable extends Migration
             $table->bigIncrements('item_category_id');
             $table->string('item_category_name', 50)->nullable();
             $table->string('description')->nullable();
+            $table->boolean('active')->default(1);
             $table->timestamps();
         });
     }
