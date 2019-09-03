@@ -2,6 +2,10 @@
 
 @section('title') User Management @endsection
 
+@section('script')
+  <script src="{{ asset('js/sweetalert.js') }}"></script>
+@endsection
+
 @section('content')
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -29,6 +33,9 @@
 
       <div class="row">
         <div class="col-md-12">
+          <p>
+            <a href="{{ route('add.user') }}" class="btn btn-primary"><i class="fa fa-plus"></i> Add User</a>
+          </p>
           <!-- TABLE: LATEST ORDERS -->
           <div class="box box-info">
             <div class="box-header with-border">
@@ -52,14 +59,6 @@
                       <th>Action</th>
                     </tr>
                   </thead>
-                  <tbody>
-                    <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                  </tbody>
                 </table>
               </div>
               <!-- /.table-responsive -->
@@ -80,20 +79,85 @@
   </div>
   <!-- /.content-wrapper -->
 <script>
-$(document).ready(function() {
-    $('#users').DataTable({
-        ajax: { 
-          url: "{{ route('all.users') }}",
-          dataSrc: ""
-        },
-        columns: [
-          { data: 'username' },
-          { data: 'fullname' },
-          { data: 'user_type' },
-          { data: 'action'},
-        ]
-     });
-} );
+  // View Sweet Alert Function
+  $(document).on('click', '#view', function (e) {
+      e.preventDefault();
+      var id = $(this).data('id');
+      Swal.fire({
+        title: 'View User Info?',
+        text: "",
+        type: 'info',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Continue'
+      }).then((result) => {
+        if (result.value) {
+          // update
+          window.location.replace("/admin/user/info/" + id);
+        }
+        else {
+          Swal.fire({
+            title: 'View User Info Cancelled',
+            text: "",
+            type: 'info',
+            showCancelButton: false,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'ok'
+          });
+        }
+      });
+  });
+
+
+  // Update User Info
+    $(document).on('click', '#update', function (e) {
+      e.preventDefault();
+      var id = $(this).data('id');
+      Swal.fire({
+        title: 'Update User Info?',
+        text: "",
+        type: 'info',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Continue'
+      }).then((result) => {
+        if (result.value) {
+          // update
+          window.location.replace("/admin/user/update/info/" + id);
+        }
+        else {
+          Swal.fire({
+            title: 'Update User Info Cancelled',
+            text: "",
+            type: 'info',
+            showCancelButton: false,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'ok'
+          });
+        }
+      });
+  });
+
+  // Data Tables Load All
+  $(document).ready(function() {
+      $('#users').DataTable({
+          ajax: { 
+            url: "{{ route('all.users') }}",
+            dataSrc: ""
+          },
+          columns: [
+            { data: 'username' },
+            { data: 'fullname' },
+            { data: 'user_type' },
+            { data: 'action'},
+          ]
+       });
+  } );
+ 
 </script>
 @endsection
 

@@ -29,6 +29,8 @@
   <script src="{{ asset('dist/js/adminlte.min.js') }}"></script>
   <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
   <script src="{{ asset('js/datatables.bootstrap.js') }}"></script>
+
+  
   <!-- FastClick -->
   {{-- <script src="{{ asset('dist/js/fastclick.js') }}"></script> --}}
   <!-- Sparkline -->
@@ -42,7 +44,7 @@
   {{-- <script src="{{ asset('dist/chart.js/Chart.js') }}"></script> --}}
 
 
-
+  @yield('script')
   
 </head>
 <body class="hold-transition skin-yellow sidebar-mini">
@@ -59,8 +61,5 @@
 
 </div>
 <!-- ./wrapper -->
-
-@yield('script')
-
 </body>
 </html>

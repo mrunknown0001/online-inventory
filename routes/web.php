@@ -1,17 +1,23 @@
 <?php
 
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['middleware' => 'prevent-back-history'], function() {
+	// Route to landing Page
+	Route::get('/', function () {
+	    return view('welcome');
+	});
+
+	// Routel to view Login form
+	Route::get('/login', 'LoginController@login')->name('login');
+
+	// Route to login Users
+	Route::post('/login', 'LoginController@postLogin')->name('post.login');
+
+
+	// Route to logout Users
+	Route::get('/logout', 'LoginController@logout')->name('logout');
+
 });
-
-
-Route::get('/login', 'LoginController@login')->name('login');
-
-Route::post('/login', 'LoginController@postLogin')->name('post.login');
-
-Route::get('/logout', 'LoginController@logout')->name('logout');
-
 
 
 /*********************
@@ -23,6 +29,15 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'prevent-back-histo
 
 	// User Management
 	Route::get('/users', 'UserController@index')->name('users');
+
+	// View User
+	Route::get('/user/info/{id}', 'UserController@viewUser')->name('view.user');
+
+	// Add User
+	Route::get('/user/add', 'UserController@addUser')->name('add.user');
+
+	// Update User
+	Route::get('/user/update/info/{id}', 'UserController@updateUser')->name('update.user');
 
 	// All users
 	Route::get('/all/users', 'UserController@all')->name('all.users');

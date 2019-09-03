@@ -19,6 +19,42 @@ class UserController extends Controller
 
 
     /**
+     *  View User Method
+     */
+    public function viewUser($id = null)
+    {
+    	// Decrypt with validation
+    	$id = decrypt($id);
+
+    	$user = User::findorfail($id);
+
+    	return view('admin.user.view', ['user' => $user]);
+    }
+
+
+    /**
+     * Add User Method
+     */
+    public function addUser()
+    {
+    	return view('admin.user.add-edit');
+    }
+
+
+
+    /**
+     * Update User method
+     */
+    public function updateUser($id = null)
+    {
+    	return $id;
+
+    	return view('admin.user.add-edit');
+    }
+
+
+
+    /**
      * All users Data
      */
     public function all()
@@ -41,7 +77,7 @@ class UserController extends Controller
     	 			'username' => $u->username,
     	 			'fullname' => $u->firstname . ' ' . $u->lastname,
     	 			'user_type' => $u->user_type,
-    	 			'action' => '<button class="btn btn-primary btn-xs">action</button>'
+    	 			'action' => '<button class="btn btn-primary btn-xs" id="view" data-id="' . encrypt($u->user_id) . '"><i class="fa fa-eye"></i> View</button> <button class="btn btn-warning btn-xs" id="update" data-id="' . encrypt($u->user_id) . '"><i class="fa fa-pencil"></i> Update</button>'
     	 		];
     	 	}
     	 }
