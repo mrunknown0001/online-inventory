@@ -3,9 +3,7 @@
 
 Route::group(['middleware' => 'prevent-back-history'], function() {
 	// Route to landing Page
-	Route::get('/', function () {
-	    return view('welcome');
-	});
+	Route::get('/', 'GeneralController@landingPage')->name('landing.page');
 
 	// Routel to view Login form
 	Route::get('/login', 'LoginController@login')->name('login');
