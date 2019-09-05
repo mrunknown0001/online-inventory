@@ -8,7 +8,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Add User
+        {{ $id != NULL ? 'Update' : 'Add' }} User
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-users"></i> Home</a></li>
@@ -44,7 +44,29 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-
+              <div class="row">
+                <div class="col-md-12">
+                  <form action="" method="POST" autocomplete="off">
+                    @csrf
+                    <div class="form-grpup">
+                      <label for="username">Username</label>
+                      <input type="text" name="username" id="username" class="form-control" placeholder="Username">
+                    </div>
+                    <div class="form-group">
+                      <label for="firstname">Firstname</label>
+                      <input type="text" name="firstname" id="firstname" class="form-control" placeholder="Firstname">
+                    </div>
+                    <div class="form-group">
+                      <label for="middlename">Middlename</label>
+                      <input type="text" name="middlename" id="middlename" class="form-control" placeholder="Middlename">
+                    </div>
+                    <div class="form-group">
+                      <label for="lastname">Lastname</label>
+                      <input type="text" name="lastname" id="lastname" class="form-control" placeholder="Lastname">
+                    </div>
+                  </form>
+                </div>
+              </div>
             </div>
             <!-- /.box-body -->
             <div class="box-footer clearfix">

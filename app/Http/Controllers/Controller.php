@@ -10,4 +10,21 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+
+    /**
+     * Decrypt Encrypted String
+     * @return decrypted string
+     */
+    public function decryptString($string)
+    {
+    	try {
+    		$string = decrypt($string);
+    	}
+    	catch (\Exception $e) {
+    		return NULL;
+    	}
+
+    	return $string;
+    }
 }

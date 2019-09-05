@@ -24,7 +24,7 @@ class UserController extends Controller
     public function viewUser($id = null)
     {
     	// Decrypt with validation
-    	$id = decrypt($id);
+    	$id = $this->decryptString($id);
 
     	$user = User::findorfail($id);
 
@@ -47,9 +47,11 @@ class UserController extends Controller
      */
     public function updateUser($id = null)
     {
-    	return $id;
+    	$id = $this->decryptString($id);
 
-    	return view('admin.user.add-edit');
+    	$user = User::findorfail($id);
+
+    	return view('admin.user.add-edit', ['id' => $id, 'user' => $user]);
     }
 
 

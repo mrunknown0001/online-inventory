@@ -30,7 +30,7 @@
     <p class="login-box-msg">Sign in to start your session</p>
     @include('includes.success')
     @include('includes.error')
-    <form action="{{ route('post.login') }}" method="post">
+    <form action="{{ route('post.login') }}" method="post" autocomplete="off">
       @csrf
       <div class="form-group has-feedback">
         <input type="text" name="username" id="username" class="form-control" placeholder="Username">
