@@ -48,7 +48,7 @@
                 <div class="col-md-6">   
                   @include('includes.success')
                   @include('includes.error')
-                  @include('inlcudes.errors')
+                  @include('includes.errors')
                   <form action="{{ route('store.user') }}" method="POST" autocomplete="off">
                     @csrf
                     <input type="hidden" name="id" value="{{ $id != NULL ? encrypt($id) : NULL }}">

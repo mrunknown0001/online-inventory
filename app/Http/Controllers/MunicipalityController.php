@@ -9,7 +9,7 @@ class MunicipalityController extends Controller
     /**
      * Index
      */
-    public function municipalities()
+    public function index()
     {
     	return view('admin.municipality.index');
     }

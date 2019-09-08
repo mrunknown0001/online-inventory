@@ -51,16 +51,59 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        // validate input
-        $request->validate([
-            'username' => 'required',
-            'firstname' => 'required',
-            'middlename' => 'nullable',
-            'lastname' => 'required',
-            'suffix' => 'nullable',
-            'email' => 'required',
-            'user_type' => 'required'
-        ]);
+
+
+        $id = $request['id'];
+
+        // save
+        if($id != NULL) {
+            // validate input
+            $request->validate([
+                'username' => 'required',
+                'firstname' => 'required',
+                'middlename' => 'nullable',
+                'lastname' => 'required',
+                'suffix' => 'nullable',
+                'email' => 'required',
+                'user_type' => 'required'
+            ]);
+
+            // manual check for username and email address
+            $username = $request['username'];
+            $email = $request['email'];
+
+            // update
+            $id = $this->decryptString($id);
+
+            $user = User::findorfail($id);
+
+            // username already exist
+            if($this->checkUsername($username, $id) != true) {
+                return redirect()->route('add.user')->with('error', 'Username already used!');
+            }
+
+            // email address check
+            if($this->checkUsername($email, $id) != true) {
+                return redirect()->route('add.user')->with('error', 'Email already used!');
+            }
+        }
+        else {
+            // validate input
+            $request->validate([
+                'username' => 'required|unique:users',
+                'firstname' => 'required',
+                'middlename' => 'nullable',
+                'lastname' => 'required',
+                'suffix' => 'nullable',
+                'email' => 'required|unique:users',
+                'user_type' => 'required'
+            ]);
+
+            // create
+            $user = new User();
+            $user->password = bcrypt('password');
+
+        }
 
         // assign to variable
         $username = $request['username'];
@@ -70,22 +113,6 @@ class UserController extends Controller
         $suffix = $request['suffix'];
         $email = $request['email'];
         $user_type = $request['user_type'];
-
-        $id = $request['id'];
-
-        // save
-        if($id != NULL) {
-            // update
-            $id = $this->decryptString($id);
-
-            $user = User::findorfail($id);
-        }
-        else {
-            // create
-            $user = new User();
-            $user->password = bcrypt('password');
-
-        }
 
         $user->username = $username;
         $user->firstname = $firstname;
@@ -97,6 +124,8 @@ class UserController extends Controller
 
 
         if($user->save()) {
+            // add user log here / audit trail
+
             return redirect()->route('add.user')->with('success', 'User Saved!');
         }
 

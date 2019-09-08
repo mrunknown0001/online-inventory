@@ -27,4 +27,24 @@ class Controller extends BaseController
 
     	return $string;
     }
+
+
+
+    /**
+     * method use to check username's existence
+     */
+    public function checkUsername($username, $user_id)
+    {
+        $user = \App\User::find($user_id);
+
+        $user2 = \App\User::where('username', $username)->first();
+
+        if(!empty($user2)) {
+            if($user->user_id != $user2->user_id) {
+                return false;
+            }
+        }
+
+        return true;
+    }
 }
