@@ -11,6 +11,8 @@ class AdminController extends Controller
      */
     public function dashboard()
     {
-    	return view('common.dashboard');
+    	$count = \App\User::count();
+
+    	return view('common.dashboard', ['count' => $count]);
     }
 }

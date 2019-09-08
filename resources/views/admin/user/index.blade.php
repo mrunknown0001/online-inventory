@@ -44,7 +44,7 @@
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                 </button>
-                <button type="button" class="btn btn-box-tool" ><i class="fa fa-refresh"></i></button>
+                <button type="button" class="btn btn-box-tool" onclick="reloadDatatables()"><i class="fa fa-refresh"></i></button>
               </div>
             </div>
             <!-- /.box-header -->
@@ -86,7 +86,7 @@
       Swal.fire({
         title: 'View User Info?',
         text: "",
-        type: 'info',
+        type: 'question',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
@@ -118,7 +118,7 @@
       Swal.fire({
         title: 'Update User Info?',
         text: "",
-        type: 'info',
+        type: 'question',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
@@ -157,6 +157,23 @@
           ]
        });
   } );
+
+
+  // reload databable 
+  function reloadDatatables() {
+    var table = $('#users').DataTable();
+    table.ajax.reload();
+
+    Swal.fire({
+      title: 'Record Reloaded',
+      text: "",
+      type: 'info',
+      showCancelButton: false,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'ok'
+    });
+  }
  
 </script>
 @endsection

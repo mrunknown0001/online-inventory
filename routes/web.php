@@ -34,6 +34,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'prevent-back-histo
 	// Add User
 	Route::get('/user/add', 'UserController@addUser')->name('add.user');
 
+	// Post Add User
+	Route::post('/user/add', 'UserController@store')->name('store.user');
+
 	// Update User
 	Route::get('/user/update/info/{id}', 'UserController@updateUser')->name('update.user');
 
