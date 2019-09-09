@@ -59,8 +59,18 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'prevent-back-histo
 	Route::get('/all/audit-trail', 'AdminController@logs')->name('all.logs');
 
 
+	// customers
+	Route::get('/customers', 'CustomerController@index')->name('customers');
+
+	// All Customers
+	Route::get('/all/customers', 'CustomerController@all')->name('all.customers');
+
 	// Suppliers
 	Route::get('/suppliers', 'SupplierController@index')->name('suppliers');
+
+	// Items
+
+	// All Items
 
 	// Item Categories
 	Route::get('/item-categories', 'ItemCategoryController@index')->name('item.categories');
@@ -101,4 +111,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'prevent-back-histo
 ************************/
 Route::group(['prefix' => 'emp', 'middleware' => ['employee', 'prevent-back-history']], function () {
 	Route::get('/dashboard', 'EmployeeController@dashboard')->name('emp.dashboard');
+
+	// Inventory
 });

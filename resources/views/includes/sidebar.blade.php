@@ -47,7 +47,7 @@
               </span>
             </a>
           </li>
-          <li class="treeview {{ route('suppliers') == url()->current() || route('item.categories') == url()->current() || route('farms') == url()->current() || route('municipalities') == url()->current() || route('barangays') == url()->current() || route('species') == url()->current() || route('animals') == url()->current() || route('breeds') == url()->current() ? 'active' : '' }}">
+          <li class="treeview {{ route('customers') == url()->current() || route('suppliers') == url()->current() || route('item.categories') == url()->current() || route('farms') == url()->current() || route('municipalities') == url()->current() || route('barangays') == url()->current() || route('species') == url()->current() || route('animals') == url()->current() || route('breeds') == url()->current() ? 'active' : '' }}">
             <a href="#">
               <i class="fa fa-gears"></i>
               <span>Setup</span>
@@ -56,7 +56,7 @@
               </span>
             </a>
             <ul class="treeview-menu">
-              <li class=""><a href="#"><i class="fa fa-circle-o"></i> Customers</a></li>
+              <li class="{{ route('customers') == url()->current() ? 'active' : '' }}"><a href="{{ route('customers') }}"><i class="fa fa-circle-o"></i> Customers</a></li>
               <li class="{{ route('suppliers') == url()->current() ? 'active' : '' }}"><a href="{{ route('suppliers') }}"><i class="fa fa-circle-o"></i> Suppliers</a></li>
               <li class="#"><a href="#"><i class="fa fa-circle-o"></i> Items</a></li>
               <li class="{{ route('item.categories') == url()->current() ? 'active' : '' }}"><a href="{{ route('item.categories') }}"><i class="fa fa-circle-o"></i> Item Categories</a></li>
@@ -66,6 +66,7 @@
               <li class="{{ route('species') == url()->current() ? 'active' : '' }}"><a href="{{ route('species') }}"><i class="fa fa-circle-o"></i> Species</a></li>
               <li class="{{ route('animals') == url()->current() ? 'active' : '' }}"><a href="{{ route('animals') }}"><i class="fa fa-circle-o"></i> Animals</a></li>
               <li class="{{ route('breeds') == url()->current() ? 'active' : '' }}"><a href="{{ route('breeds') }}"><i class="fa fa-circle-o"></i> Breed</a></li>
+              <li class=""><a href=""><i class="fa fa-circle-o"></i> Unit of Measurement</a></li>
 
             </ul>
           </li>
