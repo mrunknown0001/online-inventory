@@ -39,8 +39,8 @@
               </span>
             </a>
           </li>
-          <li>
-            <a href="#">
+          <li class="{{ route('audit.trail') == url()->current() ? 'active' : '' }}">
+            <a href="{{ route('audit.trail') }}">
               <i class="fa fa-history"></i> <span>Audit Trail</span>
               <span class="pull-right-container">
                 <small class="label pull-right bg-green"></small>

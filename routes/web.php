@@ -44,6 +44,16 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'prevent-back-histo
 	Route::get('/all/users', 'UserController@all')->name('all.users');
 
 
+	// Transaction
+
+
+	// Audit Trail
+	Route::get('/audit-trail', 'AdminController@auditTrail')->name('audit.trail');
+
+	// All audit trail logs
+	Route::get('/all/audit-trail', 'AdminController@logs')->name('all.logs');
+
+
 	// Suppliers
 	Route::get('/suppliers', 'SupplierController@index')->name('suppliers');
 
