@@ -44,6 +44,12 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'prevent-back-histo
 	Route::get('/all/users', 'UserController@all')->name('all.users');
 
 
+	// Suppliers
+	Route::get('/suppliers', 'SupplierController@index')->name('suppliers');
+
+	// Item Categories
+	Route::get('/item-categories', 'ItemCategoryController@index')->name('item.categories');
+
 	// Municipalities
 	Route::get('/municipalities', 'MunicipalityController@index')->name('municipalities');
 
