@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Transantion extends Model
+class Transaction extends Model
 {
     /**
      * Custom Primary Key
      */
-    protected $primaryKey = 'transanction_id';
+    protected $primaryKey = 'transaction_id';
 }

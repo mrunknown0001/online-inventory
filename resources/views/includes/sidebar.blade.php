@@ -31,8 +31,8 @@
               </span>
             </a>
           </li>
-          <li>
-            <a href="#">
+          <li class="{{ route('transactions') == url()->current() ? 'active' : '' }}">
+            <a href="{{ route('transactions') }}">
               <i class="fa fa-exchange"></i> <span>Transactions</span>
               <span class="pull-right-container">
                 <small class="label pull-right bg-green"></small>
@@ -56,7 +56,9 @@
               </span>
             </a>
             <ul class="treeview-menu">
+              <li class=""><a href="#"><i class="fa fa-circle-o"></i> Customers</a></li>
               <li class="{{ route('suppliers') == url()->current() ? 'active' : '' }}"><a href="{{ route('suppliers') }}"><i class="fa fa-circle-o"></i> Suppliers</a></li>
+              <li class="#"><a href="#"><i class="fa fa-circle-o"></i> Items</a></li>
               <li class="{{ route('item.categories') == url()->current() ? 'active' : '' }}"><a href="{{ route('item.categories') }}"><i class="fa fa-circle-o"></i> Item Categories</a></li>
               <li class="{{ route('farms') == url()->current() ? 'active' : '' }}"><a href="{{ route('farms') }}"><i class="fa fa-circle-o"></i> Farms</a></li>
               <li class="{{ route('municipalities') == url()->current() ? 'active' : '' }}"><a href="{{ route('municipalities') }}"><i class="fa fa-circle-o"></i> Municipalities</a></li>

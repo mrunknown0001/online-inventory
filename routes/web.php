@@ -45,6 +45,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'prevent-back-histo
 
 
 	// Transaction
+	Route::get('/transactions', 'TransactionController@index')->name('transactions');
+
+
+	// All Transactions
+	Route::get('/all/transactions', 'TransactionController@allTransactions')->name('all.transactions');
 
 
 	// Audit Trail
@@ -63,9 +68,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'prevent-back-histo
 	// Farms
 	Route::get('/farms', 'FarmController@index')->name('farms');
 
-	// Barangays
-	Route::get('/barangays', 'BarangayController@index')->name('barangays');
-
 	// Municipalities
 	Route::get('/municipalities', 'MunicipalityController@index')->name('municipalities');
 
@@ -74,6 +76,12 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'prevent-back-histo
 
 	// View municipality
 	Route::get('/municipality/info/{id}', 'MunicipalityController@municipalityInfo')->name('view.municipality.info');
+
+	// Barangays
+	Route::get('/barangays', 'BarangayController@index')->name('barangays');
+
+	// All Barangays
+	Route::get('/all/barangays', 'BarangayController@all')->name('all.barangays');
 
 	// Species
 	Route::get('/species', 'SpecyController@index')->name('species');

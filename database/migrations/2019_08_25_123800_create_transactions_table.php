@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTransantionsTable extends Migration
+class CreateTransactionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class CreateTransantionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('transantions', function (Blueprint $table) {
-            $table->bigIncrements('transantion_id');
+        Schema::create('transactions', function (Blueprint $table) {
+            $table->bigIncrements('transaction_id');
             $table->tinyInteger('transantion_type')->nullable(); // 1 for in, 0 for out
             $table->string('reference_number', 20)->nullable();
             $table->bigInteger('supplier_id')->unsigned()->nullable();

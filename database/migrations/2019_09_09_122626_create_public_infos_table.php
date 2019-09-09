@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFarmsTable extends Migration
+class CreatePublicInfosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateFarmsTable extends Migration
      */
     public function up()
     {
-        Schema::create('farms', function (Blueprint $table) {
-            $table->bigIncrements('farm_id');
-            $table->string('name', 100)->nullable();
-            $table->string('description', 255)->nullable();
+        Schema::create('public_infos', function (Blueprint $table) {
+            $table->bigIncrements('public_info_id');
+            $table->string('title', 255)->nullable();
+            $table->text('content')->nullable();
             $table->boolean('active')->default(1);
             $table->timestamps();
         });
@@ -29,6 +29,6 @@ class CreateFarmsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('farms');
+        Schema::dropIfExists('public_infos');
     }
 }

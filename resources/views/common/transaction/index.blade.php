@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title') Barangay Management @endsection
+@section('title') Transactions @endsection
 
 @section('script')
   <script src="{{ asset('js/sweetalert.js') }}"></script>
@@ -12,11 +12,11 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Barangay Mamangement
+        Transactions
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-circle-o"></i> Home</a></li>
-        <li class="active">Barangay Management</li>
+        <li><a href="#"><i class="fa fa-exchange"></i> Home</a></li>
+        <li class="active">Transactions</li>
       </ol>
     </section>
 
@@ -39,7 +39,7 @@
           <!-- TABLE: LATEST ORDERS -->
           <div class="box box-info">
             <div class="box-header with-border">
-              <h3 class="box-title">List of Barangays</h3>
+              <h3 class="box-title">List of Transactions</h3>
 
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -50,12 +50,12 @@
             <!-- /.box-header -->
             <div class="box-body">
               <div class="table-responsive">
-                <table id="barangays" class="table table-striped table-bordered" style="width: 99%">
+                <table id="transactions" class="table table-striped table-bordered" style="width: 99%">
                   <thead>
                     <tr>
-                      <th>Barangay</th>
-                      <th>Municipality</th>
-                      <th>Action</th>
+                      <th>Transactions</th>
+                      <th>Details</th>
+                      <th>Date &amp; Time</th>
                     </tr>
                   </thead>
                 </table>
@@ -109,17 +109,18 @@
   });
 
 
+
   // Data Tables Load All
   $(document).ready(function() {
-    $('#barangays').DataTable({
+    $('#transactions').DataTable({
         ajax: { 
-          url: "{{ route('all.barangays') }}",
+          url: "{{ route('all.transactions') }}",
           dataSrc: ""
         },
         columns: [
-          { data: 'barangay' },
-          { data: 'municipality' },
-          { data: 'action'},
+          { data: 'transactions' },
+          { data: 'details' },
+          { data: 'date_time' },
         ]
      });
   });
@@ -127,7 +128,7 @@
 
   // reload databable 
   function reloadDatatables() {
-    var table = $('#barangays').DataTable();
+    var table = $('#transactions').DataTable();
     table.ajax.reload();
 
     Swal.fire({
