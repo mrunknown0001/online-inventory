@@ -4,13 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class BarangayController extends Controller
+class FarmController extends Controller
 {
     /**
      * Index
      */
     public function index()
     {
-    	return view('admin.barangay.index');
+    	return view('admin.farm.index');
     }
 }

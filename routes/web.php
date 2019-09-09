@@ -50,9 +50,29 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'prevent-back-histo
 	// Item Categories
 	Route::get('/item-categories', 'ItemCategoryController@index')->name('item.categories');
 
+	// Farms
+	Route::get('/farms', 'FarmController@index')->name('farms');
+
+	// Barangays
+	Route::get('/barangays', 'BarangayController@index')->name('barangays');
+
 	// Municipalities
 	Route::get('/municipalities', 'MunicipalityController@index')->name('municipalities');
 
+	// All Municipalities
+	Route::get('/all/municipalities', 'MunicipalityController@all')->name('all.municipalities');
+
+	// View municipality
+	Route::get('/municipality/info/{id}', 'MunicipalityController@municipalityInfo')->name('view.municipality.info');
+
+	// Species
+	Route::get('/species', 'SpecyController@index')->name('species');
+
+	// Animals
+	Route::get('/animals', 'AnimalController@index')->name('animals');
+
+	// Breeds
+	Route::get('/breeds', 'BreedController@index')->name('breeds');
 
 });
 

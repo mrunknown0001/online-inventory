@@ -47,7 +47,7 @@
               </span>
             </a>
           </li>
-          <li class="treeview {{ route('suppliers') == url()->current() || route('item.categories') == url()->current() || route('municipalities') == url()->current() ? 'active' : 'NULL' }}">
+          <li class="treeview {{ route('suppliers') == url()->current() || route('item.categories') == url()->current() || route('farms') == url()->current() || route('municipalities') == url()->current() || route('barangays') == url()->current() || route('species') == url()->current() || route('animals') == url()->current() || route('breeds') == url()->current() ? 'active' : '' }}">
             <a href="#">
               <i class="fa fa-gears"></i>
               <span>Setup</span>
@@ -56,14 +56,14 @@
               </span>
             </a>
             <ul class="treeview-menu">
-              <li class="{{ route('suppliers') == url()->current() ? 'active' : 'NULL' }}"><a href="{{ route('suppliers') }}"><i class="fa fa-circle-o"></i> Suppliers</a></li>
-              <li class="{{ route('item.categories') == url()->current() ? 'active' : 'NULL' }}"><a href="{{ route('item.categories') }}"><i class="fa fa-circle-o"></i> Item Categories</a></li>
-              <li><a href="#"><i class="fa fa-circle-o"></i> Farms</a></li>
-              <li class="{{ route('municipalities') == url()->current() ? 'active' : 'NULL' }}"><a href="{{ route('municipalities') }}"><i class="fa fa-circle-o"></i> Municipalities</a></li>
-              <li><a href="#"><i class="fa fa-circle-o"></i> Barangays</a></li>
-              <li><a href="#"><i class="fa fa-circle-o"></i> Species</a></li>
-              <li><a href="#"><i class="fa fa-circle-o"></i> Animals</a></li>
-              <li><a href="#"><i class="fa fa-circle-o"></i> Breed</a></li>
+              <li class="{{ route('suppliers') == url()->current() ? 'active' : '' }}"><a href="{{ route('suppliers') }}"><i class="fa fa-circle-o"></i> Suppliers</a></li>
+              <li class="{{ route('item.categories') == url()->current() ? 'active' : '' }}"><a href="{{ route('item.categories') }}"><i class="fa fa-circle-o"></i> Item Categories</a></li>
+              <li class="{{ route('farms') == url()->current() ? 'active' : '' }}"><a href="{{ route('farms') }}"><i class="fa fa-circle-o"></i> Farms</a></li>
+              <li class="{{ route('municipalities') == url()->current() ? 'active' : '' }}"><a href="{{ route('municipalities') }}"><i class="fa fa-circle-o"></i> Municipalities</a></li>
+              <li class="{{ route('barangays') == url()->current() ? 'active' : '' }}"><a href="{{ route('barangays') }}"><i class="fa fa-circle-o"></i> Barangays</a></li>
+              <li class="{{ route('species') == url()->current() ? 'active' : '' }}"><a href="{{ route('species') }}"><i class="fa fa-circle-o"></i> Species</a></li>
+              <li class="{{ route('animals') == url()->current() ? 'active' : '' }}"><a href="{{ route('animals') }}"><i class="fa fa-circle-o"></i> Animals</a></li>
+              <li class="{{ route('breeds') == url()->current() ? 'active' : '' }}"><a href="{{ route('breeds') }}"><i class="fa fa-circle-o"></i> Breed</a></li>
 
             </ul>
           </li>
