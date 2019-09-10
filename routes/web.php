@@ -102,6 +102,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'prevent-back-histo
 	// Breeds
 	Route::get('/breeds', 'BreedController@index')->name('breeds');
 
+	// Unit of Measurement
+	Route::get('/unit-of-measurement', 'UnitOfMeasurementController@index')->name('unit.of.measurements');
 });
 
 
@@ -113,4 +115,14 @@ Route::group(['prefix' => 'emp', 'middleware' => ['employee', 'prevent-back-hist
 	Route::get('/dashboard', 'EmployeeController@dashboard')->name('emp.dashboard');
 
 	// Inventory
+});
+
+
+
+/**
+ * Common Link
+ */
+Route::group(['middleware' => 'auth'], function () {
+	// Public Information
+	Route::get('/public/information', 'PublicInfoController@index')->name('public.info');
 });

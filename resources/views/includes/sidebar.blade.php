@@ -95,8 +95,8 @@
         {{-- End of Employee Only Access --}}
 
 
-        <li>
-          <a href="#">
+        <li class="{{ route('public.info') == url()->current() ? 'active' : '' }}">
+          <a href="{{ route('public.info') }}">
             <i class="fa fa-info"></i> <span>Public Info Management</span>
             <span class="pull-right-container">
               <small class="label pull-right bg-green"></small>

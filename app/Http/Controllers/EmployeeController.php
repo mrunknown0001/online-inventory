@@ -11,6 +11,6 @@ class EmployeeController extends Controller
      */
     public function dashboard()
     {
-    	return view('common.dashboard');
+    	return view('common.dashboard2');
     }
 }
