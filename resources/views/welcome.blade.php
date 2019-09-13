@@ -60,7 +60,7 @@
                         <a class="page-scroll" href="#services">Services</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#portfolio">Portfolio</a>
+                        <a class="page-scroll" href="#projects">Projects</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#contact">Contact</a>
@@ -80,18 +80,18 @@
                 <p>
                 
                 </p>
-                <a href="#about" class="btn btn-primary btn-xl page-scroll">About</a>
+                <a href="#about" class="btn btn-warning btn-xl page-scroll">About</a>
             </div>
         </div>
     </header>
 
-    <section class="bg-primary" id="about">
+    <section class="bg-warning" id="about">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
                     <h2 class="section-heading">About</h2>
-                    <hr class="light">
-                    <p class="text-faded">
+                    <hr class="">
+                    <p class="">
                         Tarlac Provincial Veterinary
                     </p>
                     <a href="#" class="btn btn-default btn-xl">Go To Top!</a>
@@ -120,21 +120,21 @@
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
-                        <i class="fa fa-4x fa-flash wow bounceIn text-primary" data-wow-delay=".1s"></i>
+                        <i class="fa fa-4x fa-flash wow bounceIn text-warning" data-wow-delay=".1s"></i>
                         <h3>Fast</h3>
                         <p class="text-muted"></p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
-                        <i class="fa fa-4x fa-newspaper-o wow bounceIn text-primary" data-wow-delay=".2s"></i>
+                        <i class="fa fa-4x fa-newspaper-o wow bounceIn text-warning" data-wow-delay=".2s"></i>
                         <h3>Up to Date</h3>
                         <p class="text-muted"></p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
-                        <i class="fa fa-4x fa-heart wow bounceIn text-primary" data-wow-delay=".3s"></i>
+                        <i class="fa fa-4x fa-heart wow bounceIn text-warning" data-wow-delay=".3s"></i>
                         <h3>Made with Love</h3>
                         <p class="text-muted"></p>
                     </div>
@@ -143,7 +143,7 @@
         </div>
     </section>
 
-    <section class="no-padding" id="portfolio">
+    <section class="no-padding" id="projects">
         <div class="container-fluid">
             <div class="row">
                 <h2 class="text-center">Projects</h2>
@@ -175,7 +175,7 @@
                 <div class="col-lg-8 col-lg-offset-2 text-center">
                     <h2 class="section-heading">Let's Get In Touch!</h2>
                     <hr class="primary">
-                    <p>Ready to start your project with me? That's great! Give a call or send an email and I'll get back to you as soon as possible!</p>
+                    <p>Tarlac Veterinary Office is supplying drugs and meds for pet and farm animals.</p>
                 </div>
                 {{-- <div class="col-lg-4 col-lg-offset-2 text-center">
                     <i class="fa fa-twitter-square fa-3x wow bounceIn"></i>

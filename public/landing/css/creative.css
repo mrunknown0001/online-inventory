@@ -16,7 +16,7 @@ body {
 
 hr {
     max-width: 50px;
-    border-color: #3498db;
+    border-color: #FFA500;
     border-width: 3px;
 }
 
@@ -89,7 +89,7 @@ aside {
     text-transform: uppercase;
     font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
     font-weight: 700;
-    color: #3498db;
+    color: #FFA500;
 }
 
 .navbar-default .navbar-header .navbar-brand:hover,
