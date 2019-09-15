@@ -50,7 +50,7 @@
             <!-- /.box-header -->
             <div class="box-body">
               <div class="table-responsive">
-                <table id="audit-trail" class="table table-striped table-bordered" style="width: 99%">
+                <table id="audittrail" class="table table-striped table-bordered" style="width: 99%">
                   <thead>
                     <tr>
                       <th>User</th>
@@ -80,14 +80,14 @@
 
   // Data Tables Load All
   $(document).ready(function() {
-    $('#audit-trail').DataTable({
+    $('#audittrail').DataTable({
         ajax: { 
           url: "{{ route('all.logs') }}",
           dataSrc: ""
         },
         columns: [
           { data: 'user' },
-          { data: 'action' },
+          { data: 'details' },
           { data: 'date_time' },
         ]
      });
@@ -96,7 +96,7 @@
 
   // reload databable 
   function reloadDatatables() {
-    var table = $('#users').DataTable();
+    var table = $('#audittrail').DataTable();
     table.ajax.reload();
 
     Swal.fire({

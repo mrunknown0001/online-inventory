@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
+use App\Http\Controllers\GeneralController;
 
 class LoginController extends Controller
 {
@@ -42,6 +43,7 @@ class LoginController extends Controller
     	$password = $request['password'];
 
     	if(Auth::attempt(['username' => $username, 'password' => $password])) {
+
     		return $this->auth_check();
     	}
     	else {
@@ -56,6 +58,15 @@ class LoginController extends Controller
      */
     public function logout()
     {
+        if(Auth::user()->user_type == 1) {
+            $details = 'Admin Logout';
+        }
+        else {
+            $details = 'Employee Logout';
+        }
+
+        GeneralController::log($details);
+
     	Auth::logout();
 
     	return redirect()->route('login')->with('success', 'Logout Successfully!');
@@ -74,9 +85,15 @@ class LoginController extends Controller
     public function auth_check()
     {
         if(Auth::user()->user_type == 1) {
+            // audit trail
+            $details = 'Admin Login';
+            GeneralController::log($details);
             return redirect()->route('admin.dashboard');
         }
         else if(Auth::user()->user_type == 2) {
+            // audit trail
+            $details = 'Employee Login';
+            GeneralController::log($details);
             return redirect()->route('emp.dashboard');
         }
     }

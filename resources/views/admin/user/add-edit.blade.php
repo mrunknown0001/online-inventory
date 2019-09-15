@@ -76,14 +76,14 @@
                       <label for="email">Email</label>
                       <input type="email" name="email" id="email" value="{{ $user != NULL ? $user->email : NULL }}" class="form-control" placeholder="Email Address" required>
                     </div>
-                    <div class="form-group">
+                    {{-- <div class="form-group">
                       <label for="user_type">User Type</label>
                       <select name="user_type" id="user_type" class="form-control" required>
                         <option value="">Select User Type</option>
                         <option value="1">Admin</option>
                         <option value="2">Employee</option>
                       </select>
-                    </div>
+                    </div> --}}
                     <div class="form-group">
                       <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> {{ $id != NULL ? 'Update' : 'Add' }} User</button>
                       <a href="{{ route('users') }}" class="btn btn-danger"><i class="fa fa-ban"></i> Cancel</a>

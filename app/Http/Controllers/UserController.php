@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\User;
 
+use App\Http\Controllers\GeneralController;
+
 class UserController extends Controller
 {
     /**
@@ -65,7 +67,6 @@ class UserController extends Controller
                 'lastname' => 'required',
                 'suffix' => 'nullable',
                 'email' => 'required',
-                'user_type' => 'required'
             ]);
 
             // manual check for username and email address
@@ -86,6 +87,8 @@ class UserController extends Controller
             if($this->checkUsername($email, $id) != true) {
                 return redirect()->route('add.user')->with('error', 'Email already used!');
             }
+
+            $details = 'Admin Update Employee Details';
         }
         else {
             // validate input
@@ -96,12 +99,14 @@ class UserController extends Controller
                 'lastname' => 'required',
                 'suffix' => 'nullable',
                 'email' => 'required|unique:users',
-                'user_type' => 'required'
             ]);
 
             // create
             $user = new User();
             $user->password = bcrypt('password');
+
+
+            $details = 'Admin Created New Employee';
 
         }
 
@@ -125,6 +130,7 @@ class UserController extends Controller
 
         if($user->save()) {
             // add user log here / audit trail
+            GeneralController::log($details);
 
             return redirect()->route('add.user')->with('success', 'User Saved!');
         }
