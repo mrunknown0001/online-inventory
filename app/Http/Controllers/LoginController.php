@@ -44,6 +44,12 @@ class LoginController extends Controller
 
     	if(Auth::attempt(['username' => $username, 'password' => $password])) {
 
+            if(Auth::user()->active == 0) {
+                Auth::logout();
+
+                return redirect()->route('login')->with('error', 'Inactive or On-Hold User!');
+            }
+
     		return $this->auth_check();
     	}
     	else {

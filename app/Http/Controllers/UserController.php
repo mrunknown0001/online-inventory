@@ -167,7 +167,10 @@ class UserController extends Controller
         if($id == 1) {
             return abort(404);
         }
-        
+
+        $details = 'Admin Removed User: ' . $user->username;
+        GeneralController::log($details);
+
         $user->save();
     }
 

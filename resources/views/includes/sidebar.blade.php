@@ -94,6 +94,15 @@
         @endif
         {{-- End of Employee Only Access --}}
 
+        <li>
+          <a href="#">
+            <i class="fa fa-truck"></i> <span>Shipping Permit Management</span>
+            <span class="pull-right-container">
+              <small class="label pull-right bg-green"></small>
+            </span>
+          </a>
+        </li>
+
 
         <li class="{{ route('public.info') == url()->current() ? 'active' : '' }}">
           <a href="{{ route('public.info') }}">
