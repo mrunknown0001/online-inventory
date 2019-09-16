@@ -40,6 +40,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'prevent-back-histo
 	// Update User
 	Route::get('/user/update/info/{id}', 'UserController@updateUser')->name('update.user');
 
+
+	// Remove user
+	Route::get('/user/remove/{id}', 'UserController@removeUser')->name('remove.user');
+
 	// All users
 	Route::get('/all/users', 'UserController@all')->name('all.users');
 

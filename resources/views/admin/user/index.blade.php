@@ -112,34 +112,103 @@
 
 
   // Update User Info
-    $(document).on('click', '#update', function (e) {
-      e.preventDefault();
-      var id = $(this).data('id');
-      Swal.fire({
-        title: 'Update User Info?',
-        text: "",
-        type: 'question',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Continue'
-      }).then((result) => {
-        if (result.value) {
-          // update
-          window.location.replace("/admin/user/update/info/" + id);
+  $(document).on('click', '#update', function (e) {
+    e.preventDefault();
+    var id = $(this).data('id');
+    Swal.fire({
+      title: 'Update User Info?',
+      text: "",
+      type: 'question',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Continue'
+    }).then((result) => {
+      if (result.value) {
+        // update
+        window.location.replace("/admin/user/update/info/" + id);
+      }
+      else {
+        Swal.fire({
+          title: 'Update User Info Cancelled',
+          text: "",
+          type: 'info',
+          showCancelButton: false,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'ok'
+        });
+      }
+    });
+  });
+
+  // Remove user
+  $(document).on('click', '#remove', function (e) {
+    e.preventDefault();
+    var id = $(this).data('id');
+    Swal.fire({
+      title: 'Remove User Info?',
+      text: "",
+      type: 'question',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Continue'
+    }).then((result) => {
+      if (result.value) {
+        // update
+        const Http = new XMLHttpRequest();
+        const url='/admin/user/remove/' + id;
+        Http.open("GET", url);
+        Http.send();
+        Http.onreadystatechange=(e)=>{
+          // console.log(Http)
+          if(Http.readyState === 4) {
+            if(Http.status === 200) {
+              Swal.fire({
+                title: 'User Removed!',
+                text: "",
+                type: 'success',
+                showCancelButton: false,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'ok'
+              });
+
+              var table = $('#users').DataTable();
+              table.ajax.reload(); 
+
+            }
+            else {
+              Swal.fire({
+                title: 'Error',
+                text: "Please Try Again",
+                type: 'error',
+                showCancelButton: false,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'ok'
+              });
+
+              var table = $('#users').DataTable();
+              table.ajax.reload(); 
+            }
+          }
         }
-        else {
-          Swal.fire({
-            title: 'Update User Info Cancelled',
-            text: "",
-            type: 'info',
-            showCancelButton: false,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'ok'
-          });
-        }
-      });
+
+      }
+      else {
+        Swal.fire({
+          title: 'User Removal Cancelled',
+          text: "",
+          type: 'info',
+          showCancelButton: false,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'ok'
+        });
+      }
+    });
   });
 
   // Data Tables Load All
