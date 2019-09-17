@@ -83,14 +83,6 @@
             </span>
             </a>
           </li>
-          <li>
-            <a href="#">
-              <i class="fa fa-truck"></i> <span>Shipping Permit Management</span>
-              <span class="pull-right-container">
-                <small class="label pull-right bg-green"></small>
-              </span>
-            </a>
-          </li>
         @endif
         {{-- End of Employee Only Access --}}
 
