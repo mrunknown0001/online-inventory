@@ -66,11 +66,35 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'prevent-back-histo
 	// customers
 	Route::get('/customers', 'CustomerController@index')->name('customers');
 
+	// add customer
+	Route::get('/customer/add', 'CustomerController@addCustomer')->name('add.customer');
+
+	// view customer
+	Route::get('/customer/info/{id}', 'CustomerController@viewCustomer')->name('view.customer');
+
+	// update customer
+	
+	// remove customer 
+	Route::get('/customer/remove/{id}', 'CustomerController@removeCustomer')->name('remove.customer');
+
+	// store customer
+	Route::post('/customer/add', 'CustomerController@storeCustomer')->name('store.customer');
+
 	// All Customers
 	Route::get('/all/customers', 'CustomerController@all')->name('all.customers');
 
 	// Suppliers
 	Route::get('/suppliers', 'SupplierController@index')->name('suppliers');
+
+	// add supplier
+	
+	// store supplier
+
+	// view supplier
+
+	// update supplier
+
+	// remove supplier
 
 	// Items
 

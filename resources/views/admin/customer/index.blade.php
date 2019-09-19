@@ -34,7 +34,7 @@
       <div class="row">
         <div class="col-md-12">
           <p>
-            
+            <a href="{{ route('add.customer') }}" class="btn btn-primary"><i class="fa fa-plus"></i> Add Customer</a>
           </p>
           <!-- TABLE: LATEST ORDERS -->
           <div class="box box-info">
@@ -54,7 +54,7 @@
                   <thead>
                     <tr>
                       <th>Customers</th>
-                      <th>Details</th>
+                      <th>Address</th>
                       <th>Action</th>
                     </tr>
                   </thead>
@@ -82,7 +82,7 @@
       e.preventDefault();
       var id = $(this).data('id');
       Swal.fire({
-        title: 'View User Info?',
+        title: 'View Customer Info?',
         text: "",
         type: 'question',
         showCancelButton: true,
@@ -92,11 +92,11 @@
       }).then((result) => {
         if (result.value) {
           // update
-          window.location.replace("/admin/user/info/" + id);
+          window.location.replace("/admin/customer/info/" + id);
         }
         else {
           Swal.fire({
-            title: 'View User Info Cancelled',
+            title: 'View Customer Info Cancelled',
             text: "",
             type: 'info',
             showCancelButton: false,
@@ -109,8 +109,8 @@
   });
 
 
-  // Update User Info
-    $(document).on('click', '#update', function (e) {
+  // Update customer Info
+  $(document).on('click', '#update', function (e) {
       e.preventDefault();
       var id = $(this).data('id');
       Swal.fire({
@@ -124,7 +124,7 @@
       }).then((result) => {
         if (result.value) {
           // update
-          window.location.replace("/admin/user/update/info/" + id);
+          window.location.replace("/admin/customer/update/info/" + id);
         }
         else {
           Swal.fire({
@@ -140,6 +140,77 @@
       });
   });
 
+
+  // remove customer
+  $(document).on('click', '#remove', function (e) {
+    e.preventDefault();
+    var id = $(this).data('id');
+    Swal.fire({
+      title: 'Remove Customer?',
+      text: "",
+      type: 'question',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Continue'
+    }).then((result) => {
+      if (result.value) {
+        // update
+        const Http = new XMLHttpRequest();
+        const url='/admin/customer/remove/' + id;
+        Http.open("GET", url);
+        Http.send();
+        Http.onreadystatechange=(e)=>{
+          // console.log(Http)
+          if(Http.readyState === 4) {
+            if(Http.status === 200) {
+              Swal.fire({
+                title: 'Customer Removed!',
+                text: "",
+                type: 'success',
+                showCancelButton: false,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'ok'
+              });
+
+              var table = $('#customers').DataTable();
+              table.ajax.reload(); 
+
+            }
+            else {
+              Swal.fire({
+                title: 'Error',
+                text: "Please Try Again",
+                type: 'error',
+                showCancelButton: false,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'ok'
+              });
+
+              var table = $('#customers').DataTable();
+              table.ajax.reload(); 
+            }
+          }
+        }
+
+      }
+      else {
+        Swal.fire({
+          title: 'Customer Removal Cancelled',
+          text: "",
+          type: 'info',
+          showCancelButton: false,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'ok'
+        });
+      }
+    });
+  });
+
+
   // Data Tables Load All
   $(document).ready(function() {
       $('#customers').DataTable({
@@ -149,7 +220,7 @@
           },
           columns: [
             { data: 'customer' },
-            { data: 'details' },
+            { data: 'address' },
             { data: 'action'},
           ]
        });

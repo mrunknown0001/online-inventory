@@ -9,5 +9,5 @@ class Customer extends Model
     /**
      * Custom Primary Key
      */
-    protected $primaryKey = 'custmer_id';
+    protected $primaryKey = 'customer_id';
 }
