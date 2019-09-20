@@ -87,14 +87,19 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'prevent-back-histo
 	Route::get('/suppliers', 'SupplierController@index')->name('suppliers');
 
 	// add supplier
+	Route::get('/supplier/add', 'SupplierController@addSupplier')->name('add.supplier');
 	
 	// store supplier
+	Route::post('/supplier/add', 'SupplierController@storeSupplier')->name('store.supplier');
 
 	// view supplier
 
 	// update supplier
 
 	// remove supplier
+
+	// all suppliers
+	Route::get('/all/suppliers', 'SupplierController@all')->name('all.suppliers');
 
 	// Items
 
