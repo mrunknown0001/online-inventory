@@ -34,7 +34,7 @@
       <div class="row">
         <div class="col-md-12">
           <p>
-            
+            <a href="{{ route('add.item.category') }}" class="btn btn-primary"><i class="fa fa-plus"></i> Add Item Category</a>
           </p>
           <!-- TABLE: LATEST ORDERS -->
           <div class="box box-info">
@@ -50,10 +50,11 @@
             <!-- /.box-header -->
             <div class="box-body">
               <div class="table-responsive">
-                <table id="municipalities" class="table table-striped table-bordered" style="width: 99%">
+                <table id="item_categories" class="table table-striped table-bordered" style="width: 99%">
                   <thead>
                     <tr>
                       <th>Item Category</th>
+                      <th>Description</th>
                       <th>Action</th>
                     </tr>
                   </thead>
@@ -109,7 +110,7 @@
 
 
   // Update User Info
-    $(document).on('click', '#update', function (e) {
+  $(document).on('click', '#update', function (e) {
       e.preventDefault();
       var id = $(this).data('id');
       Swal.fire({
@@ -141,15 +142,14 @@
 
   // Data Tables Load All
   $(document).ready(function() {
-      $('#users').DataTable({
+      $('#item_categories').DataTable({
           ajax: { 
-            url: "{{ route('all.users') }}",
+            url: "{{ route('all.item.categories') }}",
             dataSrc: ""
           },
           columns: [
-            { data: 'username' },
-            { data: 'fullname' },
-            { data: 'user_type' },
+            { data: 'item_categories' },
+            { data: 'description' },
             { data: 'action'},
           ]
        });
@@ -158,7 +158,7 @@
 
   // reload databable 
   function reloadDatatables() {
-    var table = $('#users').DataTable();
+    var table = $('#item_categories').DataTable();
     table.ajax.reload();
 
     Swal.fire({

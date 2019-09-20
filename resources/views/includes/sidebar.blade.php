@@ -50,7 +50,7 @@
           <li class="treeview {{ route('customers') == url()->current() || route('suppliers') == url()->current() || route('item.categories') == url()->current() || route('farms') == url()->current() || route('municipalities') == url()->current() || route('barangays') == url()->current() || route('species') == url()->current() || route('animals') == url()->current() || route('breeds') == url()->current() ? 'active' : '' }}">
             <a href="#">
               <i class="fa fa-gears"></i>
-              <span>Setup</span>
+              <span>Inventory Management</span>
               <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>

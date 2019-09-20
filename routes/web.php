@@ -108,6 +108,12 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'prevent-back-histo
 	// Item Categories
 	Route::get('/item-categories', 'ItemCategoryController@index')->name('item.categories');
 
+	// all item categories
+	Route::get('/all/item-categories', 'ItemCategoryController@all')->name('all.item.categories');
+
+	// add item category
+	Route::get('/item-category/add', 'ItemCategoryController@addItemCategory')->name('add.item.category');
+
 	// Farms
 	Route::get('/farms', 'FarmController@index')->name('farms');
 
