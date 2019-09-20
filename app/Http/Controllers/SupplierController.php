@@ -68,6 +68,19 @@ class SupplierController extends Controller
     		'action' => NULL,
     	];
 
+    	$suppliers = Supplier::where('active', 1)->get();
+
+    	if(count($suppliers) > 0) {
+    		$data = NULL;
+
+    		foreach($suppliers as $s) {
+    			$data[] = [
+    				'supplier' => $s->supplier_name,
+    				'address' => $s->address,
+    				'action' => "<button class='btn btn-primary btn-xs'><i class='fa fa-eye'></i> View</button>",
+    			];
+    		}
+    	}
 
     	return $data;
     }
