@@ -158,6 +158,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'prevent-back-histo
 	// add unit of measurement
 	Route::get('/unit-of-measurement/add', 'UnitOfMeasurementController@addUnitOfMeasurement')->name('add.unit.of.measurement');
 
+	// store
+	Route::post('/unit-of-measurement/add', 'UnitOfMeasurementController@storeUnitofMeasurement')->name('store.unit.of.measurement');
+
 
 	// All unit of measurements
 	Route::get('/all/unit-of-measurements', 'UnitOfMeasurementController@all')->name('all.unit.of.measurements');

@@ -49,7 +49,7 @@
                   @include('includes.success')
                   @include('includes.error')
                   @include('includes.errors')
-                  <form action="" method="POST" autocomplete="off">
+                  <form action="{{ route('store.unit.of.measurement') }}" method="POST" autocomplete="off">
                     @csrf
                     <input type="hidden" name="id" value="{{ $id != NULL ? encrypt($id) : NULL }}">
                     <div class="form-group">
