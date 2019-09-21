@@ -102,8 +102,16 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'prevent-back-histo
 	Route::get('/all/suppliers', 'SupplierController@all')->name('all.suppliers');
 
 	// Items
+	Route::get('/items', 'ItemController@index')->name('items');
+
+	// Add item
+
+	// store Item
+
+	// view item details
 
 	// All Items
+	Route::get('/all/items', 'ItemController@all')->name('all.items');
 
 	// Item Categories
 	Route::get('/item-categories', 'ItemCategoryController@index')->name('item.categories');
@@ -113,6 +121,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'prevent-back-histo
 
 	// add item category
 	Route::get('/item-category/add', 'ItemCategoryController@addItemCategory')->name('add.item.category');
+
+	// store item category
+	Route::post('/item-category/add', 'ItemCategoryController@storeItemCategory')->name('store.item.category');
 
 	// Farms
 	Route::get('/farms', 'FarmController@index')->name('farms');
@@ -142,7 +153,14 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'prevent-back-histo
 	Route::get('/breeds', 'BreedController@index')->name('breeds');
 
 	// Unit of Measurement
-	Route::get('/unit-of-measurement', 'UnitOfMeasurementController@index')->name('unit.of.measurements');
+	Route::get('/unit-of-measurements', 'UnitOfMeasurementController@index')->name('unit.of.measurements');
+
+	// add unit of measurement
+	Route::get('/unit-of-measurement/add', 'UnitOfMeasurementController@addUnitOfMeasurement')->name('add.unit.of.measurement');
+
+
+	// All unit of measurements
+	Route::get('/all/unit-of-measurements', 'UnitOfMeasurementController@all')->name('all.unit.of.measurements');
 });
 
 

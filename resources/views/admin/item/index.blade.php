@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title') Item Category Management @endsection
+@section('title') Items Management @endsection
 
 @section('script')
   <script src="{{ asset('js/sweetalert.js') }}"></script>
@@ -12,11 +12,11 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Item Category Mamangement
+        Items Mamangement
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-circle-o"></i> Home</a></li>
-        <li class="active">Item Category Management</li>
+        <li class="active">Items Management</li>
       </ol>
     </section>
 
@@ -34,12 +34,12 @@
       <div class="row">
         <div class="col-md-12">
           <p>
-            
+            <a href="" class="btn btn-primary"><i class="fa fa-plus"></i> Add Item</a>
           </p>
           <!-- TABLE: LATEST ORDERS -->
           <div class="box box-info">
             <div class="box-header with-border">
-              <h3 class="box-title">List of Item Category</h3>
+              <h3 class="box-title">List of Items</h3>
 
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -50,10 +50,14 @@
             <!-- /.box-header -->
             <div class="box-body">
               <div class="table-responsive">
-                <table id="municipalities" class="table table-striped table-bordered" style="width: 99%">
+                <table id="items" class="table table-striped table-bordered" style="width: 99%">
                   <thead>
                     <tr>
-                      <th>Item Category</th>
+                      <th>Item</th>
+                      <th>Code</th>
+                      <th>Quantity</th>
+                      <th>U/M</th>
+                      <th>Category</th>
                       <th>Action</th>
                     </tr>
                   </thead>
@@ -141,15 +145,17 @@
 
   // Data Tables Load All
   $(document).ready(function() {
-      $('#users').DataTable({
+      $('#items').DataTable({
           ajax: { 
-            url: "{{ route('all.users') }}",
+            url: "{{ route('all.items') }}",
             dataSrc: ""
           },
           columns: [
-            { data: 'username' },
-            { data: 'fullname' },
-            { data: 'user_type' },
+            { data: 'item' },
+            { data: 'code' },
+            { data: 'quantity' },
+            { data: 'unit_of_measurement' },
+            { data: 'category' },
             { data: 'action'},
           ]
        });
@@ -158,7 +164,7 @@
 
   // reload databable 
   function reloadDatatables() {
-    var table = $('#users').DataTable();
+    var table = $('#items').DataTable();
     table.ajax.reload();
 
     Swal.fire({

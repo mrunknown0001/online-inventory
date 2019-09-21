@@ -49,12 +49,12 @@
                   @include('includes.success')
                   @include('includes.error')
                   @include('includes.errors')
-                  <form action="{{ route('store.customer') }}" method="POST" autocomplete="off">
+                  <form action="{{ route('store.item.category') }}" method="POST" autocomplete="off">
                     @csrf
                     <input type="hidden" name="id" value="{{ $id != NULL ? encrypt($id) : NULL }}">
                     <div class="form-group">
                       <label for="item_category">Item Category Name</label>
-                      <input type="text" name="item_category" id="item_category"  value="{{ $category != NULL ? $category->item_category_name : NULL }}" class="form-control" placeholder="Ite Category Name" required>
+                      <input type="text" name="item_category" id="item_category"  value="{{ $category != NULL ? $category->item_category_name : NULL }}" class="form-control" placeholder="Item Category Name" required>
                     </div>
                     <div class="form-group">
                       <label for="description">Description</label>
@@ -62,7 +62,7 @@
                     </div>
                     <div class="form-group">
                       <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> {{ $id != NULL ? 'Update' : 'Add' }} Item Category</button>
-                      <a href="{{ route('customers') }}" class="btn btn-danger"><i class="fa fa-ban"></i> Cancel</a>
+                      <a href="{{ route('item.categories') }}" class="btn btn-danger"><i class="fa fa-ban"></i> Cancel</a>
                     </div>
                   </form>
                 </div>

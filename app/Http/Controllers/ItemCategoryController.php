@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\ItemCategory;
 
 class ItemCategoryController extends Controller
 {
@@ -27,6 +28,33 @@ class ItemCategoryController extends Controller
 
 
     /**
+     * storeItemCategory method
+     */
+    public function storeItemCategory(Request $request)
+    {
+    	$request->validate([
+    		'item_category' => 'required',
+    		'description' => 'nullable',
+    	]);
+
+    	$item_category = $request['item_category'];
+    	$description = $request['description'];
+
+    	// store
+    	$cat = new ItemCategory();
+
+    	$cat->item_category_name = $item_category;
+    	$cat->description = $description;
+
+    	if($cat->save()) {
+    		return redirect()->route('add.item.category')->with('success', 'Item Category Saved!');
+    	}
+
+    }
+
+
+
+    /**
      * all
      */
     public function all()
@@ -36,6 +64,20 @@ class ItemCategoryController extends Controller
     		'description' => NULL,
     		'action' => NULL,
     	];
+
+    	$categories = ItemCategory::where('active', 1)->get();
+
+    	if(count($categories) > 0) {
+    		$data = NULL;
+
+    		foreach($categories as $c) {
+    			$data[] = [
+    				'item_categories' => $c->item_category_name,
+    				'description' => $c->description,
+    				'action' => "<button class='btn btn-primary btn-xs'><i class='fa fa-eye'></i> View</button>"
+    			];
+    		}
+    	}
 
     	return $data;
     }

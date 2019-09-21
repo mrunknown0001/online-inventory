@@ -34,7 +34,7 @@
       <div class="row">
         <div class="col-md-12">
           <p>
-            
+            <a href="{{ route('add.unit.of.measurement') }}" class="btn btn-primary"><i class="fa fa-plus"></i> Add Unit of Measurement</a>
           </p>
           <!-- TABLE: LATEST ORDERS -->
           <div class="box box-info">
@@ -50,10 +50,11 @@
             <!-- /.box-header -->
             <div class="box-body">
               <div class="table-responsive">
-                <table id="municipalities" class="table table-striped table-bordered" style="width: 99%">
+                <table id="um" class="table table-striped table-bordered" style="width: 99%">
                   <thead>
                     <tr>
                       <th>Unit of Measurement</th>
+                      <th>Code</th>
                       <th>Action</th>
                     </tr>
                   </thead>
@@ -141,15 +142,14 @@
 
   // Data Tables Load All
   $(document).ready(function() {
-    $('#users').DataTable({
+    $('#um').DataTable({
         ajax: { 
-          url: "{{ route('all.users') }}",
+          url: "{{ route('all.unit.of.measurements') }}",
           dataSrc: ""
         },
         columns: [
-          { data: 'username' },
-          { data: 'fullname' },
-          { data: 'user_type' },
+          { data: 'unit' },
+          { data: 'code' },
           { data: 'action'},
         ]
      });
@@ -158,7 +158,7 @@
 
   // reload databable 
   function reloadDatatables() {
-    var table = $('#users').DataTable();
+    var table = $('#um').DataTable();
     table.ajax.reload();
 
     Swal.fire({

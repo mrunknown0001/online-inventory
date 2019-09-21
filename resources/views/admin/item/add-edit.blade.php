@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title') Add Supplier @endsection
+@section('title') Add Item @endsection
 
 @section('content')
   <!-- Content Wrapper. Contains page content -->
@@ -8,11 +8,11 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        {{ $id != NULL ? 'Update' : 'Add' }} Supplier
+        {{ $id != NULL ? 'Update' : 'Add' }} Item
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-circle-o"></i> Home</a></li>
-        <li class="active">Supplier Management</li>
+        <li class="active">Item Management</li>
       </ol>
     </section>
 
@@ -30,12 +30,12 @@
       <div class="row">
         <div class="col-md-12">
           <p>
-            <a href="{{ route('suppliers') }}" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Back to Suppliers</a>
+            <a href="{{ route('items') }}" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Back to Items</a>
           </p>
           <!-- TABLE: LATEST ORDERS -->
           <div class="box box-info">
             <div class="box-header with-border">
-              <h3 class="box-title">Fill Supplier Information</h3>
+              <h3 class="box-title">Fill Item Details</h3>
 
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -49,24 +49,20 @@
                   @include('includes.success')
                   @include('includes.error')
                   @include('includes.errors')
-                  <form action="{{ route('store.supplier') }}" method="POST" autocomplete="off">
+                  <form action="{{ route('store.item.category') }}" method="POST" autocomplete="off">
                     @csrf
                     <input type="hidden" name="id" value="{{ $id != NULL ? encrypt($id) : NULL }}">
                     <div class="form-group">
-                      <label for="supplier">Supplier Name</label>
-                      <input type="text" name="supplier" id="supplier"  value="{{ $supplier != NULL ? $supplier->supplier : NULL }}" class="form-control" placeholder="Supplier Name" required>
+                      <label for="item">Item Name</label>
+                      <input type="text" name="item_category" id="item_category"  value="{{ $category != NULL ? $category->item_category_name : NULL }}" class="form-control" placeholder="Item Category Name" required>
                     </div>
                     <div class="form-group">
-                      <label for="address">Supplier Address</label>
-                      <input type="text" name="address" id="address" value="{{ $supplier != NULL ? $supplier->address : NULL }}" class="form-control" placeholder="Supplier Address" required>
+                      <label for="description">Code</label>
+                      <input type="text" name="description" id="description" value="{{ $category != NULL ? $category->description : NULL }}" class="form-control" placeholder="Description" required>
                     </div>
                     <div class="form-group">
-                      <label for="note">Supplier Note</label>
-                      <input type="text" name="note" id="note" value="{{ $supplier != NULL ? $supplier->note : NULL }}" class="form-control" placeholder="Supplier Note" required>
-                    </div>
-                    <div class="form-group">
-                      <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> {{ $id != NULL ? 'Update' : 'Add' }} Supplier</button>
-                      <a href="{{ route('suppliers') }}" class="btn btn-danger"><i class="fa fa-ban"></i> Cancel</a>
+                      <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> {{ $id != NULL ? 'Update' : 'Add' }} Item</button>
+                      <a href="{{ route('items') }}" class="btn btn-danger"><i class="fa fa-ban"></i> Cancel</a>
                     </div>
                   </form>
                 </div>
