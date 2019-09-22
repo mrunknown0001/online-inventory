@@ -75,8 +75,8 @@
 
         {{-- Start of Employee Only Access --}}
         @if(Auth::user()->user_type == 2)
-          <li>
-            <a href="#">
+          <li class="{{ route('inventories') == url()->current() ? 'active' : '' }}">
+            <a href="{{ route('inventories') }}">
             <i class="fa fa-list"></i> <span>Inventory Management</span>
             <span class="pull-right-container">
               <small class="label pull-right bg-green"></small>
@@ -86,8 +86,8 @@
         @endif
         {{-- End of Employee Only Access --}}
 
-        <li>
-          <a href="#">
+        <li class="{{ route('shipping.permits') == url()->current() ? 'active' : '' }}">
+          <a href="{{ route('shipping.permits') }}">
             <i class="fa fa-truck"></i> <span>Shipping Permit Management</span>
             <span class="pull-right-container">
               <small class="label pull-right bg-green"></small>

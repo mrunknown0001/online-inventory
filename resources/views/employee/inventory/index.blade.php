@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title') Public Information @endsection
+@section('title') Items Management @endsection
 
 @section('script')
   <script src="{{ asset('js/sweetalert.js') }}"></script>
@@ -12,11 +12,11 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Public Information
+        Items Mamangement
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-info"></i> Home</a></li>
-        <li class="active">Public Information</li>
+        <li><a href="#"><i class="fa fa-circle-o"></i> Home</a></li>
+        <li class="active">Items Management</li>
       </ol>
     </section>
 
@@ -39,7 +39,7 @@
           <!-- TABLE: LATEST ORDERS -->
           <div class="box box-info">
             <div class="box-header with-border">
-              <h3 class="box-title">Public Information</h3>
+              <h3 class="box-title">List of Items</h3>
 
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -50,12 +50,15 @@
             <!-- /.box-header -->
             <div class="box-body">
               <div class="table-responsive">
-                <table id="info" class="table table-striped table-bordered" style="width: 99%">
+                <table id="inventories" class="table table-striped table-bordered" style="width: 99%">
                   <thead>
                     <tr>
-                      <th>Information</th>
-                      <th>Details</th>
-                      <th>Date &amp; Time</th>
+                      <th>Item</th>
+                      <th>Code</th>
+                      <th>U/M</th>
+                      <th>Quantity</th>
+                      <th>Category</th>
+                      <th>Action</th>
                     </tr>
                   </thead>
                 </table>
@@ -109,26 +112,59 @@
   });
 
 
+  // Update User Info
+    $(document).on('click', '#update', function (e) {
+      e.preventDefault();
+      var id = $(this).data('id');
+      Swal.fire({
+        title: 'Update User Info?',
+        text: "",
+        type: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Continue'
+      }).then((result) => {
+        if (result.value) {
+          // update
+          window.location.replace("/admin/user/update/info/" + id);
+        }
+        else {
+          Swal.fire({
+            title: 'Update User Info Cancelled',
+            text: "",
+            type: 'info',
+            showCancelButton: false,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'ok'
+          });
+        }
+      });
+  });
 
   // Data Tables Load All
   $(document).ready(function() {
-    $('#info').DataTable({
-        ajax: { 
-          url: "{{ route('all.public.info') }}",
-          dataSrc: ""
-        },
-        columns: [
-          { data: 'info' },
-          { data: 'details' },
-          { data: 'date_time' },
-        ]
-     });
-  });
+      $('#inventories').DataTable({
+          ajax: { 
+            url: "{{ route('all.inventories') }}",
+            dataSrc: ""
+          },
+          columns: [
+            { data: 'item' },
+            { data: 'code' },
+            { data: 'unit' },
+            { data: 'quantity' },
+            { data: 'category' },
+            { data: 'action'},
+          ]
+       });
+  } );
 
 
   // reload databable 
   function reloadDatatables() {
-    var table = $('#info').DataTable();
+    var table = $('#inventories').DataTable();
     table.ajax.reload();
 
     Swal.fire({

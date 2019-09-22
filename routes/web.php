@@ -189,7 +189,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'prevent-back-histo
 Route::group(['prefix' => 'emp', 'middleware' => ['employee', 'prevent-back-history']], function () {
 	Route::get('/dashboard', 'EmployeeController@dashboard')->name('emp.dashboard');
 
-	// Inventory
+	// Inventory Management
+	Route::get('/inventory', 'InventoryController@index')->name('inventories');
+
+	// all inventory
+	Route::get('/all/inventories', 'InventoryController@all')->name('all.inventories');
 });
 
 
@@ -198,6 +202,19 @@ Route::group(['prefix' => 'emp', 'middleware' => ['employee', 'prevent-back-hist
  * Common Link
  */
 Route::group(['middleware' => 'auth'], function () {
+
+
+	// Shipping Permit
+	Route::get('/shipping-permit', 'ShippingPermitController@index')->name('shipping.permits');
+
+	// All Shipping Permits
+	Route::get('/all/shipping-permits', 'ShippingPermitController@all')->name('all.shipping.permits');
+
 	// Public Information
 	Route::get('/public/information', 'PublicInfoController@index')->name('public.info');
+
+
+	// All public info
+	Route::get('/all/public/information', 'PublicInfoController@all')->name('all.public.info');
+
 });

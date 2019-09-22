@@ -13,4 +13,19 @@ class PublicInfoController extends Controller
     {
     	return view('common.public_info.index');
     }
+
+
+    /**
+     * all public information
+     */
+    public function all()
+    {
+    	$data = [
+    		'info' => NULL,
+    		'details' => NULL,
+    		'action' => NULL,
+    	];
+
+    	return $data;
+    }
 }

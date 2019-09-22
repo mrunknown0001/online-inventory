@@ -4,14 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class InventoryController extends Controller
+class ShippingPermitController extends Controller
 {
     /**
-     * Index of inventory
+     * index
      */
     public function index()
     {
-    	return view('employee.inventory.index');
+    	return view('common.shipping_permit.index');
     }
 
 
@@ -21,11 +21,9 @@ class InventoryController extends Controller
     public function all()
     {
     	$data = [
-    		'item' => NULL,
-    		'code' => NULL,
-    		'unit' => NULL,
-    		'quantity' => NULL,
-    		'category' => NULL,
+    		'permit_no' => NULL,
+    		'origin' => NULL,
+    		'destination' => NULL,
     		'action' => NULL,
     	];
 

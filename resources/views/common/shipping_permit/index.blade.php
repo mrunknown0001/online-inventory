@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title') Public Information @endsection
+@section('title') Shipping Permit @endsection
 
 @section('script')
   <script src="{{ asset('js/sweetalert.js') }}"></script>
@@ -12,11 +12,11 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Public Information
+        Shipping Permit
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-info"></i> Home</a></li>
-        <li class="active">Public Information</li>
+        <li><a href="#"><i class="fa fa-truck"></i> Home</a></li>
+        <li class="active">Shipping Permit</li>
       </ol>
     </section>
 
@@ -39,7 +39,7 @@
           <!-- TABLE: LATEST ORDERS -->
           <div class="box box-info">
             <div class="box-header with-border">
-              <h3 class="box-title">Public Information</h3>
+              <h3 class="box-title">Shipping Permits</h3>
 
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -50,12 +50,13 @@
             <!-- /.box-header -->
             <div class="box-body">
               <div class="table-responsive">
-                <table id="info" class="table table-striped table-bordered" style="width: 99%">
+                <table id="shipping" class="table table-striped table-bordered" style="width: 99%">
                   <thead>
                     <tr>
-                      <th>Information</th>
-                      <th>Details</th>
-                      <th>Date &amp; Time</th>
+                      <th>Permit No.</th>
+                      <th>Origin</th>
+                      <th>Destination</th>
+                      <th>Action</th>
                     </tr>
                   </thead>
                 </table>
@@ -112,15 +113,16 @@
 
   // Data Tables Load All
   $(document).ready(function() {
-    $('#info').DataTable({
+    $('#shipping').DataTable({
         ajax: { 
-          url: "{{ route('all.public.info') }}",
+          url: "{{ route('all.shipping.permits') }}",
           dataSrc: ""
         },
         columns: [
-          { data: 'info' },
-          { data: 'details' },
-          { data: 'date_time' },
+          { data: 'permit_no' },
+          { data: 'origin' },
+          { data: 'destination' },
+          { data: 'action' },
         ]
      });
   });
@@ -128,7 +130,7 @@
 
   // reload databable 
   function reloadDatatables() {
-    var table = $('#info').DataTable();
+    var table = $('#shipping').DataTable();
     table.ajax.reload();
 
     Swal.fire({
