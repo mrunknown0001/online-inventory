@@ -24,6 +24,7 @@ class CreateItemsTable extends Migration
             $table->foreign('unit_of_measurement_id')->references('unit_of_measurement_id')->on('unit_of_measurements');
             $table->integer('quantity')->default(0);
             $table->float('unit_cost', 8,2)->default(0);
+            $table->boolean('active')->default(1);
             $table->timestamps();
         });
     }

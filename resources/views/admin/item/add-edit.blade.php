@@ -2,6 +2,16 @@
 
 @section('title') Add Item @endsection
 
+@section('style')
+  {{-- <link rel="stylesheet" href="{{ asset('css/select2.min.css') }}"> --}}
+  <link rel="stylesheet" href="{{ asset('css/bootstrap-select.css') }}">
+@endsection
+
+@section('script')
+  {{-- <script src="{{ asset('js/select2.min.js') }}"></script> --}}
+  <script src="{{ asset('js/bootstrap-select.js') }}"></script>
+@endsection
+
 @section('content')
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -49,7 +59,7 @@
                   @include('includes.success')
                   @include('includes.error')
                   @include('includes.errors')
-                  <form action="{{ route('store.item.category') }}" method="POST" autocomplete="off">
+                  <form action="{{ route('store.item') }}" method="POST" autocomplete="off">
                     @csrf
                     <input type="hidden" name="id" value="{{ $id != NULL ? encrypt($id) : NULL }}">
                     <div class="form-group">
@@ -66,14 +76,28 @@
                     </div>
                     <div class="form-group">
                       <label for="item_category">Item Category</label>
-                      <select name="item_category" id="item_category" class="form-control">
-                        
+                      <select name="item_category" id="item_category" class="form-control selectpicker" data-show-subtext="true" data-live-search="true" required>
+                        @if(count($categories) > 0)
+                          <option value="">Select Category...</option>
+                          @foreach($categories as $c)
+                            <option value="{{ encrypt($c->item_category_id) }}">{{ $c->item_category_name }}</option>
+                          @endforeach
+                        @else
+                          <option value="">No Category</option>
+                        @endif
                       </select>
                     </div>
                     <div class="form-group">
                       <label for="unit_of_measurement">Unit of Measurement</label>
-                      <select name="unit_of_measurement" id="unit_of_measurement" class="form-control">
-                        
+                      <select name="unit_of_measurement" id="unit_of_measurement" class="form-control selectpicker" data-show-subtext="true" data-live-search="true" required>
+                        @if(count($units) > 0)
+                          <option value="">Select Unit of Measurement...</option>
+                          @foreach($units as $u)
+                            <option value="{{ encrypt($u->unit_of_measurement_id) }}">{{ $u->code . ' - ' . $u->name }}</option>
+                          @endforeach
+                        @else
+                          <option value="">No Unit of Measurement Available</option>
+                        @endif
                       </select>
                     </div>
                     <div class="form-group">

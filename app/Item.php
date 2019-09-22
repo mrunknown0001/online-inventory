@@ -10,4 +10,16 @@ class Item extends Model
      * Custom Primary Key
      */
     protected $primaryKey = 'item_id';
+
+
+    public function unit()
+    {
+    	return $this->belongsTo('App\UnitOfMeasurement', 'unit_of_measurement_id');
+    }
+
+
+    public function category()
+    {
+    	return $this->belongsTo('App\ItemCategory', 'item_category_id');
+    }
 }

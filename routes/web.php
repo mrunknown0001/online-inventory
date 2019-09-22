@@ -108,6 +108,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'prevent-back-histo
 	Route::get('/item/add', 'ItemController@addItem')->name('add.item');
 
 	// store Item
+	Route::post('/item/add', 'ItemController@storeItem')->name('store.item');
 
 	// view item details
 
