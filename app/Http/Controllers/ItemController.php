@@ -15,6 +15,20 @@ class ItemController extends Controller
     }
 
 
+    /**
+     * Add Item
+     */
+    public function addItem()
+    {
+        // category
+        $categories = \App\ItemCategory::where('active', 1)->get();
+        // units
+        $units = \App\UnitOfMeasurement::where('active', 1)->get();
+
+        return view('admin.item.add-edit', ['id' => NULL, 'item' => NULL, 'categories' => $categories, 'units' => $units]);
+    }
+
+
 
     /**
      * all

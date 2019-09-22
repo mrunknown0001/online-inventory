@@ -54,11 +54,31 @@
                     <input type="hidden" name="id" value="{{ $id != NULL ? encrypt($id) : NULL }}">
                     <div class="form-group">
                       <label for="item">Item Name</label>
-                      <input type="text" name="item_category" id="item_category"  value="{{ $category != NULL ? $category->item_category_name : NULL }}" class="form-control" placeholder="Item Category Name" required>
+                      <input type="text" name="item" id="item"  value="{{ $item != NULL ? $item->item_name : NULL }}" class="form-control" placeholder="Item Name" required>
                     </div>
                     <div class="form-group">
-                      <label for="description">Code</label>
-                      <input type="text" name="description" id="description" value="{{ $category != NULL ? $category->description : NULL }}" class="form-control" placeholder="Description" required>
+                      <label for="code">Item Code</label>
+                      <input type="text" name="code" id="code" value="{{ $item != NULL ? $item->code : NULL }}" class="form-control" placeholder="Item Code" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="description">Item Description</label>
+                      <input type="text" name="description" id="description" value="{{ $item != NULL ? $item->description : NULL }}" class="form-control" placeholder="Item Description" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="item_category">Item Category</label>
+                      <select name="item_category" id="item_category" class="form-control">
+                        
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="unit_of_measurement">Unit of Measurement</label>
+                      <select name="unit_of_measurement" id="unit_of_measurement" class="form-control">
+                        
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="quantity">Quantity</label>
+                      <input type="Number" name="quantity" id="quantity" value="{{ $item != NULL ? $item->quantity : NULL }}" class="form-control" placeholder="Quantity" required>
                     </div>
                     <div class="form-group">
                       <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> {{ $id != NULL ? 'Update' : 'Add' }} Item</button>
