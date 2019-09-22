@@ -13,4 +13,19 @@ class FarmController extends Controller
     {
     	return view('admin.farm.index');
     }
+
+
+    /**
+     * all farms
+     */
+    public function all()
+    {
+    	$data = [
+    		'name' => NULL,
+    		'description' => NULL,
+    		'action' => NULL,
+    	];
+
+    	return $data;
+    }
 }

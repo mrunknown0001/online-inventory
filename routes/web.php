@@ -130,6 +130,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'prevent-back-histo
 	// Farms
 	Route::get('/farms', 'FarmController@index')->name('farms');
 
+	// All Farms
+	Route::get('/all/farms', 'FarmController@all')->name('all.farms');
+
 	// Municipalities
 	Route::get('/municipalities', 'MunicipalityController@index')->name('municipalities');
 
@@ -148,11 +151,21 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'prevent-back-histo
 	// Species
 	Route::get('/species', 'SpecyController@index')->name('species');
 
+
+	// All Species
+	Route::get('/all/species', 'SpecyController@all')->name('all.species');
+
 	// Animals
 	Route::get('/animals', 'AnimalController@index')->name('animals');
 
+	// All Animals
+	Route::get('/all/animals', 'AnimalController@all')->name('all.animals');
+
 	// Breeds
 	Route::get('/breeds', 'BreedController@index')->name('breeds');
+
+	// All Breeds
+	Route::get('/all/breeds', 'BreedController@all')->name('all.breeds');
 
 	// Unit of Measurement
 	Route::get('/unit-of-measurements', 'UnitOfMeasurementController@index')->name('unit.of.measurements');

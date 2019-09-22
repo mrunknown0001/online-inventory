@@ -41,7 +41,6 @@ class ItemController extends Controller
             'description' => 'nullable',
             'item_category' => 'required',
             'unit_of_measurement' => 'required',
-            'quantity' => 'required',
         ]);
 
         $item = $request['item'];
@@ -49,7 +48,6 @@ class ItemController extends Controller
         $description = $request['description'];
         $item_category = $this->decryptString($request['item_category']);
         $unit = $this->decryptString($request['unit_of_measurement']);
-        $quantity = $request['quantity'];
 
         // store
         $i = new Item();
@@ -58,7 +56,6 @@ class ItemController extends Controller
         $i->item_description = $description;
         $i->item_category_id = $item_category;
         $i->unit_of_measurement_id = $unit;
-        $i->quantity = $quantity;
 
         if($i->save()) {
             return redirect()->route('add.item')->with('success', 'Item Saved!');
@@ -75,7 +72,6 @@ class ItemController extends Controller
     	$data = [
     		'item' => NULL,
     		'code' => NULL,
-    		'quantity' => NULL,
     		'unit_of_measurement' => NULL,
     		'category' => NULL,
     		'action' => NULL,
@@ -90,7 +86,6 @@ class ItemController extends Controller
                 $data[] = [
                     'item' => $i->item_name,
                     'code' => $i->item_code,
-                    'quantity' => $i->quantity,
                     'unit_of_measurement' => $i->unit->name,
                     'category' => $i->category->item_category_name,
                     'action' => "<button class='btn btn-primary btn-xs'><i class='fa fa-eye'></i> View</button>", 

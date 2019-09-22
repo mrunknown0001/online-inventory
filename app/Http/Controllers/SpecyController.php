@@ -13,4 +13,20 @@ class SpecyController extends Controller
     {
     	return view('admin.specy.index');
     }
+
+
+
+    /**
+     * all species
+     */
+    public function all()
+    {
+    	$data = [
+    		'specy' => NULL,
+    		'details' => NULL,
+    		'action' => NULL,
+    	];
+
+    	return $data;
+    }
 }

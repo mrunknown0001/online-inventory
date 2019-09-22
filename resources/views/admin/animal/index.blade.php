@@ -50,11 +50,11 @@
             <!-- /.box-header -->
             <div class="box-body">
               <div class="table-responsive">
-                <table id="suppliers" class="table table-striped table-bordered" style="width: 99%">
+                <table id="animals" class="table table-striped table-bordered" style="width: 99%">
                   <thead>
                     <tr>
                       <th>Animal</th>
-                      <th>Specy</th>
+                      <th>Species</th>
                       <th>Action</th>
                     </tr>
                   </thead>
@@ -142,15 +142,14 @@
 
   // Data Tables Load All
   $(document).ready(function() {
-      $('#users').DataTable({
+      $('#animals').DataTable({
           ajax: { 
-            url: "{{ route('all.users') }}",
+            url: "{{ route('all.animals') }}",
             dataSrc: ""
           },
           columns: [
-            { data: 'username' },
-            { data: 'fullname' },
-            { data: 'user_type' },
+            { data: 'animal' },
+            { data: 'specy' },
             { data: 'action'},
           ]
        });
@@ -159,7 +158,7 @@
 
   // reload databable 
   function reloadDatatables() {
-    var table = $('#users').DataTable();
+    var table = $('#animals').DataTable();
     table.ajax.reload();
 
     Swal.fire({

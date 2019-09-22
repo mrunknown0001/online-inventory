@@ -101,10 +101,6 @@
                       </select>
                     </div>
                     <div class="form-group">
-                      <label for="quantity">Quantity</label>
-                      <input type="Number" name="quantity" id="quantity" value="{{ $item != NULL ? $item->quantity : NULL }}" class="form-control" placeholder="Quantity" required>
-                    </div>
-                    <div class="form-group">
                       <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> {{ $id != NULL ? 'Update' : 'Add' }} Item</button>
                       <a href="{{ route('items') }}" class="btn btn-danger"><i class="fa fa-ban"></i> Cancel</a>
                     </div>

@@ -55,7 +55,6 @@
                     <tr>
                       <th>Item</th>
                       <th>Code</th>
-                      <th>Quantity</th>
                       <th>U/M</th>
                       <th>Category</th>
                       <th>Action</th>
@@ -153,7 +152,6 @@
           columns: [
             { data: 'item' },
             { data: 'code' },
-            { data: 'quantity' },
             { data: 'unit_of_measurement' },
             { data: 'category' },
             { data: 'action'},

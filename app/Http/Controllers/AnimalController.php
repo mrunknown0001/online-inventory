@@ -13,4 +13,20 @@ class AnimalController extends Controller
     {
     	return view('admin.animal.index');
     }
+
+
+
+    /**
+     * All Animals
+     */
+    public function all()
+    {
+    	$data = [
+    		'animal' => NULL,
+    		'species' => NULL,
+    		'action' => NULL,
+    	];
+
+    	return $data;
+    }
 }
