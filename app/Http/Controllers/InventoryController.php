@@ -16,6 +16,36 @@ class InventoryController extends Controller
 
 
     /**
+     * Item Entry
+     */
+    public function itemEntry()
+    {
+    	$items = \App\Item::where('active', 1)->get();
+    	$suppliers = \App\Supplier::where('active', 1)->get();
+    	$units = \App\UnitOfMeasurement::where('active', 1)->get();
+
+    	return view('employee.inventory.entry', ['suppliers' => $suppliers, 'units' => $units, 'items' => $items]);
+    }
+
+
+
+    /**
+     * store
+     * TRANSACTION TYPE 1
+     */
+    public function storeItemEntry(Request $request)
+    {
+        return $request;
+    }
+
+
+    /**
+     * STORE 
+     * TRANSACTION TYPE 2
+     */
+
+
+    /**
      * all
      */
     public function all()

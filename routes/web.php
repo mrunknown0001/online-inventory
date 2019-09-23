@@ -192,6 +192,12 @@ Route::group(['prefix' => 'emp', 'middleware' => ['employee', 'prevent-back-hist
 	// Inventory Management
 	Route::get('/inventory', 'InventoryController@index')->name('inventories');
 
+	// Add Inventory Entry
+	Route::get('/inventory/entry', 'InventoryController@itemEntry')->name('item.entry');
+
+	// Store Item Entry
+	Route::post('/inventory/entry', 'InventoryController@storeItemEntry')->name('store.item.entry');
+
 	// all inventory
 	Route::get('/all/inventories', 'InventoryController@all')->name('all.inventories');
 });

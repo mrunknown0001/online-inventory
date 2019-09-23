@@ -28,6 +28,7 @@ class CreateTransactionsTable extends Migration
             $table->bigInteger('item_id')->unsigned()->nullable();
             $table->foreign('item_id')->references('item_id')->on('items');
             $table->integer('quantity')->nullable();
+            $table->float('price', 8,2)->nullable();
             $table->timestamps();
         });
     }

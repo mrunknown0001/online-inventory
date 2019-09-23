@@ -24,11 +24,11 @@
         
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-red"><i class="fa fa-google-plus"></i></span>
+            <span class="info-box-icon bg-red"><i class="fa fa-exchange"></i></span>
 
             <div class="info-box-content">
-              <span class="info-box-text">Likes</span>
-              <span class="info-box-number">41,410</span>
+              <span class="info-box-text">Transactions</span>
+              <span class="info-box-number">0</span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -42,7 +42,7 @@
       </div>
       <!-- /.row -->
 
-      <div class="row">
+{{--       <div class="row">
         <div class="col-md-12">
           <!-- TABLE: LATEST ORDERS -->
           <div class="box box-info">
@@ -330,7 +330,7 @@
         <!-- /.col -->
 
 
-      </div>
+      </div> --}}
       <!-- /.row -->
     </section>
     <!-- /.content -->
