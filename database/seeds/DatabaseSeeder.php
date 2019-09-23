@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder
         $this->call(UsersTableSeeder::class);
         $this->call(MunicipalitiesTableSeeder::class);
         $this->call(BarangaysTableSeeder::class);
-        $this->call(UnitOfMeasurements::class);
+        $this->call(UnitOfMeasurementsTableSeeder::class);
         $this->call(ItemCategoriesTableSeeder::class);
         $this->call(SuppliersTableSeeder::class);
     }
