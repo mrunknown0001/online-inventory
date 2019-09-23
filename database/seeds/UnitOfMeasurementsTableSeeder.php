@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class UnitOfMeasurements extends Seeder
+class UnitOfMeasurementsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
