@@ -15,7 +15,7 @@ class CreateTransactionsTable extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->bigIncrements('transaction_id');
-            $table->tinyInteger('transantion_type')->nullable(); // 1 for in, 0 for out
+            $table->tinyInteger('transantion_type')->default(1); // 1 for in, 0 for out
             $table->string('reference_number', 20)->nullable();
             $table->bigInteger('supplier_id')->unsigned()->nullable();
             $table->foreign('supplier_id')->references('supplier_id')->on('suppliers');

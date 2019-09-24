@@ -17,7 +17,9 @@ class CreateInventoriesTable extends Migration
             $table->bigIncrements('inventory_id');
             $table->unsignedBigInteger('item_id')->nullable();
             $table->foreign('item_id')->references('item_id')->on('items');
-            $table->integer('count')->default(0);
+            $table->integer('quantity')->default(0);
+            $table->unsignedBigInteger('unit_of_measurement_id')->nullable();
+            $table->foreign('unit_of_measurement_id')->references('unit_of_measurement_id')->on('unit_of_measurements');
             $table->timestamps();
         });
     }

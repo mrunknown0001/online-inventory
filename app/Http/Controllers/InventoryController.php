@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Transaction;
+use App\Inventory;
 
 class InventoryController extends Controller
 {
@@ -81,7 +82,27 @@ class InventoryController extends Controller
         $item->reference_number = $reference_number;
         $item->item_id = $this->decryptString($item1);
         $item->quantity = $quantity1;
+        $item->unit_of_measurement_id = $this->decryptString($unit_of_measurement1);
         $item->price = $price1;
+
+        // add item
+        // check if existing (add quantity), and add new if not
+        $check_inv = Inventory::where('item_id', $this->decryptString($item1))->where('unit_of_measurement_id', $this->decryptString($unit_of_measurement1))->first();
+
+        if(empty($check_inv)) {
+            // create new
+            $inv = new Inventory();
+            $inv->item_id = $this->decryptString($item1);
+            $inv->unit_of_measurement_id = $this->decryptString($unit_of_measurement1);
+            $inv->quantity = $item->quantity;
+            $inv->save();
+        }
+        else {
+            // add
+            $check_inv->quantity += $item->quantity;
+            $check_inv->save();
+        }
+
         $item->save();
 
 
@@ -92,8 +113,29 @@ class InventoryController extends Controller
             $item->reference_number = $reference_number;
             $item->item_id = $this->decryptString($item2);
             $item->quantity = $quantity2;
+            $item->unit_of_measurement_id = $this->decryptString($unit_of_measurement2);
             $item->price = $price3;
-            $item->save();   
+
+            // add item
+            // check if existing (add quantity), and add new if not
+            $check_inv = Inventory::where('item_id', $this->decryptString($item2))->where('unit_of_measurement_id', $this->decryptString($unit_of_measurement2))->first();
+
+            if(empty($check_inv)) {
+                // create new
+                $inv = new Inventory();
+                $inv->item_id = $this->decryptString($item2);
+                $inv->unit_of_measurement_id = $this->decryptString($unit_of_measurement2);
+                $inv->quantity = $item->quantity;
+                $inv->save();
+            }
+            else {
+                // add
+                $check_inv->quantity += $item->quantity;
+                $check_inv->save();
+            }
+
+            $item->save();
+
         }
         
         // item 3 (optional)
@@ -103,8 +145,29 @@ class InventoryController extends Controller
             $item->reference_number = $reference_number;
             $item->item_id = $this->decryptString($item3);
             $item->quantity = $quantity3;
+            $item->unit_of_measurement_id = $this->decryptString($unit_of_measurement3);
             $item->price = $price3;
-            $item->save();   
+
+            // add item
+            // check if existing (add quantity), and add new if not
+            $check_inv = Inventory::where('item_id', $this->decryptString($item3))->where('unit_of_measurement_id', $this->decryptString($unit_of_measurement3))->first();
+
+            if(empty($check_inv)) {
+                // create new
+                $inv = new Inventory();
+                $inv->item_id = $this->decryptString($item3);
+                $inv->unit_of_measurement_id = $this->decryptString($unit_of_measurement3);
+                $inv->quantity = $item->quantity;
+                $inv->save();
+            }
+            else {
+                // add
+                $check_inv->quantity += $item->quantity;
+                $check_inv->save();
+            }
+
+            $item->save();
+
         }
 
         // item 4 (optional)
@@ -114,8 +177,30 @@ class InventoryController extends Controller
             $item->reference_number = $reference_number;
             $item->item_id = $this->decryptString($item4);
             $item->quantity = $quantity4;
+            $item->unit_of_measurement_id = $this->decryptString($unit_of_measurement4);
             $item->price = $price4;
-            $item->save();   
+
+            // add item
+            // check if existing (add quantity), and add new if not
+            $check_inv = Inventory::where('item_id', $this->decryptString($item4))->where('unit_of_measurement_id', $this->decryptString($unit_of_measurement4))->first();
+
+            if(empty($check_inv)) {
+                // create new
+                $inv = new Inventory();
+                $inv->item_id = $this->decryptString($item4);
+                $inv->unit_of_measurement_id = $this->decryptString($unit_of_measurement4);
+                $inv->quantity = $item->quantity;
+                $inv->save();
+            }
+            else {
+                // add
+                $check_inv->quantity += $item->quantity;
+                $check_inv->save();
+            }
+
+
+            $item->save();
+
         }
 
         // item 5 (optional)
@@ -125,8 +210,31 @@ class InventoryController extends Controller
             $item->reference_number = $reference_number;
             $item->item_id = $this->decryptString($item5);
             $item->quantity = $quantity5;
+            $item->unit_of_measurement_id = $this->decryptString($unit_of_measurement5);
             $item->price = $price5;
-            $item->save();   
+
+            // add item
+            // check if existing (add quantity), and add new if not
+            $check_inv = Inventory::where('item_id', $this->decryptString($item5))->where('unit_of_measurement_id', $this->decryptString($unit_of_measurement5))->first();
+
+            if(empty($check_inv)) {
+                // create new
+                $inv = new Inventory();
+                $inv->item_id = $this->decryptString($item5);
+                $inv->unit_of_measurement_id = $this->decryptString($unit_of_measurement5);
+                $inv->quantity = $item->quantity;
+                $inv->save();
+            }
+            else {
+                // add
+                $check_inv->quantity += $item->quantity;
+                $check_inv->save();
+            }
+
+
+            $item->save();
+
+
         }
 
         return redirect()->route('item.entry')->with('success', 'Entry Save!');
@@ -154,7 +262,22 @@ class InventoryController extends Controller
     		'action' => NULL,
     	];
 
-        
+        $items = \App\Inventory::get();
+
+        if(count($items) > 0) {
+            $data = NULL;
+
+            foreach($items as $i) {
+                $data[] = [
+                    'item' => $i->item->item_name,
+                    'code' => $i->item->item_code,
+                    'unit' => $i->unit->code,
+                    'quantity' => $i->quantity,
+                    'category' => $i->item->category->item_category_name,
+                    'action' => "<button class='btn btn-primary btn-xs'><i class='fa fa-eye'></i> View</button>",
+                ];
+            }
+        }
 
     	return $data;
     }
