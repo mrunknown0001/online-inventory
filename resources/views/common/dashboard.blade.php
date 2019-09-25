@@ -42,7 +42,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Inventory Items</span>
-              <span class="info-box-number">500</span>
+              <span class="info-box-number">{{ $items }}</span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -51,7 +51,7 @@
         <!-- /.col -->
 
 
-        <div class="col-md-3 col-sm-6 col-xs-12">
+        {{-- <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
             <span class="info-box-icon bg-red"><i class="fa fa-truck"></i></span>
 
@@ -62,7 +62,7 @@
             <!-- /.info-box-content -->
           </div>
           <!-- /.info-box -->
-        </div>
+        </div> --}}
         <!-- /.col -->
 
         <!-- fix for small devices only -->
@@ -71,7 +71,7 @@
       </div>
       <!-- /.row -->
 
-{{--       <div class="row">
+      <div class="row">
         <div class="col-md-12">
           <!-- TABLE: LATEST ORDERS -->
           <div class="box box-info">
@@ -90,53 +90,12 @@
                 <table class="table no-margin">
                   <thead>
                   <tr>
-                    <th>Order ID</th>
+                    <th>Transactions</th>
                     <th>Item</th>
-                    <th>Recipient</th>
                     <th>Date &amp; Time </th>
                   </tr>
                   </thead>
                   <tbody>
-                  <tr>
-                    <td><a href="pages/examples/invoice.html">OR9842</a></td>
-                    <td>Vaccine</td>
-                    <td>Farm1</td>
-                    <td>
-                      <div class="sparkbar" data-color="#00a65a" data-height="20">9/17/2019</div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><a href="pages/examples/invoice.html">OR1848</a></td>
-                    <td>Vitamins</td>
-                    <td>Farm2</td>
-                    <td>
-                      <div class="sparkbar" data-color="#f39c12" data-height="20">9/17/2019</div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                    <td>Anti Rabies</td>
-                    <td>Farm3</td>
-                    <td>
-                      <div class="sparkbar" data-color="#f56954" data-height="20">9/17/2019</div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                    <td>Anti Rabies</td>
-                    <td>Farm4</td>
-                    <td>
-                      <div class="sparkbar" data-color="#00c0ef" data-height="20">9/17/2019</div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><a href="pages/examples/invoice.html">OR1848</a></td>
-                    <td>5 in 1 for Dogs</td>
-                    <td>Farm5</td>
-                    <td>
-                      <div class="sparkbar" data-color="#f39c12" data-height="20">9/17/2019</div>
-                    </td>
-                  </tr>
                   </tbody>
                 </table>
               </div>
@@ -152,7 +111,7 @@
         </div>
 
       </div>
-      <!-- /.row --> --}}
+      <!-- /.row -->
 
       <div class="row">
         <div class="col-md-12">

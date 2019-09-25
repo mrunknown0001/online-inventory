@@ -209,6 +209,25 @@ Route::group(['prefix' => 'emp', 'middleware' => ['employee', 'prevent-back-hist
  */
 Route::group(['middleware' => 'auth'], function () {
 
+	// Inventory Management
+	Route::get('/inventory', 'InventoryController@index')->name('inventories');
+
+	// Add Inventory Entry
+	Route::get('/inventory/entry', 'InventoryController@itemEntry')->name('item.entry');
+
+	// Store Item Entry
+	Route::post('/inventory/entry', 'InventoryController@storeItemEntry')->name('store.item.entry');
+
+
+	// Outgoing entry
+	Route::get('/inventory/outgoing', 'InventoryController@outgoingItem')->name('item.outgoing');
+
+	// Store Outing Item
+	Route::post('/inventory/outgoing', 'InventoryController@storeOugoingItem')->name('store.outgoing.item');
+
+	// all inventory
+	Route::get('/all/inventories', 'InventoryController@all')->name('all.inventories');
+
 
 	// Shipping Permit
 	Route::get('/shipping-permit', 'ShippingPermitController@index')->name('shipping.permits');

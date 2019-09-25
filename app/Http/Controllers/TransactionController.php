@@ -29,14 +29,14 @@ class TransactionController extends Controller
 			'date_time' => NULL,
 		];
 
-		$trans = \App\Transaction::get();
+		$trans = \App\Transaction::orderBy('created_at', 'asc')->get();
 
 		if(count($trans) > 0) {
 			$data = NULL;
 
 			foreach($trans as $t) {
 				$data[] = [
-					'transactions' => $t->transantion_type == 1 ? 'Incomming' : 'Outgoing',
+					'transactions' => $t->transaction_type == 1 ? 'Incomming' : 'Outgoing',
 					'details' => $t->quantity . ' ' . $t->unit->code . ' of ' . $t->item->item_name,
 					'date_time' => date('F j, Y h:i:s a', strtotime($t->created_at)),
 				];

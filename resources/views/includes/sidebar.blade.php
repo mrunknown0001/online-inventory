@@ -50,7 +50,7 @@
           <li class="treeview {{ route('customers') == url()->current() || route('suppliers') == url()->current() || route('items') == url()->current() || route('item.categories') == url()->current() || route('farms') == url()->current() || route('municipalities') == url()->current() || route('barangays') == url()->current() || route('species') == url()->current() || route('animals') == url()->current() || route('breeds') == url()->current() || route('unit.of.measurements') == url()->current() ? 'active' : '' }}">
             <a href="#">
               <i class="fa fa-gears"></i>
-              <span>Inventory Management</span>
+              <span>Inventory Settings</span>
               <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
@@ -75,16 +75,19 @@
 
         {{-- Start of Employee Only Access --}}
         @if(Auth::user()->user_type == 2)
-          <li class="{{ route('inventories') == url()->current() ? 'active' : '' }}">
-            <a href="{{ route('inventories') }}">
-            <i class="fa fa-list"></i> <span>Inventory Management</span>
-            <span class="pull-right-container">
-              <small class="label pull-right bg-green"></small>
-            </span>
-            </a>
-          </li>
+
         @endif
         {{-- End of Employee Only Access --}}
+
+
+        <li class="{{ route('inventories') == url()->current() ? 'active' : '' }}">
+          <a href="{{ route('inventories') }}">
+          <i class="fa fa-list"></i> <span>Inventory Management</span>
+          <span class="pull-right-container">
+            <small class="label pull-right bg-green"></small>
+          </span>
+          </a>
+        </li>
 
         <li class="{{ route('shipping.permits') == url()->current() ? 'active' : '' }}">
           <a href="{{ route('shipping.permits') }}">

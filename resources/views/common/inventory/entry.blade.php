@@ -82,7 +82,7 @@
 
                     {{-- Start of Item 1 --}}
                     <hr>
-                    <h5>Item 1</h5>
+                    <h5>Item</h5>
                     <div class="row">
                       <div class="col-md-12">
                         <div class="form-group">
@@ -130,7 +130,7 @@
 
 
                     {{-- Start of Item 2 --}}
-                    <hr>
+                    {{-- <hr>
                     <h5>Item 2</h5>
                     <div class="row">
                       <div class="col-md-12">
@@ -173,12 +173,12 @@
                           <input type="number" name="price2" id="price2" class="form-control" placeholder="Unit Price" >
                         </div>
                       </div>
-                    </div>
+                    </div> --}}
                     {{-- End of Item 2 --}}
 
 
                     {{-- Start of Item 2 --}}
-                    <hr>
+                    {{-- <hr>
                     <h5>Item 3</h5>
                     <div class="row">
                       <div class="col-md-12">
@@ -221,12 +221,12 @@
                           <input type="number" name="price3" id="price3" class="form-control" placeholder="Unit Price" >
                         </div>
                       </div>
-                    </div>
+                    </div> --}}
                     {{-- End of Item 3 --}}
 
 
                     {{-- Start of Item 4 --}}
-                    <hr>
+                    {{-- <hr>
                     <h5>Item 4</h5>
                     <div class="row">
                       <div class="col-md-12">
@@ -269,12 +269,12 @@
                           <input type="number" name="price4" id="price4" class="form-control" placeholder="Unit Price" >
                         </div>
                       </div>
-                    </div>
+                    </div> --}}
                     {{-- End of Item 4 --}}
 
 
                     {{-- Start of Item 5 --}}
-                    <hr>
+                    {{-- <hr>
                     <h5>Item 5</h5>
                     <div class="row">
                       <div class="col-md-12">
@@ -317,7 +317,7 @@
                           <input type="number" name="price5" id="price5" class="form-control" placeholder="Unit Price" >
                         </div>
                       </div>
-                    </div>
+                    </div> --}}
                     {{-- End of Item 5 --}}
 
 

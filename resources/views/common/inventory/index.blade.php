@@ -35,6 +35,8 @@
         <div class="col-md-12">
           <p>
             <a href="{{ route('item.entry') }}" class="btn btn-primary"><i class="fa fa-plus"></i> Add Entry</a>
+            <a href="{{ route('item.outgoing') }}" class="btn btn-primary"><i class="fa fa-minus"></i> Outgoing Item</a>
+
           </p>
           <!-- TABLE: LATEST ORDERS -->
           <div class="box box-info">

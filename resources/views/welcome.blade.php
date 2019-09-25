@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-    <title>Provincial Veterinary</title>
+    <title>Tarlac Provincial Veterinary</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
@@ -63,6 +63,9 @@
                         <a class="page-scroll" href="#projects">Projects</a>
                     </li>
                     <li>
+                        <a class="page-scroll" href="#public_info">Public Info</a>
+                    </li>
+                    <li>
                         <a class="page-scroll" href="#contact">Contact</a>
                     </li>
                 </ul>
@@ -75,7 +78,7 @@
     <header>
         <div class="header-content">
             <div class="header-content-inner">
-                <h1>Provincial Veterinary</h1>
+                <h1>Tarlac Provincial Veterinary</h1>
                 <hr>
                 <p>
                 
@@ -160,10 +163,10 @@
         </div>
     </section>
 
-    <aside class="bg-dark">
+    <aside id="public_info" class="bg-dark">
         <div class="container text-center">
             <div class="call-to-action">
-                <h2>More About</h2>
+                <h2>Public Information</h2>
                 
             </div>
         </div>

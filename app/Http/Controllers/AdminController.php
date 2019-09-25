@@ -13,8 +13,9 @@ class AdminController extends Controller
     public function dashboard()
     {
     	$count = \App\User::whereActive(1)->count();
+        $items = \App\Item::whereActive(1)->count();
 
-    	return view('common.dashboard', ['count' => $count]);
+    	return view('common.dashboard', ['count' => $count, 'items' => $items]);
     }
 
 

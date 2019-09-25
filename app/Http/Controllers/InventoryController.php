@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Transaction;
 use App\Inventory;
+use Auth;
+
+use App\Http\Controllers\GeneralController;
 
 class InventoryController extends Controller
 {
@@ -13,7 +16,7 @@ class InventoryController extends Controller
      */
     public function index()
     {
-    	return view('employee.inventory.index');
+    	return view('common.inventory.index');
     }
 
 
@@ -26,7 +29,26 @@ class InventoryController extends Controller
     	$suppliers = \App\Supplier::where('active', 1)->get();
     	$units = \App\UnitOfMeasurement::where('active', 1)->get();
 
-    	return view('employee.inventory.entry', ['suppliers' => $suppliers, 'units' => $units, 'items' => $items]);
+    	return view('common.inventory.entry', ['suppliers' => $suppliers, 'units' => $units, 'items' => $items]);
+    }
+
+
+
+    /**
+     * Outgoing Item
+     */
+    public function outgoingItem()
+    {
+        // items
+        // customers
+        // farms
+        // units
+        $items = \App\Inventory::get();
+        $units = \App\UnitOfMeasurement::where('active', 1)->get();
+        $customers = \App\Customer::where('active', 1)->get();
+        $farms = \App\Farm::where('active', 1)->get();
+
+        return view('common.inventory.outgoing', ['customers' => $customers, 'farms' => $farms, 'units' => $units, 'items' => $items]);
     }
 
 
@@ -237,6 +259,16 @@ class InventoryController extends Controller
 
         }
 
+
+        if(Auth::user()->user_type == 1) {
+            $details = 'Admin Added Item Entry';
+        }
+        else {
+            $details = 'Employee Added Item Entry';
+        }
+
+        GeneralController::log($details);
+
         return redirect()->route('item.entry')->with('success', 'Entry Save!');
 
     }
@@ -246,6 +278,158 @@ class InventoryController extends Controller
      * STORE 
      * TRANSACTION TYPE 2
      */
+    public function storeOugoingItem(Request $request)
+    {
+        $request->validate([
+            'customer' => 'required',
+            'reference_number' => 'required',
+            'item1' => 'required',
+            'quantity1' => 'required',
+            'price1' => 'required',
+        ]);
+
+
+        $customer = $request['customer'];
+        $reference_number = $request['reference_number'];
+
+        $item1 = $request['item1'];
+        $quantity1 = $request['quantity1'];
+        $price1 = $request['price1'];
+
+        // $item2 = $request['item2'];
+        // $quantity2 = $request['quantity2'];
+        // $price2 = $request['price2'];
+
+        // $item3 = $request['item3'];
+        // $quantity2 = $request['quantity3'];
+        // $price3 = $request['price3'];
+
+        // $item4 = $request['item4'];
+        // $quantity4 = $request['quantity4'];
+        // $price4 = $request['price4'];
+
+        // $item5 = $request['item5'];
+        // $quantity5 = $request['quantity5'];
+        // $price5 = $request['price5'];
+
+
+
+        // Item 1
+        $item1 = Inventory::findorfail($this->decryptString($item1));
+
+        if(!empty($item1)) {
+
+            if($item1->quantity > $quantity1) {
+                $item1->quantity -= $quantity1;
+                $item1->save();
+
+                // Add Transaction
+                $t1 = new Transaction();
+                $t1->transaction_type = 2;
+                $t1->customer_id = $this->decryptString($customer);
+                $t1->item_id = $item1->item->item_id;
+                $t1->quantity = $quantity1;
+                $t1->unit_of_measurement_id = $item1->unit->unit_of_measurement_id;
+                $t1->price = $price1;
+                $t1->save();
+
+                if(Auth::user()->user_type == 1) {
+                    $details = 'Admin Added Item Entry';
+                }
+                else {
+                    $details = 'Employee Added Item Entry';
+                }
+
+                GeneralController::log($details);
+
+                return redirect()->route('item.outgoing')->with('success', 'Outgoing Item Saved!');            
+            }
+
+            return redirect()->route('item.outgoing')->with('error', 'Quantity Insuficient!');
+
+        }
+
+
+        // // item 2 (optional)
+        // if($item2 != NULL) {
+        //     $item2 = Inventory::findorfail($this->decryptString($item2));
+
+        //     if(!empty($item2)) {
+        //         $item2->quantity -= $quantity2;
+        //         // $item2->save();
+
+        //         // Add Transaction
+        //         $t2 = new Transaction();
+        //         $t2->transaction_type = 2;
+        //         $t2->customer_id = $this->decryptString($customer);
+        //         $t2->item_id = $item2->item->item_id;
+        //         $t2->quantity = $quantity2;
+        //         $t2->unit_of_measurement_id = $item2->unit->unit_of_measurement_id;
+        //         // $t2->save();
+        //     }
+
+        // }
+        
+        // // item 3 (optional)
+        // if($item3 != NULL) {
+        //     $item3 = Inventory::findorfail($this->decryptString($item3));
+
+        //     if(!empty($item3)) {
+        //         $item3->quantity -= $quantity3;
+        //         // $item3->save();
+
+        //         // Add Transaction
+        //         $t3 = new Transaction();
+        //         $t3->transaction_type = 2;
+        //         $t3->customer_id = $this->decryptString($customer);
+        //         $t3->item_id = $item3->item->item_id;
+        //         $t3->quantity = $quantity3;
+        //         $t3->unit_of_measurement_id = $item3->unit->unit_of_measurement_id;
+        //         // $t3->save();
+        //     }
+
+        // }
+
+        // // item 4 (optional)
+        // if($item4 != NULL) {
+        //     $item4 = Inventory::findorfail($this->decryptString($item4));
+
+        //     if(!empty($item4)) {
+        //         $item4->quantity -= $quantity4;
+        //         // $item4->save();
+
+        //         // Add Transaction
+        //         $t4 = new Transaction();
+        //         $t4->transaction_type = 2;
+        //         $t4->customer_id = $this->decryptString($customer);
+        //         $t4->item_id = $item4->item->item_id;
+        //         $t4->quantity = $quantity4;
+        //         $t4->unit_of_measurement_id = $item2->unit->unit_of_measurement_id;
+        //         // $t4->save();
+        //     }
+
+        // }
+
+        // // item 5 (optional)
+        // if($item5 != NULL) {
+        //     $item5 = Inventory::findorfail($this->decryptString($item5));
+
+        //     if(!empty($item5)) {
+        //         $item5->quantity -= $quantity5;
+
+        //         // Add Transaction
+        //         $t5 = new Transaction();
+        //         $t5->transaction_type = 2;
+        //         $t5->customer_id = $this->decryptString($customer);
+        //         $t5->item_id = $item5->item->item_id;
+        //         $t5->quantity = $quantity5;
+        //         $t5->unit_of_measurement_id = $item5->unit->unit_of_measurement_id;
+        //     }
+        // }
+
+
+
+    }
 
 
     /**
