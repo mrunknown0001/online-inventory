@@ -12,11 +12,11 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Specy Mamangement
+        Species Mamangement
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-circle-o"></i> Home</a></li>
-        <li class="active">Specy Management</li>
+        <li class="active">Species Management</li>
       </ol>
     </section>
 
@@ -34,7 +34,7 @@
       <div class="row">
         <div class="col-md-12">
           <p>
-            
+            <a href="{{ route('add.species') }}" class="btn btn-primary"><i></i> Add Species</a>
           </p>
           <!-- TABLE: LATEST ORDERS -->
           <div class="box box-info">

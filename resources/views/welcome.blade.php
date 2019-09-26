@@ -123,15 +123,15 @@
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
-                        <i class="fa fa-4x fa-flash wow bounceIn text-warning" data-wow-delay=".1s"></i>
-                        <h3>Fast</h3>
+                        <i class="fa fa-4x fa-list wow bounceIn text-warning" data-wow-delay=".1s"></i>
+                        <h3>Inventory</h3>
                         <p class="text-muted"></p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
                         <i class="fa fa-4x fa-newspaper-o wow bounceIn text-warning" data-wow-delay=".2s"></i>
-                        <h3>Up to Date</h3>
+                        <h3>News</h3>
                         <p class="text-muted"></p>
                     </div>
                 </div>

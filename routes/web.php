@@ -151,6 +151,12 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'prevent-back-histo
 	// Species
 	Route::get('/species', 'SpecyController@index')->name('species');
 
+	// Add Species
+	Route::get('/species/add', 'SpecyController@addSpecies')->name('add.species');
+
+	// Store Species
+	Route::post('/species/add', 'SpecyController@storeSpecies')->name('store.species');
+
 
 	// All Species
 	Route::get('/all/species', 'SpecyController@all')->name('all.species');

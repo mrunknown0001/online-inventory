@@ -17,6 +17,16 @@ class SpecyController extends Controller
 
 
     /**
+     * Add Species
+     */
+    public function addSpecies()
+    {
+        return view('admin.specy.add-edit');
+    }
+
+
+
+    /**
      * all species
      */
     public function all()
