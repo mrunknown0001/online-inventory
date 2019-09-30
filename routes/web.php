@@ -25,6 +25,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'prevent-back-histo
 	// Admin Login
 	Route::get('/dashboard', 'AdminController@dashboard')->name('admin.dashboard');
 
+
+	// Latest Transaction
+	Route::get('/latest/transactions', 'AdminController@latestTransactions')->name('latest.transactions');
+
 	// User Management
 	Route::get('/users', 'UserController@index')->name('users');
 

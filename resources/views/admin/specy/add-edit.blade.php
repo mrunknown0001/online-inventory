@@ -38,7 +38,7 @@
       <div class="row">
         <div class="col-md-12">
           <p>
-            <a href="{{ route('species') }}" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Back to Items</a>
+            <a href="{{ route('species') }}" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Back to Species</a>
           </p>
           <!-- TABLE: LATEST ORDERS -->
           <div class="box box-info">
@@ -61,16 +61,16 @@
                     @csrf
                     <input type="hidden" name="id" value="{{ $id != NULL ? encrypt($id) : NULL }}">
                     <div class="form-group">
-                      <label for="item">Item Name</label>
-                      <input type="text" name="item" id="item"  value="{{ $item != NULL ? $item->item_name : NULL }}" class="form-control" placeholder="Item Name" required>
+                      <label for="species">Species Name</label>
+                      <input type="text" name="species" id="species"  value="{{ $species != NULL ? $species->name : NULL }}" class="form-control" placeholder="Species Name" required>
                     </div>
                     <div class="form-group">
-                      <label for="code">Item Code</label>
-                      <input type="text" name="code" id="code" value="{{ $item != NULL ? $item->code : NULL }}" class="form-control" placeholder="Item Code" required>
+                      <label for="description">Species Description</label>
+                      <input type="text" name="description" id="description" value="{{ $species != NULL ? $species->description : NULL }}" class="form-control" placeholder="Description" required>
                     </div>
                     <div class="form-group">
-                      <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> {{ $id != NULL ? 'Update' : 'Add' }} Item</button>
-                      <a href="{{ route('items') }}" class="btn btn-danger"><i class="fa fa-ban"></i> Cancel</a>
+                      <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> {{ $id != NULL ? 'Update' : 'Add' }} Species</button>
+                      <a href="{{ route('species') }}" class="btn btn-danger"><i class="fa fa-ban"></i> Cancel</a>
                     </div>
                   </form>
                 </div>

@@ -87,7 +87,7 @@
             <!-- /.box-header -->
             <div class="box-body">
               <div class="table-responsive">
-                <table class="table no-margin">
+                <table id="transactions" class="table table-striped table-bordered" style="width: 99%">
                   <thead>
                   <tr>
                     <th>Transactions</th>
@@ -128,5 +128,40 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+
+<script>
+  // Data Tables Load All
+  $(document).ready(function() {
+    $('#transactions').DataTable({
+        ajax: { 
+          url: "{{ route('latest.transactions') }}",
+          dataSrc: ""
+        },
+        columns: [
+          { data: 'transactions' },
+          { data: 'details' },
+          { data: 'date_time' },
+        ]
+     });
+  });
+
+
+  // reload databable 
+  function reloadDatatables() {
+    var table = $('#transactions').DataTable();
+    table.ajax.reload();
+
+    Swal.fire({
+      title: 'Record Reloaded',
+      text: "",
+      type: 'info',
+      showCancelButton: false,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'ok'
+    });
+  }
+ 
+</script>
 @endsection
 
