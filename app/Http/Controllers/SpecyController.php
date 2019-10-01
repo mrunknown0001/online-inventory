@@ -75,7 +75,7 @@ class SpecyController extends Controller
                 $data[] = [
                     'specy' => $s->name,
                     'details' => $s->description,
-                    'action' => "<button class='btn btn-primary btn-xs'><i class='fa fa-eye'></i> View</button>",
+                    'action' => '<button class="btn btn-primary btn-xs" id="view" data-id="' . encrypt($s->specy_id) . '"><i class="fa fa-eye"></i> View</button>',
                 ];
             }
         }
