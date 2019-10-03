@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title') Add Animal @endsection
+@section('title') Add Breed @endsection
 
 @section('style')
   <link rel="stylesheet" href="{{ asset('css/bootstrap-select.css') }}">
@@ -16,11 +16,11 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        {{ $id != NULL ? 'Update' : 'Add' }} Animal
+        {{ $id != NULL ? 'Update' : 'Add' }} Breed
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-circle-o"></i> Home</a></li>
-        <li class="active">Animal</li>
+        <li class="active">Breed</li>
       </ol>
     </section>
 
@@ -38,12 +38,12 @@
       <div class="row">
         <div class="col-md-12">
           <p>
-            <a href="{{ route('animals') }}" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Back to Animals</a>
+            <a href="{{ route('breeds') }}" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Back to Breeds</a>
           </p>
           <!-- TABLE: LATEST ORDERS -->
           <div class="box box-info">
             <div class="box-header with-border">
-              <h3 class="box-title">Fill Animal Details</h3>
+              <h3 class="box-title">Fill Breed Details</h3>
 
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -57,29 +57,29 @@
                   @include('includes.success')
                   @include('includes.error')
                   @include('includes.errors')
-                  <form action="{{ route('store.animal') }}" method="POST" autocomplete="off">
+                  <form action="{{ route('store.breed') }}" method="POST" autocomplete="off">
                     @csrf
                     <input type="hidden" name="id" value="{{ $id != NULL ? encrypt($id) : NULL }}">
                     <div class="form-group">
-                      <label for="species">Species</label>
-                      <select name="species" id="species" class="form-control selectpicker" data-show-subtext="true" data-live-search="true" required>
-                        @if(count($species) > 0)
-                          <option value="">Select Species...</option>
-                          @foreach($species as $s)
-                            <option value="{{ encrypt($s->specy_id) }}">{{ $s->name }}</option>
+                      <label for="animal">Animal</label>
+                      <select name="animal" id="animal" class="form-control selectpicker" data-show-subtext="true" data-live-search="true" required>
+                        @if(count($animals) > 0)
+                          <option value="">Select Animal...</option>
+                          @foreach($animals as $a)
+                            <option value="{{ encrypt($a->animal_id) }}">{{ $a->name }}</option>
                           @endforeach
                         @else
-                          <option value="">No Species</option>
+                          <option value="">No Animals</option>
                         @endif
                       </select>
                     </div>
                     <div class="form-group">
-                      <label for="animal">Animal Name</label>
-                      <input type="text" name="animal" id="animal"  value="{{ $animal != NULL ? $animal->name : NULL }}" class="form-control" placeholder="Name Name" required>
+                      <label for="breed">Breed</label>
+                      <input type="text" name="breed" id="breed"  value="{{ $breed != NULL ? $breed->name : NULL }}" class="form-control" placeholder="Breed Name" required>
                     </div>
                     <div class="form-group">
-                      <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> {{ $id != NULL ? 'Update' : 'Add' }} Animal</button>
-                      <a href="{{ route('animals') }}" class="btn btn-danger"><i class="fa fa-ban"></i> Cancel</a>
+                      <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> {{ $id != NULL ? 'Update' : 'Add' }} Breed</button>
+                      <a href="{{ route('breeds') }}" class="btn btn-danger"><i class="fa fa-ban"></i> Cancel</a>
                     </div>
                   </form>
                 </div>

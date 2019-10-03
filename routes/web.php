@@ -186,6 +186,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'prevent-back-histo
 	// Add Breed
 	Route::get('/breed/add', 'BreedController@addBreed')->name('add.breed');
 
+	// Store Breed
+	Route::post('/breed/add', 'BreedController@storeBreed')->name('store.breed');
+
 	// Unit of Measurement
 	Route::get('/unit-of-measurements', 'UnitOfMeasurementController@index')->name('unit.of.measurements');
 

@@ -34,7 +34,7 @@
       <div class="row">
         <div class="col-md-12">
           <p>
-            
+            <a href="{{ route('add.breed') }}" class="btn btn-primary"><i class="fa fa-plus"></i> Add Breed</a>
           </p>
           <!-- TABLE: LATEST ORDERS -->
           <div class="box box-info">
