@@ -1,9 +1,13 @@
 @extends('layouts.app')
 
-@section('title') Add Species @endsection
+@section('title') Add Animal @endsection
 
 @section('style')
   <link rel="stylesheet" href="{{ asset('css/bootstrap-select.css') }}">
+@endsection
+
+@section('script')
+  <script src="{{ asset('js/bootstrap-select.js') }}"></script>
 @endsection
 
 @section('content')
@@ -12,11 +16,11 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        {{ $id != NULL ? 'Update' : 'Add' }} Species
+        {{ $id != NULL ? 'Update' : 'Add' }} Animal
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-circle-o"></i> Home</a></li>
-        <li class="active">Species</li>
+        <li class="active">Animal</li>
       </ol>
     </section>
 
@@ -34,7 +38,7 @@
       <div class="row">
         <div class="col-md-12">
           <p>
-            <a href="{{ route('species') }}" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Back to Species</a>
+            <a href="{{ route('animals') }}" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Back to Animals</a>
           </p>
           <!-- TABLE: LATEST ORDERS -->
           <div class="box box-info">
@@ -53,20 +57,29 @@
                   @include('includes.success')
                   @include('includes.error')
                   @include('includes.errors')
-                  <form action="{{ route('store.species') }}" method="POST" autocomplete="off">
+                  <form action="{{ route('store.animal') }}" method="POST" autocomplete="off">
                     @csrf
                     <input type="hidden" name="id" value="{{ $id != NULL ? encrypt($id) : NULL }}">
                     <div class="form-group">
-                      <label for="species">Species Name</label>
-                      <input type="text" name="species" id="species"  value="{{ $species != NULL ? $species->name : NULL }}" class="form-control" placeholder="Species Name" required>
+                      <label for="species">Species</label>
+                      <select name="species" id="species" class="form-control selectpicker" data-show-subtext="true" data-live-search="true" required>
+                        @if(count($species) > 0)
+                          <option value="">Select Species...</option>
+                          @foreach($species as $s)
+                            <option value="{{ encrypt($s->specy_id) }}">{{ $s->name }}</option>
+                          @endforeach
+                        @else
+                          <option value="">No Species</option>
+                        @endif
+                      </select>
                     </div>
                     <div class="form-group">
-                      <label for="description">Species Description</label>
-                      <input type="text" name="description" id="description" value="{{ $species != NULL ? $species->description : NULL }}" class="form-control" placeholder="Description" required>
+                      <label for="animal">Animal Name</label>
+                      <input type="text" name="animal" id="animal"  value="{{ $animal != NULL ? $animal->name : NULL }}" class="form-control" placeholder="Name Name" required>
                     </div>
                     <div class="form-group">
-                      <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> {{ $id != NULL ? 'Update' : 'Add' }} Species</button>
-                      <a href="{{ route('species') }}" class="btn btn-danger"><i class="fa fa-ban"></i> Cancel</a>
+                      <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> {{ $id != NULL ? 'Update' : 'Add' }} Animal</button>
+                      <a href="{{ route('animals') }}" class="btn btn-danger"><i class="fa fa-ban"></i> Cancel</a>
                     </div>
                   </form>
                 </div>

@@ -168,6 +168,12 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'prevent-back-histo
 	// Animals
 	Route::get('/animals', 'AnimalController@index')->name('animals');
 
+	// Add new Animal
+	Route::get('/animal/add', 'AnimalController@addAnimal')->name('add.animal');
+
+	// Store Animal
+	Route::post('/animal/add', 'AnimalController@storeAnimal')->name('store.animal');
+
 	// All Animals
 	Route::get('/all/animals', 'AnimalController@all')->name('all.animals');
 
@@ -176,6 +182,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'prevent-back-histo
 
 	// All Breeds
 	Route::get('/all/breeds', 'BreedController@all')->name('all.breeds');
+
+	// Add Breed
+	Route::get('/breed/add', 'BreedController@addBreed')->name('add.breed');
 
 	// Unit of Measurement
 	Route::get('/unit-of-measurements', 'UnitOfMeasurementController@index')->name('unit.of.measurements');

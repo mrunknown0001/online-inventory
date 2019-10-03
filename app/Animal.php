@@ -11,6 +11,11 @@ class Animal extends Model
      */
     protected $primaryKey = 'animal_id';
 
+    public function species()
+    {
+    	return $this->belongsTo('App\Specy', 'specy_id');
+    }
+
 
     public function breeds()
     {
