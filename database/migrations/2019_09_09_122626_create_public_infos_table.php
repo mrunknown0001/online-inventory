@@ -17,6 +17,7 @@ class CreatePublicInfosTable extends Migration
             $table->bigIncrements('public_info_id');
             $table->string('title', 255)->nullable();
             $table->text('content')->nullable();
+            $table->timestamp('schedule')->nullable();
             $table->boolean('active')->default(1);
             $table->timestamps();
         });

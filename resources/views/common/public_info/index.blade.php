@@ -34,7 +34,7 @@
       <div class="row">
         <div class="col-md-12">
           <p>
-            
+            <a href="" class="btn btn-primary"><i class="fa fa-plus"></i> Add Public Info</a>
           </p>
           <!-- TABLE: LATEST ORDERS -->
           <div class="box box-info">
@@ -56,6 +56,7 @@
                       <th>Information</th>
                       <th>Details</th>
                       <th>Date &amp; Time</th>
+                      <th>Action</th>
                     </tr>
                   </thead>
                 </table>
@@ -121,6 +122,7 @@
           { data: 'info' },
           { data: 'details' },
           { data: 'date_time' },
+          { data: 'action' },
         ]
      });
   });

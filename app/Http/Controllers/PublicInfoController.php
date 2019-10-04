@@ -23,6 +23,7 @@ class PublicInfoController extends Controller
     	$data = [
     		'info' => NULL,
     		'details' => NULL,
+            'date_time' => NULL,
     		'action' => NULL,
     	];
 
