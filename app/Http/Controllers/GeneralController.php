@@ -23,8 +23,11 @@ class GeneralController extends Controller
     		}
     	} 
 
+        // get latest 10 images in activities
+        $images = \App\PreviousActivity::orderBy('created_at', 'desc')->take(10)->get();
 
-    	return view('welcome');
+
+    	return view('welcome', ['images' => $images]);
     }
 
 

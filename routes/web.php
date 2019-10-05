@@ -276,6 +276,9 @@ Route::group(['middleware' => 'auth'], function () {
 	// Add Image in Preivious Activities
 	Route::get('/previous/activity/add', 'PublicInfoController@addPreviousActivityImage')->name('add.previous.activity.image');
 
+	// store image
+	Route::post('/previous/activity/add', 'PublicInfoController@postAddPreviousActivityImage')->name('post.add.previous.activity.image');
+
 
 	// Preivous Activities Images
 	Route::get('/all/previous/activities', 'PublicInfoController@allPreviousActivities')->name('all.previous.activities');

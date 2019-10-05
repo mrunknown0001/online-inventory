@@ -54,12 +54,12 @@
                   @include('includes.success')
                   @include('includes.error')
                   @include('includes.errors')
-                  <form action="" method="POST" autocomplete="off">
+                  <form action="{{ route('post.add.previous.activity.image') }}" method="POST" autocomplete="off" enctype="multipart/form-data">
                     @csrf
                     <input type="hidden" name="id" value="{{ $id != NULL ? encrypt($id) : NULL }}">
                     <div class="form-group">
                       <label for="image">Image</label>
-                      <input type="file" name="image" id="image" class="" placeholder="Image" required>
+                      <input type="file" name="image" id="image" class="" placeholder="Image" accept="image/x-png,image/gif,image/jpeg" required>
                     </div>
                     <div class="form-group">
                       <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> {{ $id != NULL ? 'Update' : 'Add' }} Image</button>

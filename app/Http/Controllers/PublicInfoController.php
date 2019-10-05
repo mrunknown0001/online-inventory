@@ -67,6 +67,33 @@ class PublicInfoController extends Controller
 
 
     /**
+     * store image
+     */
+    public function postAddPreviousActivityImage(Request $request)
+    {
+        $request->validate([
+            'image' => 'required',
+        ]);
+
+        $image = $request['image'];
+
+        $imageName = date('m-d-Y h-i-s-u', strtotime(now())) . '.' . $image->getClientOriginalExtension();
+
+        $success = $image->move(public_path('uploads/img'), $imageName);
+
+
+        $new = new \App\PreviousActivity();
+        $new->image = $imageName;
+
+        if($new->save()) {
+            return redirect()->route('add.previous.activity.image')->with('success', 'Image Uploaded!');
+        }
+
+
+    }
+
+
+    /**
      * All Images in preivous activities
      */
     public function allPreviousActivities()
@@ -77,6 +104,20 @@ class PublicInfoController extends Controller
             'action' => NULL,
         ];
 
+
+        $previousActivities = \App\PreviousActivity::get();
+
+        if(count($previousActivities) > 0) {
+            $data = NULL;
+
+            foreach($previousActivities as $p) {
+                $data[] = [
+                    'image' => $p->image,
+                    'uploaded' => $p->created_at,
+                    'action' => "<button class='btn btn-primary btn-xs'><i class='fa fa-eye'></i> View</button>",
+                ];
+            }
+        }
 
         return $data;
     }   
