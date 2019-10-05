@@ -16,6 +16,15 @@ class PublicInfoController extends Controller
 
 
     /**
+     * add public information
+     */
+    public function addPublicInfo()
+    {
+        return view('common.public_info.add-edit', ['id' => NULL, 'info' => NULL]);
+    }
+
+
+    /**
      * all public information
      */
     public function all()
@@ -29,4 +38,46 @@ class PublicInfoController extends Controller
 
     	return $data;
     }
+
+
+
+
+
+
+
+
+
+    /**
+     * Previous Activities
+     */
+    public function previousActivities()
+    {
+        return view('common.public_info.activities');
+    }
+
+
+
+    /**
+     * addPreviousActivityImage
+     */
+    public function addPreviousActivityImage()
+    {
+        return view('common.public_info.add-image', ['id' => NULL, 'image' => NULL]);
+    }
+
+
+    /**
+     * All Images in preivous activities
+     */
+    public function allPreviousActivities()
+    {
+        $data = [
+            'image' => NULL,
+            'uploaded' => NULL,
+            'action' => NULL,
+        ];
+
+
+        return $data;
+    }   
 }

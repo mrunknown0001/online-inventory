@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title') Public Information @endsection
+@section('title') Previous Activities @endsection
 
 @section('script')
   <script src="{{ asset('js/sweetalert.js') }}"></script>
@@ -12,7 +12,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Public Information
+        Previous Activities
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-info"></i> Home</a></li>
@@ -34,13 +34,13 @@
       <div class="row">
         <div class="col-md-12">
           <p>
-            <a href="{{ route('add.public.info') }}" class="btn btn-primary"><i class="fa fa-plus"></i> Add Public Info</a>
-            <a href="{{ route('previous.activities') }}" class="btn btn-primary"><i class="fa fa-arrow-right"></i> Previous Activities</a>
+            <a href="{{ route('public.info') }}" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Back to Public Information</a>
+            <a href="{{ route('add.previous.activity.image') }}" class="btn btn-primary"><i class="fa fa-plus"></i> Add Image</a>
           </p>
           <!-- TABLE: LATEST ORDERS -->
           <div class="box box-info">
             <div class="box-header with-border">
-              <h3 class="box-title">Public Information</h3>
+              <h3 class="box-title">Previous Activities</h3>
 
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -51,12 +51,11 @@
             <!-- /.box-header -->
             <div class="box-body">
               <div class="table-responsive">
-                <table id="info" class="table table-striped table-bordered" style="width: 99%">
+                <table id="activities" class="table table-striped table-bordered" style="width: 99%">
                   <thead>
                     <tr>
-                      <th>Information</th>
-                      <th>Details</th>
-                      <th>Date &amp; Time</th>
+                      <th>Image</th>
+                      <th>Date &amp; Time Uploaded</th>
                       <th>Action</th>
                     </tr>
                   </thead>
@@ -114,15 +113,14 @@
 
   // Data Tables Load All
   $(document).ready(function() {
-    $('#info').DataTable({
+    $('#activities').DataTable({
         ajax: { 
-          url: "{{ route('all.public.info') }}",
+          url: "{{ route('all.previous.activities') }}",
           dataSrc: ""
         },
         columns: [
-          { data: 'info' },
-          { data: 'details' },
-          { data: 'date_time' },
+          { data: 'image' },
+          { data: 'uploaded' },
           { data: 'action' },
         ]
      });
@@ -131,7 +129,7 @@
 
   // reload databable 
   function reloadDatatables() {
-    var table = $('#info').DataTable();
+    var table = $('#activities').DataTable();
     table.ajax.reload();
 
     Swal.fire({

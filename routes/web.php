@@ -267,4 +267,17 @@ Route::group(['middleware' => 'auth'], function () {
 	// All public info
 	Route::get('/all/public/information', 'PublicInfoController@all')->name('all.public.info');
 
+
+
+	// Previous Activities
+	Route::get('/previous/activities', 'PublicInfoController@previousActivities')->name('previous.activities');
+
+
+	// Add Image in Preivious Activities
+	Route::get('/previous/activity/add', 'PublicInfoController@addPreviousActivityImage')->name('add.previous.activity.image');
+
+
+	// Preivous Activities Images
+	Route::get('/all/previous/activities', 'PublicInfoController@allPreviousActivities')->name('all.previous.activities');
+
 });
