@@ -25,16 +25,60 @@ class PublicInfoController extends Controller
 
 
     /**
+     * postAddPublicInfo
+     */
+    public function postAddPublicInfo(Request $request)
+    {
+        $request->validate([
+            'title' => 'required',
+            'details' => 'required',
+            'date' => 'required',
+            'time' => 'required',
+        ]);
+
+        $title = $request['title'];
+        $details = $request['details'];
+        $date = $request['date'];
+        $time = $request['time'];
+
+        // save
+        $new = new \App\PublicInfo();
+        $new->title = $title;
+        $new->details = $details;
+        $new->date = date('Y-m-d', strtotime($date));
+        $new->time = $time;
+
+        if($new->save()) {
+            return redirect()->route('add.public.info')->with('success', 'Public Info Saved!');
+        }
+    }
+
+
+    /**
      * all public information
      */
     public function all()
     {
     	$data = [
     		'info' => NULL,
-    		'details' => NULL,
             'date_time' => NULL,
     		'action' => NULL,
     	];
+
+        $info = \App\PublicInfo::where('active', 1)->get();
+
+        if(count($info) > 0) {
+            $data = NULL;
+
+            foreach($info as $i) {
+                $data[] = [
+                    'info' => $i->title,
+                    'details' => $i->details,
+                    'date_time' => $i->date . ' ' . $i->time,
+                    'action' => "<button class='btn btn-primary btn-xs'><i class='fa fa-eye'></i> View</button>"
+                ];
+            }
+        }
 
     	return $data;
     }

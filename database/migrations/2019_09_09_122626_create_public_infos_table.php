@@ -16,8 +16,9 @@ class CreatePublicInfosTable extends Migration
         Schema::create('public_infos', function (Blueprint $table) {
             $table->bigIncrements('public_info_id');
             $table->string('title', 255)->nullable();
-            $table->text('content')->nullable();
-            $table->timestamp('schedule')->nullable();
+            $table->text('details')->nullable();
+            $table->date('date')->nullable();
+            $table->string('time', 10)->nullable();
             $table->boolean('active')->default(1);
             $table->timestamps();
         });

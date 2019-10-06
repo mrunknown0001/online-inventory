@@ -264,6 +264,10 @@ Route::group(['middleware' => 'auth'], function () {
 	// Add public information
 	Route::get('/public/information/add', 'PublicInfoController@addPublicInfo')->name('add.public.info');
 
+
+	// store public information
+	Route::post('/public/information/add', 'PublicInfoController@postAddPublicInfo')->name('post.add.public.info');
+
 	// All public info
 	Route::get('/all/public/information', 'PublicInfoController@all')->name('all.public.info');
 

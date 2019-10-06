@@ -55,7 +55,6 @@
                   <thead>
                     <tr>
                       <th>Information</th>
-                      <th>Details</th>
                       <th>Date &amp; Time</th>
                       <th>Action</th>
                     </tr>
@@ -121,7 +120,6 @@
         },
         columns: [
           { data: 'info' },
-          { data: 'details' },
           { data: 'date_time' },
           { data: 'action' },
         ]

@@ -53,7 +53,7 @@
                   @include('includes.success')
                   @include('includes.error')
                   @include('includes.errors')
-                  <form action="" method="POST" autocomplete="off">
+                  <form action="{{ route('post.add.public.info') }}" method="POST" autocomplete="off">
                     @csrf
                     <input type="hidden" name="id" value="{{ $id != NULL ? encrypt($id) : NULL }}">
                     <div class="form-group">
@@ -62,7 +62,19 @@
                     </div>
                     <div class="form-group">
                       <label for="details">Details</label>
-                      <input type="text" name="details" id="details"  value="{{ $info != NULL ? $info->details : NULL }}" class="form-control" placeholder="Details" required>
+                      <textarea name="details" id="details" class="form-control" required="" placeholder="Details">{{ $info != NULL ? $info->details : '' }}</textarea>
+                    </div>
+                    <div class="form-group">
+                      <label for="schedule">Schedule</label>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <input type="date" name="date" id="date" class="form-control" required>
+                        </div>
+                      </div>
+                        <div class="col-md-6">
+                          <input type="time" name="time" id="time" class="form-control" required>
+                        </div>
+                      </div>
                     </div>
                     <div class="form-group">
                       <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> {{ $id != NULL ? 'Update' : 'Add' }} Public Info</button>

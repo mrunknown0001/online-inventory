@@ -56,12 +56,12 @@
                     <li>
                         <a class="page-scroll" href="#about">About</a>
                     </li>
-                    <li>
+                    {{-- <li>
                         <a class="page-scroll" href="#services">Services</a>
-                    </li>
-                    <li>
+                    </li> --}}
+                    {{-- <li>
                         <a class="page-scroll" href="#projects">Projects</a>
-                    </li>
+                    </li> --}}
                     <li>
                         <a class="page-scroll" href="#public_info">Public Info</a>
                     </li>
@@ -103,7 +103,7 @@
         </div>
     </section>
 
-    <section id="services">
+    {{-- <section id="services">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -144,9 +144,9 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
-    <section class="no-padding" id="projects">
+    {{-- <section class="no-padding" id="projects">
         <div class="container-fluid">
             <div class="row">
                 <h2 class="text-center">Projects</h2>
@@ -161,7 +161,7 @@
             </div>
             <hr/>
         </div>
-    </section>
+    </section> --}}
 
     <aside id="public_info" class="bg-dark">
         <div class="container text-center">
