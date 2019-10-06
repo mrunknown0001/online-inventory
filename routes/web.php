@@ -26,6 +26,21 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'prevent-back-histo
 	Route::get('/dashboard', 'AdminController@dashboard')->name('admin.dashboard');
 
 
+	// Admin Profile
+	Route::get('/profile', 'AdminController@profile')->name('admin.profile');
+
+
+	// Admin change password
+	Route::get('/change/password', 'AdminController@changePassword')->name('admin.change.password');
+
+
+	// admin save change password
+	Route::post('/change/password', 'AdminController@postChangePassword')->name('post.admin.change.password');
+
+
+	// Admin update
+
+
 	// Latest Transaction
 	Route::get('/latest/transactions', 'AdminController@latestTransactions')->name('latest.transactions');
 

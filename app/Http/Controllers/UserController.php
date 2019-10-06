@@ -20,6 +20,7 @@ class UserController extends Controller
 
 
 
+
     /**
      *  View User Method
      */

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\AuditTrail;
+use Auth;
 
 class AdminController extends Controller
 {
@@ -16,6 +17,49 @@ class AdminController extends Controller
         $items = \App\Item::whereActive(1)->count();
 
     	return view('common.dashboard', ['count' => $count, 'items' => $items]);
+    }
+
+
+
+    /**
+     * Admin Profile
+     */
+    public function profile()
+    {
+        return view('admin.profile');
+    }
+
+
+
+    /**
+     * Change password
+     */
+    public function changePassword()
+    {
+        return view('admin.change-pass');
+    }
+
+
+
+    /**
+     * postChangePassword method
+     */
+    public function postChangePassword(Request $request)
+    {
+        $request->validate([
+            'old_password' => 'required',
+            'password' => 'required|confirmed',
+        ]);
+
+
+        $old_password = $request['old_password'];
+        $new_password = $request['password'];
+
+        // update 
+
+
+        // save
+
     }
 
 
