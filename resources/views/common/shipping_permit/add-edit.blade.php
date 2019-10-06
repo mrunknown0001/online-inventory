@@ -60,12 +60,16 @@
                   <form action="{{ route('post.add.shipping.permit') }}" method="POST" autocomplete="off">
                     @csrf
                     <input type="hidden" name="id" value="{{ $id != NULL ? encrypt($id) : NULL }}">
-                    {{-- <div class="form-group">
+                    <div class="form-group">
                       <label for="origin">Origin</label>
                       <select name="origin" id="origin" class="form-control selectpicker" data-show-subtext="true" data-live-search="true" required>
-                        
+                        @if(count($suppliers) > 0)
+                          @foreach($suppliers as $s)
+                            <option value="{{ encrypt($s->supplier_id) }}">{{ $s->supplier_name }}</option>
+                          @endforeach                        
+                        @endif
                       </select>
-                    </div> --}}
+                    </div>
                     <div class="form-group">
                       <label for="destination">Destination</label>
                       <select name="destination" id="destination" class="form-control selectpicker" data-show-subtext="true" data-live-search="true" required>

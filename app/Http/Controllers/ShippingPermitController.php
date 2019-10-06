@@ -23,8 +23,10 @@ class ShippingPermitController extends Controller
 
         $farms = \App\Farm::where('active', 1)->get();
 
+        $suppliers = \App\Supplier::where('active', 1)->get();
 
-        return view('common.shipping_permit.add-edit', ['id' => NULL, 'farms' => $farms]);
+
+        return view('common.shipping_permit.add-edit', ['id' => NULL, 'farms' => $farms, 'suppliers' => $suppliers]);
     }
 
 
