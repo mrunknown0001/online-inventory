@@ -134,6 +134,12 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'prevent-back-histo
 	// Farms
 	Route::get('/farms', 'FarmController@index')->name('farms');
 
+	// Add farm
+	Route::get('/farm/add', 'FarmController@addFarm')->name('add.farm');
+
+	// store farm
+	Route::post('/farm/add', 'FarmController@postAddFarm')->name('store.farm');
+
 	// All Farms
 	Route::get('/all/farms', 'FarmController@all')->name('all.farms');
 
@@ -253,6 +259,12 @@ Route::group(['middleware' => 'auth'], function () {
 
 	// Shipping Permit
 	Route::get('/shipping-permit', 'ShippingPermitController@index')->name('shipping.permits');
+
+	// Add shipping Permit
+	Route::get('/shipping-permit/add', 'ShippingPermitController@addShippingPermit')->name('add.shipping.permit');
+
+	// Store Shipping Permit
+	Route::post('/shipping-permit/add', 'ShippingPermitController@postAddShippingPermit')->name('post.add.shipping.permit');
 
 	// All Shipping Permits
 	Route::get('/all/shipping-permits', 'ShippingPermitController@all')->name('all.shipping.permits');

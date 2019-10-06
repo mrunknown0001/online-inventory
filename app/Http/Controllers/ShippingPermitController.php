@@ -16,6 +16,28 @@ class ShippingPermitController extends Controller
 
 
     /**
+     * Add addShippingPermit
+     */
+    public function addShippingPermit()
+    {
+
+        $farms = \App\Farm::where('active', 1)->get();
+
+
+        return view('common.shipping_permit.add-edit', ['id' => NULL, 'farms' => $farms]);
+    }
+
+
+    /**
+     * store
+     */
+    public function postAddShippingPermit(Request $request)
+    {
+        return $request;
+    }
+
+
+    /**
      * all
      */
     public function all()

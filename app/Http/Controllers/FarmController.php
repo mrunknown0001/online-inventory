@@ -16,6 +16,41 @@ class FarmController extends Controller
 
 
     /**
+     * Add Farm 
+     */
+    public function addFarm()
+    {
+        return view('admin.farm.add-edit', ['id' => NULL, 'farm' => NULL]);
+    }
+
+
+    /**
+     * store farm
+     */
+    public function postAddFarm(Request $request)
+    {
+        $request->validate([
+            'farm' => 'required',
+            'description' => 'required',
+        ]);
+
+
+        $farm = $request['farm'];
+        $description = $request['description'];
+
+
+        // save
+        $new = new \App\Farm();
+        $new->name = $farm;
+        $new->description = $description;
+
+        if($new->save()) {
+            return redirect()->route('add.farm')->with('success', 'Farm Saved!');
+        }
+    }
+
+
+    /**
      * all farms
      */
     public function all()
@@ -25,6 +60,21 @@ class FarmController extends Controller
     		'description' => NULL,
     		'action' => NULL,
     	];
+
+
+        $farms = \App\Farm::where('active', 1)->get();
+
+        if(count($farms) > 0) {
+            $data = NULL;
+
+            foreach($farms as $f) {
+                $data[] = [
+                    'name' => $f->name,
+                    'description' => $f->description,
+                    'action' => "<button class='btn btn-primary btn-xs'><i class='fa fa-eye'></i> View</button>",
+                ];
+            }
+        }
 
     	return $data;
     }
