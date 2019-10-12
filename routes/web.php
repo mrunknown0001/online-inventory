@@ -59,6 +59,12 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'prevent-back-histo
 	// Update User
 	Route::get('/user/update/info/{id}', 'UserController@updateUser')->name('update.user');
 
+	// route to change password
+	Route::get('/user/change/password/{id}', 'UserController@userChangePass')->name('user.change.pass');
+
+	// rotue to save admin changed password
+	Route::post('/user/change/password', 'UserController@postUserChangePass')->name('post.user.change.pass');
+
 
 	// Remove user
 	Route::get('/user/remove/{id}', 'UserController@removeUser')->name('remove.user');

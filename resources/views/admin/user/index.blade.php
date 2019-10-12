@@ -49,6 +49,8 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
+              @include('includes.success')
+              @include('includes.error')
               <div class="table-responsive">
                 <table id="users" class="table table-striped table-bordered" style="width: 99%">
                   <thead>
@@ -158,9 +160,9 @@
     }).then((result) => {
       if (result.value) {
         // update
-        // window.location.replace("/admin/user/update/info/" + id);
+        window.location.replace("/admin/user/change/password/" + id);
 
-        alert('redirect to change password page');
+        // alert('redirect to change password page');
       }
       else {
         Swal.fire({

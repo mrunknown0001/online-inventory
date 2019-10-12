@@ -155,6 +155,42 @@ class UserController extends Controller
 
 
     /**
+     * userChangePass
+     */
+    public function userChangePass($id = NULL)
+    {
+        $id = $this->decryptString($id);
+
+        $user = User::findorfail($id);
+
+        return view('admin.user.change-pass', ['id' => $user->user_id, 'user' => $user]);
+    }
+
+
+    /**
+     * postUserChangePass
+     */
+    public function postUserChangePass(Request $request)
+    {
+        $request->validate([
+            'password' => 'required|confirmed',
+        ]);
+
+        $id = $this->decryptString($request['id']);
+        $password = $request['password'];
+
+        $user = User::findorfail($id);
+
+        $user->password = bcrypt($password);
+
+        if($user->save()) {
+            return redirect()->route('users')->with('success', 'Admin changed password of user: ' . $user->firstname . ' ' . $user->lastname);
+        }
+    }
+
+
+
+    /**
      * Remove user
      */
     public function removeUser($id = null)
@@ -200,7 +236,7 @@ class UserController extends Controller
     	 			'username' => $u->username,
     	 			'fullname' => $u->firstname . ' ' . $u->lastname,
     	 			'user_type' => $u->user_type == 1 ? 'Admin' : 'Employee',
-    	 			'action' => '<button class="btn btn-primary btn-xs" id="view" data-id="' . encrypt($u->user_id) . '"><i class="fa fa-eye"></i> View</button> <button class="btn btn-warning btn-xs" id="update" data-id="' . encrypt($u->user_id) . '"><i class="fa fa-pencil"></i> Update</button> <button class="btn btn-info btn-xs" id="changepass"><i class="fa fa-key"></i> Change Password</button> <button class="btn btn-danger btn-xs" id="remove" data-id="' . encrypt($u->user_id) . '"><i class="fa fa-trash"></i> Remove</button>'
+    	 			'action' => '<button class="btn btn-primary btn-xs" id="view" data-id="' . encrypt($u->user_id) . '"><i class="fa fa-eye"></i> View</button> <button class="btn btn-warning btn-xs" id="update" data-id="' . encrypt($u->user_id) . '"><i class="fa fa-pencil"></i> Update</button> <button class="btn btn-info btn-xs" id="changepass" data-id="' . encrypt($u->user_id) . '"><i class="fa fa-key"></i> Change Password</button> <button class="btn btn-danger btn-xs" id="remove" data-id="' . encrypt($u->user_id) . '"><i class="fa fa-trash"></i> Remove</button>'
     	 		];
     	 	}
     	 }

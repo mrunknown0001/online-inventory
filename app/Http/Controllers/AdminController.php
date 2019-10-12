@@ -56,9 +56,19 @@ class AdminController extends Controller
         $new_password = $request['password'];
 
         // update 
+        $user = Auth::user();
 
+        if(password_verify($old_password, $user->password)) {
+            $user->password = bcrypt($new_password);
 
-        // save
+            if($user->save()) {
+                return redirect()->route('admin.change.password')->with('success', 'Admin changed password!');
+            }
+        }
+        else {
+            return redirect()->route('admin.change.password')->with('error', 'Wrong Password!');
+        }
+
 
     }
 
