@@ -15,6 +15,21 @@ class ShippingPermitController extends Controller
     }
 
 
+
+
+    /**
+     * Set starting shipping number
+     */
+    public function setStartingNumber()
+    {
+        // check if already set
+
+        // return view for input of starting number
+
+        // save
+    }
+
+
     /**
      * Add addShippingPermit
      */

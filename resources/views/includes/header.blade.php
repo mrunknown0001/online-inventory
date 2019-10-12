@@ -35,11 +35,17 @@
               </li>
               <!-- Menu Footer-->
               <li class="user-footer">
-                <div class="pull-left">
-                  <a href="{{ Auth::user()->user_type == 1 ? route('admin.profile') : route('employee.profile') }}" class="btn btn-default btn-flat">Profile</a>
-                </div>
-                <div class="pull-right">
-                  <a href="{{ route('logout') }}" class="btn btn-default btn-flat">Sign out</a>
+                <div class="row">
+                  <div class="col-md-12">
+                    <a href="{{ Auth::user()->user_type == 1 ? route('admin.profile') : route('employee.profile') }}" class="btn btn-default btn-flat btn-block"><i class="fa fa-user"></i> Profile</a>
+                  </div>
+                  
+                  <div class="col-md-12">
+                    <a href="{{ route('change.password') }}" class="btn btn-default btn-flat btn-block"><i class="fa fa-key"></i> Change Password</a>
+                  </div>
+                  <div class="col-md-12">
+                    <a href="{{ route('logout') }}" class="btn btn-default btn-flat btn-block"><i class="fa fa-sign-out"></i> Sign out</a>
+                  </div>
                 </div>
               </li>
             </ul>

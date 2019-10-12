@@ -13,4 +13,13 @@ class EmployeeController extends Controller
     {
     	return view('common.dashboard2');
     }
+
+
+    /**
+     * Employee Profile
+     */
+    public function profile()
+    {
+    	return 'return view for employee profile';
+    }
 }

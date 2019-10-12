@@ -35,6 +35,7 @@
         <div class="col-md-12">
           <p>
             <a href="{{ route('add.shipping.permit') }}" class="btn btn-primary"><i class="fa fa-plus"></i> Add Shipping Permit</a>
+            <a href="{{ route('shipping.permit.set.starting.number') }}" class="btn btn-primary"><i class="fa fa-cog"></i> Set Starting Number</a>
           </p>
           <!-- TABLE: LATEST ORDERS -->
           <div class="box box-info">

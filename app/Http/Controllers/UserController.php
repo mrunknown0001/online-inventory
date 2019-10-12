@@ -118,7 +118,7 @@ class UserController extends Controller
         $lastname = $request['lastname'];
         $suffix = $request['suffix'];
         $email = $request['email'];
-        $user_type = $request['user_type'];
+        // $user_type = $request['user_type'];
 
         $user->username = $username;
         $user->firstname = $firstname;
@@ -126,7 +126,7 @@ class UserController extends Controller
         $user->lastname = $lastname;
         $user->suffix_name = $suffix;
         $user->email = $email;
-        $user->user_type = $user_type;
+        // $user->user_type = $user_type;
 
 
         if($user->save()) {
@@ -200,11 +200,42 @@ class UserController extends Controller
     	 			'username' => $u->username,
     	 			'fullname' => $u->firstname . ' ' . $u->lastname,
     	 			'user_type' => $u->user_type == 1 ? 'Admin' : 'Employee',
-    	 			'action' => '<button class="btn btn-primary btn-xs" id="view" data-id="' . encrypt($u->user_id) . '"><i class="fa fa-eye"></i> View</button> <button class="btn btn-warning btn-xs" id="update" data-id="' . encrypt($u->user_id) . '"><i class="fa fa-pencil"></i> Update</button> <button class="btn btn-danger btn-xs" id="remove" data-id="' . encrypt($u->user_id) . '"><i class="fa fa-trash"></i> Remove</button>'
+    	 			'action' => '<button class="btn btn-primary btn-xs" id="view" data-id="' . encrypt($u->user_id) . '"><i class="fa fa-eye"></i> View</button> <button class="btn btn-warning btn-xs" id="update" data-id="' . encrypt($u->user_id) . '"><i class="fa fa-pencil"></i> Update</button> <button class="btn btn-info btn-xs" id="changepass"><i class="fa fa-key"></i> Change Password</button> <button class="btn btn-danger btn-xs" id="remove" data-id="' . encrypt($u->user_id) . '"><i class="fa fa-trash"></i> Remove</button>'
     	 		];
     	 	}
     	 }
 
     	 return $data;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /************************
+    * Common for all users  *
+    * **********************/
+
+    // change password
+    public function changePassword()
+    {
+        return 'change password for all users';
     }
 }

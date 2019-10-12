@@ -232,17 +232,19 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'prevent-back-histo
 Route::group(['prefix' => 'emp', 'middleware' => ['employee', 'prevent-back-history']], function () {
 	Route::get('/dashboard', 'EmployeeController@dashboard')->name('emp.dashboard');
 
+	Route::get('/profile', 'EmployeeController@profile')->name('employee.profile');
+
 	// Inventory Management
-	Route::get('/inventory', 'InventoryController@index')->name('inventories');
+	// Route::get('/inventory', 'InventoryController@index')->name('inventories');
 
-	// Add Inventory Entry
-	Route::get('/inventory/entry', 'InventoryController@itemEntry')->name('item.entry');
+	// // Add Inventory Entry
+	// Route::get('/inventory/entry', 'InventoryController@itemEntry')->name('item.entry');
 
-	// Store Item Entry
-	Route::post('/inventory/entry', 'InventoryController@storeItemEntry')->name('store.item.entry');
+	// // Store Item Entry
+	// Route::post('/inventory/entry', 'InventoryController@storeItemEntry')->name('store.item.entry');
 
-	// all inventory
-	Route::get('/all/inventories', 'InventoryController@all')->name('all.inventories');
+	// // all inventory
+	// Route::get('/all/inventories', 'InventoryController@all')->name('all.inventories');
 });
 
 
@@ -274,6 +276,9 @@ Route::group(['middleware' => 'auth'], function () {
 
 	// Shipping Permit
 	Route::get('/shipping-permit', 'ShippingPermitController@index')->name('shipping.permits');
+
+	// set starting number for permit number
+	Route::get('/shipping-permit/set/start-number', 'ShippingPermitController@setStartingNumber')->name('shipping.permit.set.starting.number');
 
 	// Add shipping Permit
 	Route::get('/shipping-permit/add', 'ShippingPermitController@addShippingPermit')->name('add.shipping.permit');
@@ -313,5 +318,17 @@ Route::group(['middleware' => 'auth'], function () {
 
 	// Preivous Activities Images
 	Route::get('/all/previous/activities', 'PublicInfoController@allPreviousActivities')->name('all.previous.activities');
+
+
+
+
+
+
+
+
+
+
+	// Change password
+	Route::get('/password/change', 'UserController@changePassword')->name('change.password');
 
 });

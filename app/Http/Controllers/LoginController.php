@@ -102,5 +102,8 @@ class LoginController extends Controller
             GeneralController::log($details);
             return redirect()->route('emp.dashboard');
         }
+        else {
+            return 'hey';
+        }
     }
 }

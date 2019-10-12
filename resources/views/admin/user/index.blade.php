@@ -142,6 +142,40 @@
     });
   });
 
+
+  // Change Password
+  $(document).on('click', '#changepass', function (e) {
+    e.preventDefault();
+    var id = $(this).data('id');
+    Swal.fire({
+      title: 'Change User Password?',
+      text: "",
+      type: 'question',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Continue'
+    }).then((result) => {
+      if (result.value) {
+        // update
+        // window.location.replace("/admin/user/update/info/" + id);
+
+        alert('redirect to change password page');
+      }
+      else {
+        Swal.fire({
+          title: 'Change User Password Cancelled',
+          text: "",
+          type: 'info',
+          showCancelButton: false,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'ok'
+        });
+      }
+    });
+  });
+
   // Remove user
   $(document).on('click', '#remove', function (e) {
     e.preventDefault();
