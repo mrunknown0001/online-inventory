@@ -40,9 +40,9 @@
                     <a href="{{ Auth::user()->user_type == 1 ? route('admin.profile') : route('employee.profile') }}" class="btn btn-default btn-flat btn-block"><i class="fa fa-user"></i> Profile</a>
                   </div>
                   
-                  <div class="col-md-12">
+                  {{-- <div class="col-md-12">
                     <a href="{{ route('change.password') }}" class="btn btn-default btn-flat btn-block"><i class="fa fa-key"></i> Change Password</a>
-                  </div>
+                  </div> --}}
                   <div class="col-md-12">
                     <a href="{{ route('logout') }}" class="btn btn-default btn-flat btn-block"><i class="fa fa-sign-out"></i> Sign out</a>
                   </div>

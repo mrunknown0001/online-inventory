@@ -30,7 +30,7 @@
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                 </button>
-                
+               
               </div>
             </div>
             <!-- /.box-header -->
@@ -42,7 +42,7 @@
                   @include('includes.errors')
                 </div>
                 <div class="col-md-6">
-                  <form action="{{ route('post.admin.change.password') }}" method="POST" autocomplete="off">
+                  <form action="{{ route('post.employee.change.password') }}" method="POST" autocomplete="off">
                     @csrf
                     <div class="form-group">
                       <label>Old Password</label>

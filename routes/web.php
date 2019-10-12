@@ -240,6 +240,11 @@ Route::group(['prefix' => 'emp', 'middleware' => ['employee', 'prevent-back-hist
 
 	Route::get('/profile', 'EmployeeController@profile')->name('employee.profile');
 
+	Route::get('/change/password', 'EmployeeController@changePassword')->name('employee.change.password');
+
+
+	Route::post('/change/password', 'EmployeeController@postChangePassword')->name('post.employee.change.password');
+
 	// Inventory Management
 	// Route::get('/inventory', 'InventoryController@index')->name('inventories');
 

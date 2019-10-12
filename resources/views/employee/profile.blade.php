@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title') Change Password @endsection
+@section('title') Employee Profile @endsection
 
 @section('content')
   <!-- Content Wrapper. Contains page content -->
@@ -8,7 +8,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Change Password
+        Employee Profile
         {{-- <small>Version 2.0</small> --}}
       </h1>
       <ol class="breadcrumb">
@@ -25,41 +25,22 @@
         <div class="col-md-12">
           <div class="box box-info">
             <div class="box-header with-border">
-              <h3 class="box-title">Change Password</h3>
+              <h3 class="box-title">Profile</h3>
 
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                 </button>
-                
+                <button type="button" class="btn btn-box-tool" onclick="reloadDatatables()"><i class="fa fa-refresh"></i></button>
               </div>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
               <div class="row">
-                <div class="col-md-12">
-                  @include('includes.success')
-                  @include('includes.error')
-                  @include('includes.errors')
-                </div>
                 <div class="col-md-6">
-                  <form action="{{ route('post.admin.change.password') }}" method="POST" autocomplete="off">
-                    @csrf
-                    <div class="form-group">
-                      <label>Old Password</label>
-                      <input type="password" name="old_password" id="old_password" class="form-control" placeholder="Old Password" required>
-                    </div>
-                    <div class="form-group">
-                      <label>New Password</label>
-                      <input type="password" name="password" id="password" class="form-control" placeholder="New Password" required>
-                    </div>
-                    <div class="form-group">
-                      <label>Re-Enter New Password</label>
-                      <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" placeholder="Re-Enter New Password" required>
-                    </div>
-                    <div class="form-group">
-                      <button type="subit" class="btn btn-primary"><i class="fa fa-save"></i> Change Password</button>
-                    </div>
-                  </form>
+                  <h4>Fullname: {{ Auth::user()->lastname . ', ' . Auth::user()->firstname . ' ' . Auth::user()->middlename }}</h4>
+                  <h4>Email: {{ Auth::user()->email }}</h4>
+                  <hr>
+                  <a href="{{ route('employee.change.password') }}" class="btn btn-primary"><i class="fa fa-key"></i> Change Password</a>
                 </div>
               </div>
               <!-- /.table-responsive -->
@@ -71,7 +52,7 @@
             <!-- /.box-footer -->
           </div>
         </div>
-
+        
         <!-- fix for small devices only -->
         <div class="clearfix visible-sm-block"></div>
 
