@@ -64,15 +64,18 @@
                       <label for="details">Details</label>
                       <textarea name="details" id="details" class="form-control" required="" placeholder="Details">{{ $info != NULL ? $info->details : '' }}</textarea>
                     </div>
-                    <div class="form-group">
+                    <div class="">
                       <label for="schedule">Schedule</label>
                       <div class="row">
                         <div class="col-md-6">
-                          <input type="date" name="date" id="date" class="form-control" required>
+                          <div class="form-group">
+                            <input type="date" name="date" id="date" class="form-control" required>
+                          </div>
                         </div>
-                      </div>
                         <div class="col-md-6">
-                          <input type="time" name="time" id="time" class="form-control" required>
+                          <div class="form-group">
+                            <input type="time" name="time" id="time" class="form-control" required>
+                          </div>
                         </div>
                       </div>
                     </div>
