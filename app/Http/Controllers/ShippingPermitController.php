@@ -22,11 +22,33 @@ class ShippingPermitController extends Controller
      */
     public function setStartingNumber()
     {
-        // check if already set
+        // check if the starting number is already 
+        $check = \App\ShippingPermitStart::where('active', 1)->first();
 
-        // return view for input of starting number
+        if(!empty($check)) {
+            return redirect()->route('shipping.permits')->with('error', 'Shipping Number Already Set!');
+        }
 
-        // save
+        return view('common.shipping_permit.set-starting-shipping-no');
+    }
+
+
+    /**
+     * save starting number saveStartShippingNumber
+     */
+    public function saveStartShippingNumber(Request $request)
+    {
+        $request->validate([
+            'starting_number' => 'required',
+        ]);
+
+        $number = $request['starting_number'];
+
+        $start = new \App\ShippingPermitStart();
+        $start->start = $number;
+        if($start->save()) {
+            return redirect()->route('shipping.permits')->with('success', 'Shipping Start Number Saved!');
+        }
     }
 
 
@@ -38,10 +60,8 @@ class ShippingPermitController extends Controller
 
         $farms = \App\Farm::where('active', 1)->get();
 
-        $suppliers = \App\Supplier::where('active', 1)->get();
 
-
-        return view('common.shipping_permit.add-edit', ['id' => NULL, 'farms' => $farms, 'suppliers' => $suppliers]);
+        return view('common.shipping_permit.add-edit', ['id' => NULL, 'farms' => $farms]);
     }
 
 

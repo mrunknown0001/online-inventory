@@ -1,14 +1,11 @@
 @extends('layouts.app')
 
-@section('title') Add Shipping Permit @endsection
+@section('title') Set Starting Shipping Number @endsection
 
 @section('style')
   <link rel="stylesheet" href="{{ asset('css/bootstrap-select.css') }}">
 @endsection
 
-@section('script')
-  <script src="{{ asset('js/bootstrap-select.js') }}"></script>
-@endsection
 
 @section('content')
   <!-- Content Wrapper. Contains page content -->
@@ -16,7 +13,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        {{ $id != NULL ? 'Update' : 'Add' }} Shipping Permit
+        Set Starting  Shipping Number
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-truck"></i> Home</a></li>
@@ -57,26 +54,16 @@
                   @include('includes.success')
                   @include('includes.error')
                   @include('includes.errors')
-                  <form action="{{ route('post.add.shipping.permit') }}" method="POST" autocomplete="off">
+                  <form action="{{ route('post.shipping.set.starting.number') }}" method="POST" autocomplete="off">
                     @csrf
-                    <input type="hidden" name="id" value="{{ $id != NULL ? encrypt($id) : NULL }}">
+                    
                     <div class="form-group">
-                      <label for="origin">Origin</label>
-                      <select name="origin" id="origin" class="form-control selectpicker" data-show-subtext="true" data-live-search="true" required>
-                        @if(count($farms) > 0)
-                          @foreach($farms as $f)
-                            <option value="{{ encrypt($f->farm_id) }}">{{ $s->name }}</option>
-                          @endforeach                        
-                        @endif
-                      </select>
-                    </div>
-                    <div class="form-group">
-                      <label for="destination">Destination</label>
-                      <input type="text" name="destination" id="destination" class="form-control" placeholder="Destination" required>
+                      <label for="starting_number">Starting Number</label>
+                      <input type="number" name="starting_number" id="starting_number" class="form-control" placeholder="Enter Starting Number" required>
                       
                     </div>
                     <div class="form-group">
-                      <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> {{ $id != NULL ? 'Update' : 'Add' }} Shipping Permit</button>
+                      <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Save Starting Number</button>
                       <a href="{{ route('shipping.permits') }}" class="btn btn-danger"><i class="fa fa-ban"></i> Cancel</a>
                     </div>
                   </form>

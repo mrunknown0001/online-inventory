@@ -51,6 +51,7 @@
             <!-- /.box-header -->
             <div class="box-body">
               <div class="table-responsive">
+                @include('includes.all')
                 <table id="shipping" class="table table-striped table-bordered" style="width: 99%">
                   <thead>
                     <tr>

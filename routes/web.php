@@ -291,8 +291,14 @@ Route::group(['middleware' => 'auth'], function () {
 	// set starting number for permit number
 	Route::get('/shipping-permit/set/start-number', 'ShippingPermitController@setStartingNumber')->name('shipping.permit.set.starting.number');
 
+
+	// save starting number for permit
+	Route::post('/shipping-permit/set/start-number', 'ShippingPermitController@saveStartShippingNumber')->name('post.shipping.set.starting.number');
+
+
 	// Add shipping Permit
 	Route::get('/shipping-permit/add', 'ShippingPermitController@addShippingPermit')->name('add.shipping.permit');
+
 
 	// Store Shipping Permit
 	Route::post('/shipping-permit/add', 'ShippingPermitController@postAddShippingPermit')->name('post.add.shipping.permit');
