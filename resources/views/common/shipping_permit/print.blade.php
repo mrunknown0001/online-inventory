@@ -28,7 +28,17 @@
       </div>
       <!-- /.row -->
       <div id="printArea">
-        
+        <div class="row">
+          <div class="col-md-4">
+            <img src=""/>
+          </div>
+          <div class="col-md-4">
+            
+          </div>
+          <div class="col-md-4">
+            
+          </div>
+        </div>
       </div>
 
       <!-- /.row -->
