@@ -32,6 +32,21 @@ class MunicipalityController extends Controller
 
 
     /**
+     * Municipality Item Count
+     */
+    public function viewItemCount($id = NULL)
+    {
+        $id = $this->decryptString($id);
+
+        $municipality = \App\Municipality::findorfail($id);
+
+        $items = \App\ItemMunicipality::where('municipality_id', $municipality->municipality_id)->get();
+
+        return view('admin.municipality.view-item-count', ['items' => $items, 'municipality' => $municipality]);
+    }
+
+
+    /**
      * All records 
      */
     public function all()
@@ -53,7 +68,7 @@ class MunicipalityController extends Controller
     			$data[] = [
     				'name' => $m->name,
     				'barangays' => $m->barangays->count(),
-    				'action' => "<button class='btn btn-primary btn-xs'id='view' data-id='" . encrypt($m->municipality_id) . "'><i class='fa fa-eye'></i> View</button>"
+    				'action' => "<button class='btn btn-primary btn-xs'id='view' data-id='" . encrypt($m->municipality_id) . "'><i class='fa fa-eye'></i> View</button> <button class='btn btn-info btn-xs' id='item' data-id='" . encrypt($m->municipality_id) . "'><i class='fa fa-list'></i> Items</button>"
     			];
     		}
     	}

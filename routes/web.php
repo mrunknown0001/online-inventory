@@ -173,8 +173,14 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'prevent-back-histo
 	// View municipality
 	Route::get('/municipality/info/{id}', 'MunicipalityController@municipalityInfo')->name('view.municipality.info');
 
+	// View Municipality Item Count
+	Route::get('/municipality/item/count/{id}', 'MunicipalityController@viewItemCount')->name('municipality.item.count');
+
 	// Barangays
 	Route::get('/barangays', 'BarangayController@index')->name('barangays');
+
+	// View Item in Barangay
+	Route::get('/barangay/item/count/{id}', 'BarangayController@viewItemCount')->name('barangay.item.count');
 
 	// All Barangays
 	Route::get('/all/barangays', 'BarangayController@all')->name('all.barangays');

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title') Municipality Information @endsection
+@section('title') Municipality Item Delivered @endsection
 
 @section('content')
   <!-- Content Wrapper. Contains page content -->
@@ -8,7 +8,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Municipality Information
+        Municipality Item Delivered
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-circle-o"></i> Home</a></li>
@@ -48,14 +48,28 @@
                 <div class="col-md-12">
                   <p><strong>{{ $municipality->name }}</strong></p>
 
-                  <p>Barangays: {{ count($municipality->barangays) }}</p>
-                  <div class="row">
-                    @foreach($municipality->barangays as $b)
-                      <div class="col-md-6">
-                        <a href="{{ route('barangay.item.count', ['id' => encrypt($b->barangay_id)]) }}">{{ $b->name }}</a>
-                      </div>
-                    @endforeach
-                  </div>
+                  @if(count($items) > 0)
+                    <table class="table table-bordered table-hover table-striped">
+                      <thead>
+                        <tr>
+                          <th>Item</th>
+                          <th>Item Code</th>
+                          <th>Delivered</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        @foreach($items as $i)
+                          <tr>
+                            <td>{{ $i->item->item_name }}</td>
+                            <td>{{ $i->item->item_code }}</td>
+                            <td>{{ $i->count }}</td>
+                          </tr>
+                        @endforeach
+                      </tbody>
+                    </table>
+                  @else 
+                    <p class="text-center"><strong>No Delivered Item on this Municipality</strong></p>
+                  @endif
                 </div>
               </div>
             </div>

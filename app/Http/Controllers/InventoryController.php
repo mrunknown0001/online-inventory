@@ -377,7 +377,7 @@ class InventoryController extends Controller
                 }
                 else {
                     $new2 = new \App\ItemMunicipality();
-                    $new2->barangay_id = $barangay_id;
+                    $new2->municipality_id = $barangay->municipality->municipality_id;
                     $new2->item_id = $item1->item->item_id;
                     $new2->count = $quantity1;
                     $new2->save();
@@ -398,48 +398,6 @@ class InventoryController extends Controller
             }
 
             return redirect()->route('item.outgoing')->with('error', 'Quantity Insuficient!');
-
-        }
-
-
-        $barangay_id = $request['municipality_barangay'];
-        $barangay_id = $this->decryptString($barangay_id);
-
-        $barangay = \App\Barangay::findorfail($barangay_id);
-
-        // check item1 id and barangay id if exist in baranga
-        $check1 = \App\ItemBarangay::where('barangay_id', $barangay_id)
-                        ->where('item_id', $item->item_id)
-                        ->first();
-
-        if(!empty($check1)) {
-            $check1->count += $quantity1;
-            $check1->save();
-        }
-        else {
-            $new1 = new \App\ItemBarangay();
-            $new1->barangay_id = $barangay_id;
-            $new1->item_id = $item1->item->item_id;
-            $new1->count = $quantity1;
-            $new1->save();
-
-        }
-
-        $check2 = \App\ItemMunicipality::where('municipality_id', $barangay->municipality->municipality_id)
-                        ->where('item_id', $item->item_id)
-                        ->first();
-
-
-        if(!empty($check2)) {
-            $check2->count += $quantity1;
-            $check2->save();
-        }
-        else {
-            $new2 = new \App\ItemBarangay();
-            $new2->barangay_id = $barangay_id;
-            $new2->item_id = $item1->item->item_id;
-            $new2->count = $quantity1;
-            $new2->save();
 
         }
 

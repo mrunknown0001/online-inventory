@@ -109,6 +109,39 @@
   });
 
 
+  $(document).on('click', '#item', function (e) {
+      e.preventDefault();
+      var id = $(this).data('id');
+      Swal.fire({
+        title: 'View Barangay Items?',
+        text: "",
+        type: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Continue'
+      }).then((result) => {
+        if (result.value) {
+          // update
+          window.location.replace("/admin/barangay/item/count/" + id);
+        }
+        else {
+          Swal.fire({
+            title: 'View Barangay Items Cancelled',
+            text: "",
+            type: 'info',
+            showCancelButton: false,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'ok'
+          });
+        }
+      });
+  });
+
+
+
+
   // Data Tables Load All
   $(document).ready(function() {
     $('#barangays').DataTable({

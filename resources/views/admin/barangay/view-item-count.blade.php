@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title') Municipality Information @endsection
+@section('title') Barangay Item Delivered @endsection
 
 @section('content')
   <!-- Content Wrapper. Contains page content -->
@@ -8,11 +8,11 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Municipality Information
+        Barangay Item Delivered
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-circle-o"></i> Home</a></li>
-        <li class="active">Municipality Management</li>
+        <li class="active">Barangay Management</li>
       </ol>
     </section>
 
@@ -30,12 +30,12 @@
       <div class="row">
         <div class="col-md-12">
           <p>
-            <a href="{{ route('municipalities') }}" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Back to Municipality Management</a>
+            <a href="{{ route('barangays') }}" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Back to Barangay Management</a>
           </p>
           <!-- TABLE: LATEST ORDERS -->
           <div class="box box-info">
             <div class="box-header with-border">
-              <h3 class="box-title">Municipality Information</h3>
+              <h3 class="box-title">Barangay Information</h3>
 
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -46,16 +46,30 @@
             <div class="box-body">
               <div class="row">
                 <div class="col-md-12">
-                  <p><strong>{{ $municipality->name }}</strong></p>
+                  <p><strong>{{ $barangay->name }}</strong></p>
 
-                  <p>Barangays: {{ count($municipality->barangays) }}</p>
-                  <div class="row">
-                    @foreach($municipality->barangays as $b)
-                      <div class="col-md-6">
-                        <a href="{{ route('barangay.item.count', ['id' => encrypt($b->barangay_id)]) }}">{{ $b->name }}</a>
-                      </div>
-                    @endforeach
-                  </div>
+                  @if(count($items) > 0)
+                    <table class="table table-bordered table-hover table-striped">
+                      <thead>
+                        <tr>
+                          <th>Item</th>
+                          <th>Item Code</th>
+                          <th>Delivered</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        @foreach($items as $i)
+                          <tr>
+                            <td>{{ $i->item->item_name }}</td>
+                            <td>{{ $i->item->item_code }}</td>
+                            <td>{{ $i->count }}</td>
+                          </tr>
+                        @endforeach
+                      </tbody>
+                    </table>
+                  @else 
+                    <p class="text-center"><strong>No Delivered Item on this Barangay</strong></p>
+                  @endif
                 </div>
               </div>
             </div>
