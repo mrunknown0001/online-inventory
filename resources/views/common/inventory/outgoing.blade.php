@@ -63,11 +63,11 @@
                     <div class="form-group">
                       <label for="customer">Customer</label>
                       <select name="customer" id="customer" class="form-control selectpicker" data-show-subtext="true" data-live-search="true" required>
-                        @if(count($customers) > 0)
+                        {{-- @if(count($customers) > 0)
                           @foreach($customers as $c)
                             <option value="{{ encrypt($c->customer_id) }}">{{ $c->customer }}</option>
                           @endforeach
-                        @endif
+                        @endif --}}
                         @if(count($farms) > 0)
                           @foreach($farms as $f)
                             <option value="{{ encrypt($f->farm_id) }}">{{ $f->name }}</option>
@@ -78,6 +78,17 @@
                     <div class="form-group">
                       <label for="reference_number">Reference Number</label>
                       <input type="text" name="reference_number" id="reference_number" class="form-control" placeholder="Reference Number" required>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="municipality_barangay">Municipality / Barangay</label>
+                      <select name="municipality_barangay" id="municipality_barangay" class="form-control selectpicker" data-show-subtext="true" data-live-search="true" required>
+                        @foreach($municipalities as $m)
+                          @foreach($m->barangays as $b)
+                            <option value="{{ encrypt($b->barangay_id) }}">{{ $m->name }}/{{ $b->name }}</option>
+                          @endforeach
+                        @endforeach
+                      </select>
                     </div>
         
 
