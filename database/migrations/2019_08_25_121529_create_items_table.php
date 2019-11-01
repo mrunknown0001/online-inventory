@@ -22,6 +22,7 @@ class CreateItemsTable extends Migration
             $table->foreign('item_category_id')->references('item_category_id')->on('item_categories');
             $table->bigInteger('unit_of_measurement_id')->unsigned();
             $table->foreign('unit_of_measurement_id')->references('unit_of_measurement_id')->on('unit_of_measurements');
+            $table->integer('max_stock')->nullable();
             $table->integer('critical_level')->nullable();
             $table->boolean('active')->default(1);
             $table->timestamps();

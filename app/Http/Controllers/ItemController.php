@@ -41,6 +41,8 @@ class ItemController extends Controller
             'description' => 'nullable',
             'item_category' => 'required',
             'unit_of_measurement' => 'required',
+            'max_stock' => 'required',
+            'critical_level' => 'required',
         ]);
 
         $item = $request['item'];
@@ -48,6 +50,8 @@ class ItemController extends Controller
         $description = $request['description'];
         $item_category = $this->decryptString($request['item_category']);
         $unit = $this->decryptString($request['unit_of_measurement']);
+        $max = $request['max_stock'];
+        $critical = $request['critical_level'];
 
         // store
         $i = new Item();
@@ -56,11 +60,14 @@ class ItemController extends Controller
         $i->item_description = $description;
         $i->item_category_id = $item_category;
         $i->unit_of_measurement_id = $unit;
+        $i->max_stock = $max;
+        $i->critical_level = $critical;
 
         if($i->save()) {
             return redirect()->route('add.item')->with('success', 'Item Saved!');
         }
     }
+
 
 
 

@@ -59,6 +59,7 @@
                       <th>Code</th>
                       <th>U/M</th>
                       <th>Quantity</th>
+                      <th>Status</th>
                       <th>Category</th>
                       <th>Action</th>
                     </tr>
@@ -157,6 +158,7 @@
             { data: 'code' },
             { data: 'unit' },
             { data: 'quantity' },
+            { data: 'status' },
             { data: 'category' },
             { data: 'action'},
           ]

@@ -99,6 +99,15 @@
                       </select>
                     </div>
                     <div class="form-group">
+                      <label for="max_stock">Maximum Stock</label>
+                      <input type="number" name="max_stock" id="max_stock" class="form-control" placeholder="Maximum Stock" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="critical_level">Critical Level in Percentage</label>
+                      <input type="number" name="critical_level" id="critical_level" class="form-control" placeholder="Critical Level in Percentage" required>
+                    </div>
+
+                    <div class="form-group">
                       <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> {{ $id != NULL ? 'Update' : 'Add' }} Item</button>
                       <a href="{{ route('items') }}" class="btn btn-danger"><i class="fa fa-ban"></i> Cancel</a>
                     </div>

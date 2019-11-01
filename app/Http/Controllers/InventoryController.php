@@ -484,6 +484,31 @@ class InventoryController extends Controller
     }
 
 
+
+    /**
+     * checkCriticalStock
+     * This is to check the level of current number of items in inventory record
+     */
+    public static function checkCriticalStock($item_id = NULL)
+    {
+        $item = \App\Item::findorfail($item_id);
+
+        $item_inv = \App\Inventory::where('item_id', $item->item_id)->first();
+
+        // return ($item->critical_level / 100) * $item->max_stock;
+
+        // get the percentage of the critcal level
+        $critical = $item->max_stock * ($item->critical_level/100);
+
+        if($item_inv->quantity < $critical) {
+            return "<button class='btn btn-danger btn-xs'><i class='fa fa-exclamation'></i> Critical Level <i class='fa fa-exclamation'></i></button>";
+        }
+
+        return "<button class='btn btn-success btn-xs'><i class='fa fa-check'></i> OK</button>";
+    }
+
+
+
     /**
      * all
      */
@@ -494,6 +519,7 @@ class InventoryController extends Controller
     		'code' => NULL,
     		'unit' => NULL,
     		'quantity' => NULL,
+            'status' => NULL,
     		'category' => NULL,
     		'action' => NULL,
     	];
@@ -509,6 +535,7 @@ class InventoryController extends Controller
                     'code' => $i->item->item_code,
                     'unit' => $i->unit->code,
                     'quantity' => $i->quantity,
+                    'status' => $this->checkCriticalStock($i->item_id),
                     'category' => $i->item->category->item_category_name,
                     'action' => "<button class='btn btn-primary btn-xs'><i class='fa fa-eye'></i> View</button>",
                 ];
