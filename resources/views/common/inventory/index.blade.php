@@ -88,7 +88,7 @@
       e.preventDefault();
       var id = $(this).data('id');
       Swal.fire({
-        title: 'View User Info?',
+        title: 'View Inventory Details?',
         text: "",
         type: 'question',
         showCancelButton: true,
@@ -98,11 +98,11 @@
       }).then((result) => {
         if (result.value) {
           // update
-          window.location.replace("/admin/user/info/" + id);
+          window.location.replace("/inventory/details/" + id);
         }
         else {
           Swal.fire({
-            title: 'View User Info Cancelled',
+            title: 'View Inventory Details Cancelled',
             text: "",
             type: 'info',
             showCancelButton: false,
@@ -114,37 +114,6 @@
       });
   });
 
-
-  // Update User Info
-    $(document).on('click', '#update', function (e) {
-      e.preventDefault();
-      var id = $(this).data('id');
-      Swal.fire({
-        title: 'Update User Info?',
-        text: "",
-        type: 'question',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Continue'
-      }).then((result) => {
-        if (result.value) {
-          // update
-          window.location.replace("/admin/user/update/info/" + id);
-        }
-        else {
-          Swal.fire({
-            title: 'Update User Info Cancelled',
-            text: "",
-            type: 'info',
-            showCancelButton: false,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'ok'
-          });
-        }
-      });
-  });
 
   // Data Tables Load All
   $(document).ready(function() {

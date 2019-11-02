@@ -508,6 +508,21 @@ class InventoryController extends Controller
     }
 
 
+    /**
+     * inventoryDetails
+     */
+    public function inventoryDetails($id = NULL)
+    {
+        $id = $this->decryptString($id);
+
+        $inventory = \App\Inventory::findorfail($id);
+
+        $status = $this->checkCriticalStock($inventory->item_id);
+
+        return view('common.inventory.view', ['inv' => $inventory, 'status' => $status]);
+    }
+
+
 
     /**
      * all
@@ -537,7 +552,7 @@ class InventoryController extends Controller
                     'quantity' => $i->quantity,
                     'status' => $this->checkCriticalStock($i->item_id),
                     'category' => $i->item->category->item_category_name,
-                    'action' => "<button class='btn btn-primary btn-xs'><i class='fa fa-eye'></i> View</button>",
+                    'action' => "<button class='btn btn-primary btn-xs' id='view' data-id='" . encrypt($i->inventory_id) . "'><i class='fa fa-eye'></i> View</button>",
                 ];
             }
         }

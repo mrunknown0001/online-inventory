@@ -287,6 +287,9 @@ Route::group(['middleware' => 'auth'], function () {
 	// Store Outing Item
 	Route::post('/inventory/outgoing', 'InventoryController@storeOugoingItem')->name('store.outgoing.item');
 
+	// View inventory Details
+	Route::get('/inventory/details/{id}', 'InventoryController@inventoryDetails')->name('inventory.details');
+
 	// all inventory
 	Route::get('/all/inventories', 'InventoryController@all')->name('all.inventories');
 
