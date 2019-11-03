@@ -118,6 +118,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'prevent-back-histo
 	Route::post('/supplier/add', 'SupplierController@storeSupplier')->name('store.supplier');
 
 	// view supplier
+	Route::get('/supplier/info/{id}', 'SupplierController@viewSupplier')->name('view.supplier');
 
 	// update supplier
 
@@ -151,6 +152,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'prevent-back-histo
 
 	// store item category
 	Route::post('/item-category/add', 'ItemCategoryController@storeItemCategory')->name('store.item.category');
+
+	Route::get('/item-category/info/{id}', 'ItemCategoryController@viewItemCategory')->name('view.item.category');
 
 	// Farms
 	Route::get('/farms', 'FarmController@index')->name('farms');

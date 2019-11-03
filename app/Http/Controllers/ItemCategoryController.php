@@ -53,6 +53,19 @@ class ItemCategoryController extends Controller
     }
 
 
+    /**
+     * viewItemCategory
+     */
+    public function viewItemCategory($id = NULL)
+    {
+        $id = $this->decryptString($id);
+
+        $cat = \App\ItemCategory::findorfail($id);
+
+        return view('admin.item_category.view', ['cat' => $cat]);
+    }
+
+
 
     /**
      * all
@@ -74,7 +87,7 @@ class ItemCategoryController extends Controller
     			$data[] = [
     				'item_categories' => $c->item_category_name,
     				'description' => $c->description,
-    				'action' => "<button class='btn btn-primary btn-xs'><i class='fa fa-eye'></i> View</button>"
+    				'action' => "<button class='btn btn-primary btn-xs' id='view' data-id='" . encrypt($c->item_category_id) . "'><i class='fa fa-eye'></i> View</button>"
     			];
     		}
     	}

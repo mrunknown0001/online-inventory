@@ -58,6 +58,20 @@ class SupplierController extends Controller
 
 
     /**
+     * viewSupplier
+     */
+    public function viewSupplier($id = NULL)
+    {
+        $id = $this->decryptString($id);
+
+        $supplier = \App\Supplier::findorfail($id);
+
+        return view('admin.supplier.view', ['supplier' => $supplier]);
+    }
+
+
+
+    /**
      * All Suppliers
      */
     public function all()
@@ -77,7 +91,7 @@ class SupplierController extends Controller
     			$data[] = [
     				'supplier' => $s->supplier_name,
     				'address' => $s->address,
-    				'action' => "<button class='btn btn-primary btn-xs'><i class='fa fa-eye'></i> View</button>",
+    				'action' => "<button class='btn btn-primary btn-xs' id='view' data-id='" . encrypt($s->supplier_id) . "'><i class='fa fa-eye'></i> View</button>",
     			];
     		}
     	}

@@ -114,7 +114,7 @@
       e.preventDefault();
       var id = $(this).data('id');
       Swal.fire({
-        title: 'Update User Info?',
+        title: 'Update Customer Info?',
         text: "",
         type: 'question',
         showCancelButton: true,
@@ -128,7 +128,7 @@
         }
         else {
           Swal.fire({
-            title: 'Update User Info Cancelled',
+            title: 'Update Customer Info Cancelled',
             text: "",
             type: 'info',
             showCancelButton: false,

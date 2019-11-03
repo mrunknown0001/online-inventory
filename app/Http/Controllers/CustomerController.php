@@ -66,7 +66,8 @@ class CustomerController extends Controller
 
         $customer = Customer::findorfail($id);
 
-        return $customer;
+        // return $customer;
+        return view('admin.customer.view', ['customer' => $customer]);
     }
 
 
