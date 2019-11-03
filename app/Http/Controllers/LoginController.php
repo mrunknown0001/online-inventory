@@ -64,6 +64,10 @@ class LoginController extends Controller
      */
     public function logout()
     {
+        if(!Auth::check()) {
+            return redirect()->route('login')->with('info', 'Login First!');
+        }
+
         if(Auth::user()->user_type == 1) {
             $details = 'Admin Logout';
         }
