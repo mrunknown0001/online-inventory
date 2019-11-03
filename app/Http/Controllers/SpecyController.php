@@ -55,6 +55,20 @@ class SpecyController extends Controller
 
 
     /**
+     * viewSpecies
+     */
+    public function viewSpecies($id = NULL)
+    {
+        $id = $this->decryptString($id);
+
+        $species = \App\Specy::findorfail($id);
+
+        return view('admin.specy.view', ['species' => $species]);
+    }
+
+
+
+    /**
      * all species
      */
     public function all()

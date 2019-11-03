@@ -82,7 +82,7 @@
       e.preventDefault();
       var id = $(this).data('id');
       Swal.fire({
-        title: 'View User Info?',
+        title: 'View Species Info?',
         text: "",
         type: 'question',
         showCancelButton: true,
@@ -92,11 +92,11 @@
       }).then((result) => {
         if (result.value) {
           // update
-          window.location.replace("/admin/user/info/" + id);
+          window.location.replace("/admin/species/info/" + id);
         }
         else {
           Swal.fire({
-            title: 'View User Info Cancelled',
+            title: 'View Species Info Cancelled',
             text: "",
             type: 'info',
             showCancelButton: false,
@@ -114,7 +114,7 @@
       e.preventDefault();
       var id = $(this).data('id');
       Swal.fire({
-        title: 'Update User Info?',
+        title: 'Update Species Info?',
         text: "",
         type: 'question',
         showCancelButton: true,
@@ -128,7 +128,7 @@
         }
         else {
           Swal.fire({
-            title: 'Update User Info Cancelled',
+            title: 'Update Species Info Cancelled',
             text: "",
             type: 'info',
             showCancelButton: false,

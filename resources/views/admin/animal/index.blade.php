@@ -114,7 +114,7 @@
       e.preventDefault();
       var id = $(this).data('id');
       Swal.fire({
-        title: 'Update User Info?',
+        title: 'Update Animal?',
         text: "",
         type: 'question',
         showCancelButton: true,
@@ -124,11 +124,11 @@
       }).then((result) => {
         if (result.value) {
           // update
-          window.location.replace("/admin/user/update/info/" + id);
+          window.location.replace("/admin/animal/update/" + id);
         }
         else {
           Swal.fire({
-            title: 'Update User Info Cancelled',
+            title: 'Update Animal Cancelled',
             text: "",
             type: 'info',
             showCancelButton: false,

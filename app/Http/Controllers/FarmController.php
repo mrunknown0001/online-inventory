@@ -50,6 +50,20 @@ class FarmController extends Controller
     }
 
 
+
+    /**
+     * viewfarm
+     */
+    public function viewFarm($id = NULL)
+    {
+        $id = $this->decryptString($id);
+
+        $farm = \App\Farm::findorfail($id);
+
+        return view('admin.farm.view', ['farm' => $farm]);
+    }
+
+
     /**
      * all farms
      */
@@ -71,7 +85,7 @@ class FarmController extends Controller
                 $data[] = [
                     'name' => $f->name,
                     'description' => $f->description,
-                    'action' => "<button class='btn btn-primary btn-xs'><i class='fa fa-eye'></i> View</button>",
+                    'action' => "<button class='btn btn-primary btn-xs' id='view' data-id='" . encrypt($f->farm_id) . "'><i class='fa fa-eye'></i> View</button>",
                 ];
             }
         }

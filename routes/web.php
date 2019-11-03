@@ -164,6 +164,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'prevent-back-histo
 	// store farm
 	Route::post('/farm/add', 'FarmController@postAddFarm')->name('store.farm');
 
+	// view farm
+	Route::get('/farm/info/{id}', 'FarmController@viewFarm')->name('view.farm');
+
 	// All Farms
 	Route::get('/all/farms', 'FarmController@all')->name('all.farms');
 
@@ -198,6 +201,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'prevent-back-histo
 	Route::post('/species/add', 'SpecyController@storeSpecies')->name('store.species');
 
 
+	// view Species
+	Route::get('/species/info/{id}', 'SpecyController@viewSpecies')->name('view.species');
+
+
 	// All Species
 	Route::get('/all/species', 'SpecyController@all')->name('all.species');
 
@@ -209,6 +216,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'prevent-back-histo
 
 	// Store Animal
 	Route::post('/animal/add', 'AnimalController@storeAnimal')->name('store.animal');
+
+	// Update animal
+	Route::get('/animal/update/{id}', 'AnimalController@updateAnimal')->name('update.animal');
 
 	// All Animals
 	Route::get('/all/animals', 'AnimalController@all')->name('all.animals');
