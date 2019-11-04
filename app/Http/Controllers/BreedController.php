@@ -36,16 +36,39 @@ class BreedController extends Controller
             'breed' => 'required',
         ]);
 
+        $id = $request['id'];
+
         $animal = $this->decryptString($request['animal']);
         $breed = $request['breed'];
 
-        $new = new \App\Breed();
+        if($id == NULL) {
+            $new = new \App\Breed();
+        }
+        else {
+            $id = $this->decryptString($id);
+            $new = \App\Breed::findorfail($id);
+        }
         $new->name = $breed;
         $new->animal_id = $animal;
 
         if($new->save()) {
             return redirect()->route('add.breed')->with('success', 'Breed Saved!');
         }
+    }
+
+
+    /**
+     * updateBreed
+     */
+    public function updateBreed($id = NULL)
+    {
+        $id = $this->decryptString($id);
+
+        $breed = \App\Breed::findorfail($id);
+
+        $animals = \App\Animal::where('active', 1)->get();
+
+        return view('admin.breed.add-edit', ['id' => $id, 'breed' => $breed, 'animals' => $animals]);
     }
 
 
@@ -70,7 +93,7 @@ class BreedController extends Controller
                 $data[] = [
                     'breed' => $b->name,
                     'animal' => $b->animal->name,
-                    'action' => "<button class='btn btn-info btn-xs'><i class='fa fa-pencil'></i> Update</button>",
+                    'action' => "<button class='btn btn-info btn-xs' id='update' data-id='" . encrypt($b->breed_id) . "'><i class='fa fa-pencil'></i> Update</button>",
                 ];
             }
         }

@@ -239,6 +239,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'prevent-back-histo
 	// Store Breed
 	Route::post('/breed/add', 'BreedController@storeBreed')->name('store.breed');
 
+	// update breed
+	Route::get('/breed/update/{id}', 'BreedController@updateBreed')->name('update.breed');
+
 	// Unit of Measurement
 	Route::get('/unit-of-measurements', 'UnitOfMeasurementController@index')->name('unit.of.measurements');
 
@@ -247,6 +250,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'prevent-back-histo
 
 	// store
 	Route::post('/unit-of-measurement/add', 'UnitOfMeasurementController@storeUnitofMeasurement')->name('store.unit.of.measurement');
+
+	// view uom
+	Route::get('/unit-of-measurement/view/{id}', 'UnitOfMeasurementController@viewUnitofMeasurement')->name('view.unit.of.measurement');
 
 
 	// All unit of measurements

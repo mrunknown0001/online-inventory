@@ -82,7 +82,7 @@
     e.preventDefault();
     var id = $(this).data('id');
     Swal.fire({
-      title: 'View User Info?',
+      title: 'View Unit of Measurement',
       text: "",
       type: 'question',
       showCancelButton: true,
@@ -92,11 +92,11 @@
     }).then((result) => {
       if (result.value) {
         // update
-        window.location.replace("/admin/user/info/" + id);
+        window.location.replace("/admin/unit-of-measurement/view/" + id);
       }
       else {
         Swal.fire({
-          title: 'View User Info Cancelled',
+          title: 'View Unit of Measurement Cancelled',
           text: "",
           type: 'info',
           showCancelButton: false,

@@ -52,6 +52,19 @@ class UnitOfMeasurementController extends Controller
 
 
     /**
+     * viewUnitofMeasurement
+     */
+    public function viewUnitofMeasurement($id = NULL)
+    {
+        $id = $this->decryptString($id);
+
+        $um = \App\UnitOfMeasurement::findorfail($id);
+
+        return view('admin.unit_of_measurement.view', ['unit' => $um]);
+    }
+
+
+    /**
      * all 
      */
     public function all()
@@ -71,7 +84,7 @@ class UnitOfMeasurementController extends Controller
     			$data[] = [
     				'unit' => $u->name,
     				'code' => $u->code,
-    				'action' => "<button class='btn btn-primary btn-xs'><i class='fa fa-eye'></i> View</button>"
+    				'action' => "<button class='btn btn-primary btn-xs' id='view' data-id='" . encrypt($u->unit_of_measurement_id) . "'><i class='fa fa-eye'></i> View</button>"
     			];
     		}
     	}
