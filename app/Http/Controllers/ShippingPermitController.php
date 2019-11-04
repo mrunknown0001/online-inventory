@@ -153,9 +153,13 @@ class ShippingPermitController extends Controller
     /**
      * print function
      */
-    public function print()
+    public function print($id = NULL)
     {
-        return view('common.shipping_permit.print');
+        $id = $this->decryptString($id);
+
+        $permit = \App\ShippingPermit::findorfail($id);
+
+        return view('common.shipping_permit.print', ['permit' => $permit]);
     }
 
 
@@ -181,7 +185,7 @@ class ShippingPermitController extends Controller
                     'permit_no' => $p->permit_no,
                     'origin' => $p->originFarm->name,
                     'destination' => $p->destination,
-                    'action' => "<a href=" . route('print.shipping.permit') . " class='btn btn-primary btn-xs'><i class='fa fa-print'></i> Print</a>"
+                    'action' => "<a href=" . route('print.shipping.permit', ['id' => encrypt($p->shipping_permit_id)]) . " class='btn btn-primary btn-xs'><i class='fa fa-print'></i> Print</a>"
                 ];
             }
         }

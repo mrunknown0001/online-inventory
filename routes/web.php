@@ -336,7 +336,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::post('/shipping-permit/add', 'ShippingPermitController@postAddShippingPermit')->name('post.add.shipping.permit');
 
 	// print shipping permit
-	Route::get('/shipping-permit/print', 'ShippingPermitController@print')->name('print.shipping.permit');
+	Route::get('/shipping-permit/print/{id}', 'ShippingPermitController@print')->name('print.shipping.permit');
 
 	// All Shipping Permits
 	Route::get('/all/shipping-permits', 'ShippingPermitController@all')->name('all.shipping.permits');

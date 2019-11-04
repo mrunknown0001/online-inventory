@@ -36,7 +36,7 @@
             
           </div>
           <div class="col-md-4">
-            
+            <p>Permit No: <strong>{{ $permit->permit_no }}</strong></p>
           </div>
         </div>
       </div>
