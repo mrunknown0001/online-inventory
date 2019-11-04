@@ -5,6 +5,10 @@ Route::group(['middleware' => 'prevent-back-history'], function() {
 	// Route to landing Page
 	Route::get('/', 'GeneralController@landingPage')->name('landing.page');
 
+
+	// route to get all data in calendar
+	Route::get('/all/calendar', 'GeneralController@allCalendar')->name('all.calendar');
+
 	// Routel to view Login form
 	Route::get('/login', 'LoginController@login')->name('login');
 

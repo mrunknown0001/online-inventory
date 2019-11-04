@@ -51,4 +51,26 @@ class GeneralController extends Controller
     }
 
 
+
+    /**
+     * allCalendar
+     */
+    public function allCalendar()
+    {
+        $info = \App\PublicInfo::where('active', 1)->get();
+        $data = NULL;
+
+        if(count($info) > 0) {
+            foreach($info as $i) {
+                $data[] = [
+                    'title' => $i->title,
+                    'start' => $i->date,
+                ];
+            }
+        }
+
+        return $data;
+    }
+
+
 }
