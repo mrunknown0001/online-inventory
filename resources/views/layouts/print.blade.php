@@ -36,7 +36,16 @@
   {{-- <script src="{{ asset('dist/chart.js/Chart.js') }}"></script> --}}
 
   @yield('script')
-  
+
+  <style>
+    .underline {
+      border-bottom: 1px solid black;
+    }
+
+    td {
+      height: 40px;
+    }
+  </style>
 </head>
 <body class="">
 <div class="wrapper">

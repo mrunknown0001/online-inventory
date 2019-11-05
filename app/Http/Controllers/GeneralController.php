@@ -73,4 +73,21 @@ class GeneralController extends Controller
     }
 
 
+    /**
+     * validUntil
+     */
+    public static function validUntil($date)
+    {
+        $d = date('m/d/y', strtotime($date));
+
+        $today = date('m/d/y', strtotime(now()));
+
+        if($today <= $d) {
+            return NULL;
+        }
+
+        return "<button class='btn btn-danger btn-xs'>Expired</button>";
+    }
+
+
 }
