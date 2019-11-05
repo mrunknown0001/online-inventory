@@ -338,6 +338,9 @@ Route::group(['middleware' => 'auth'], function () {
 	// print shipping permit
 	Route::get('/shipping-permit/print/{id}', 'ShippingPermitController@print')->name('print.shipping.permit');
 
+	// download shipping permit
+	Route::get('/shipping-permit/download/{id}', 'ShippingPermitController@downloadPermitPdf')->name('download.permit');
+
 	// All Shipping Permits
 	Route::get('/all/shipping-permits', 'ShippingPermitController@all')->name('all.shipping.permits');
 

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use PDF;
+
 class ShippingPermitController extends Controller
 {
     /**
@@ -163,6 +165,24 @@ class ShippingPermitController extends Controller
     }
 
 
+
+    /**
+     * downloadPermitPdf
+     */
+    public function downloadPermitPdf($id = NULL)
+    {
+        $id = $this->decryptString($id);
+
+        $permit = \App\ShippingPermit::findorfail($id);
+
+        $pdf = PDF::loadView('common.shipping_permit.print2', ['permit' => $permit]);
+
+        $title = "Shipping Permit No " . $permit->permit_no . ".pdf";
+
+        return $pdf->download($title);
+    }
+
+
     /**
      * all
      */
@@ -185,7 +205,7 @@ class ShippingPermitController extends Controller
                     'permit_no' => $p->permit_no,
                     'origin' => $p->originFarm->name,
                     'destination' => $p->destination,
-                    'action' => "<a href=" . route('print.shipping.permit', ['id' => encrypt($p->shipping_permit_id)]) . " class='btn btn-primary btn-xs'><i class='fa fa-print'></i> Print</a>"
+                    'action' => "<a href=" . route('print.shipping.permit', ['id' => encrypt($p->shipping_permit_id)]) . " class='btn btn-primary btn-xs'><i class='fa fa-print'></i> Print</a> <a href=" . route('download.permit', ['id' => encrypt($p->shipping_permit_id)]) . " class='btn btn-warning btn-xs'><i class='fa fa-download'></i> Download</a>"
                 ];
             }
         }
