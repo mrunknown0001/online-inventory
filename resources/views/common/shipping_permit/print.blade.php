@@ -226,9 +226,28 @@
               Approved By:
             </div>
           </div>
+          <br><br>
+          <div class="row">
+            <div class="col-md-4 underline">
+              
+            </div>
+            <div class="col-md-4"></div>
+            <div class="col-md-4 underline">
+              
+            </div>
+          </div> 
+          <div class="row">
+            <div class="col-md-4">
+              <p class="text-center"><strong>{{ strtoupper($permit->inspected_by) }}</strong></p>
+            </div>
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+              <p class="text-center"><strong>{{ strtoupper($permit->approved_by) }}</strong></p>
+            </div>
+          </div>          
         </div>
       </div>
-      
+      <br><br><br>
 
       <!-- /.row -->
     </section>
