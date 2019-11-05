@@ -22,5 +22,13 @@
     float: none;
   }
 
+  .pull-left {
+    left: 0;
+  }
+
+  .pull-right {
+    right: 0;
+  }
+
 
 }

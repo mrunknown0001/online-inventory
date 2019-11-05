@@ -28,15 +28,11 @@
       </div>
       <!-- /.row -->
       <div id="printArea">
-        <div class="row">
-          <div class="col-md-4">
-            
-          </div>
-          <div class="col-md-4">
-            
-          </div>
-          <div class="col-md-4">
-            <p>Permit No: <strong>{{ $permit->permit_no }}</strong></p>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <p class="pull-right">Permit No: <strong>{{ $permit->permit_no }}</strong></p>
+            </div>
           </div>
         </div>
         <div class="row">
@@ -60,11 +56,27 @@
           <div class="row">
             <div class="col-md-6">
               <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-5">
                   Date and Time
                 </div>
-                <div class="col-md-6">
-                  :________________
+                <div class="col-md-7">
+                  :____________________
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-5">
+                  Shipper's Name
+                </div>
+                <div class="col-md-7">
+                  :____________________
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-5">
+                  Shipper's Address
+                </div>
+                <div class="col-md-7">
+                  :____________________
                 </div>
               </div>
             </div>
