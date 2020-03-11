@@ -177,7 +177,7 @@ class ShippingPermitController extends Controller
 
         $pdf = PDF::loadView('common.shipping_permit.print2', ['permit' => $permit]);
 
-        $title = "Shipping Permit No " . $permit->permit_no . ".pdf";
+        return $title = "Shipping Permit No " . $permit->permit_no . ".pdf";
 
         return $pdf->download($title);
     }
