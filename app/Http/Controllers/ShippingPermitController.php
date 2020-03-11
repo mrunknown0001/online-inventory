@@ -161,7 +161,7 @@ class ShippingPermitController extends Controller
 
         $permit = \App\ShippingPermit::findorfail($id);
 
-        return view('common.shipping_permit.print2', ['permit' => $permit]);
+        return view('common.shipping_permit.print', ['permit' => $permit]);
     }
 
 
@@ -175,7 +175,7 @@ class ShippingPermitController extends Controller
 
         $permit = \App\ShippingPermit::findorfail($id);
 
-        $pdf = PDF::loadView('common.shipping_permit.print2', ['permit' => $permit]);
+        $pdf = PDF::loadView('common.shipping_permit.print', ['permit' => $permit]);
 
         return $title = "Shipping Permit No " . $permit->permit_no . ".pdf";
 
