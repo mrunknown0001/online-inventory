@@ -161,7 +161,7 @@ class ShippingPermitController extends Controller
 
         $permit = \App\ShippingPermit::findorfail($id);
 
-        return view('common.shipping_permit.print', ['permit' => $permit]);
+        return view('common.shipping_permit.print2', ['permit' => $permit]);
     }
 
 
