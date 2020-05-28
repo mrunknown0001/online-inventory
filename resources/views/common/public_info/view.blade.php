@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title') Items Management @endsection
+@section('title') Public Info @endsection
 
 @section('script')
   <script src="{{ asset('js/sweetalert.js') }}"></script>
@@ -12,11 +12,11 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Items Mamangement
+        Public Info
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-list"></i> Home</a></li>
-        <li class="active">Items Management</li>
+        <li><a href="#"><i class="fa fa-info"></i> Home</a></li>
+        <li class="active">Public Info</li>
       </ol>
     </section>
 
@@ -34,46 +34,27 @@
       <div class="row">
         <div class="col-md-12">
           <p>
-            <a href="{{ route('inventories') }}" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Back to Inventory</a>
+            <a href="{{ route('public.info') }}" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Back to Public Information</a>
 
           </p>
           <!-- TABLE: LATEST ORDERS -->
           <div class="box box-info">
             <div class="box-header with-border">
-              <h3 class="box-title">Item Inventory Details</h3>
+              <h3 class="box-title">Public Information Details</h3>
 
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                 </button>
-                <button type="button" class="btn btn-box-tool" onclick="reloadDatatables()"><i class="fa fa-refresh"></i></button>
               </div>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
               <div class="row">
                 <div class="col-md-6">
-                  Item: {{ $inv->item->item_name }}
-                </div>
-                <div class="col-md-6">
-                  Item Code: {{ $inv->item->item_code }}
-                </div>
-                <div class="col-md-12">
-                  Item Description: {{ $inv->item->item_description }}
-                </div>
-                <div class="col-md-12">
-                  Category: {{ $inv->item->category->item_category_name }}
-                </div>
-                <div class="col-md-6">
-                  Maximum Stock #: {{ $inv->item->max_stock }}
-                </div>
-                <div class="col-md-6">
-                  Item Critical Percentage: {{ $inv->item->critical_level }}
-                </div>
-                <div class="col-md-6">
-                  Stock Quantity: {{ $inv->quantity }}
-                </div>
-                <div class="col-md-6">
-                  Status: {!! $status !!}
+                  <p>Title: {{ $event->title }}</p>
+                  <p>Time: {{ $event->time }}</p>
+                  <p>Description: {{ $event->details }}</p>
+
                 </div>
               </div>
             </div>

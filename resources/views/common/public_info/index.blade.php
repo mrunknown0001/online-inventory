@@ -83,7 +83,7 @@
       e.preventDefault();
       var id = $(this).data('id');
       Swal.fire({
-        title: 'View User Info?',
+        title: 'View Public Info?',
         text: "",
         type: 'question',
         showCancelButton: true,
@@ -93,11 +93,11 @@
       }).then((result) => {
         if (result.value) {
           // update
-          window.location.replace("/admin/user/info/" + id);
+          window.location.replace("/public/information/view/" + id);
         }
         else {
           Swal.fire({
-            title: 'View User Info Cancelled',
+            title: 'View Public Info Cancelled',
             text: "",
             type: 'info',
             showCancelButton: false,

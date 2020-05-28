@@ -75,7 +75,7 @@ class PublicInfoController extends Controller
                     'info' => $i->title,
                     'details' => $i->details,
                     'date_time' => $i->date . ' ' . $i->time,
-                    'action' => "<button class='btn btn-primary btn-xs'><i class='fa fa-eye'></i> View</button>"
+                    'action' => "<button class='btn btn-primary btn-xs' id='view' data-id=" . encrypt($i->public_info_id) . "><i class='fa fa-eye'></i> View</button>"
                 ];
             }
         }
@@ -83,6 +83,18 @@ class PublicInfoController extends Controller
     	return $data;
     }
 
+
+    /**
+     * view public info
+     */
+    public function viewPublicInfo($id)
+    {
+        $id = decrypt($id);
+
+        $info = \App\PublicInfo::findOrFail($id);
+
+        return view('common.public_info.view', ['event' => $info]);
+    } 
 
 
 

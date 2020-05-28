@@ -361,6 +361,9 @@ Route::group(['middleware' => 'auth'], function () {
 	// All public info
 	Route::get('/all/public/information', 'PublicInfoController@all')->name('all.public.info');
 
+	// view public info 
+	Route::get('/public/information/view/{id}', 'PublicInfoController@viewPublicInfo')->name('view.public.info');
+
 
 
 	// Previous Activities

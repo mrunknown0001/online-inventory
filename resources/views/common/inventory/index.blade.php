@@ -15,7 +15,7 @@
         Items Mamangement
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-circle-o"></i> Home</a></li>
+        <li><a href="#"><i class="fa fa-list"></i> Home</a></li>
         <li class="active">Items Management</li>
       </ol>
     </section>
