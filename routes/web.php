@@ -9,6 +9,9 @@ Route::group(['middleware' => 'prevent-back-history'], function() {
 	// route to get all data in calendar
 	Route::get('/all/calendar', 'GeneralController@allCalendar')->name('all.calendar');
 
+	// route to view event
+	Route::get('/view/event/{id}', 'GeneralController@viewEvent')->name('view.event');
+
 	// Routel to view Login form
 	Route::get('/login', 'LoginController@login')->name('login');
 

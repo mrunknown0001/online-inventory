@@ -59,9 +59,19 @@
         var calendar = new FullCalendar.Calendar(calendarEl, {
           plugins: [ 'interaction', 'dayGrid' ],
           defaultDate: today,
-          editable: true,
+          editable: false,
           eventLimit: true, // allow "more" link when too many events
           events: data,
+
+          
+          // eventRender: function(info) {
+          //   var tooltip = new Tooltip(info.el, {
+          //     title: info.event.extendedProps.description,
+          //     placement: 'top',
+          //     trigger: 'hover',
+          //     container: 'body'
+          //   });
+          // },
         });
 
         calendar.render();

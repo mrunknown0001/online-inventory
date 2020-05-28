@@ -64,13 +64,29 @@ class GeneralController extends Controller
             foreach($info as $i) {
                 $data[] = [
                     'title' => $i->title,
-                    'start' => $i->date,
+                    'description' => $i->details,
+                    'start' => $i->date.'T'.$i->time,
+                    'url' => route('view.event', ['id' => encrypt($i->public_info_id)]),
                 ];
             }
         }
 
         return $data;
     }
+
+
+    /**
+     * View Event
+     */
+    public function viewEvent($id)
+    {
+        $id = decrypt($id);
+
+        $event = \App\PublicInfo::findOrFail($id);
+
+        return view('view-event', ['event' => $event]);
+    }
+
 
 
     /**
