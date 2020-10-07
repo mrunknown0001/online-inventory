@@ -22,7 +22,7 @@
 
   @yield('style')
 
-  {{-- <script src="{{ asset('dist/js/jquery.min.js') }}"></script> --}}
+  <script src="{{ asset('dist/js/jquery.min.js') }}"></script>
   <script src="{{ asset('dist/js/bootstrap.min.js') }}"></script>
   {{-- <script src="{{ asset('dist/js/adminlte.min.js') }}"></script> --}}
   {{-- <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script> --}}
