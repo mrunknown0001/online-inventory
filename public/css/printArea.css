@@ -1,7 +1,25 @@
+@media screen {
+  #page-footer {
+    display: none !important;
+  }
+}
+
+
+
 @media print {
+
+  @page {
+    size: legal landscape;
+    margin: none;
+  }
+
+
+  html, body {
+    height: 100%;
+  }
+
   body * {
     visibility: hidden;
-    width: 100%;
   }
   table{
     width: 100%;
@@ -11,10 +29,8 @@
     visibility: visible;
   }
   #printArea {
-    position: fixed;
     left: 0;
-    top: 0;
-    margin: 0;
+    top: 0 !important;
     width: 100%;
     min-height: 800px;
     height: 100%;
@@ -30,5 +46,11 @@
     right: 0;
   }
 
+  page-break-before: always;
+
+  #page-footer {
+    position: fixed;
+    bottom: 0;
+  }
 
 }

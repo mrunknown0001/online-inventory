@@ -1,6 +1,6 @@
 @extends('layouts.print')
 
-@section('title') Shipping Permit @endsection
+@section('title') Shipping Permit 2@endsection
 
 @section('content')
   <!-- Content Wrapper. Contains page content -->

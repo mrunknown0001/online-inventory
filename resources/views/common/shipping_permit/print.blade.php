@@ -12,7 +12,7 @@
       </h1> --}}
       <ol class="breadcrumb">
         <li><a href="{{ route('landing.page') }}"><i class="fa fa-truck"></i> Home</a></li>
-        <li class="active">Shipping Permit</li>
+        <li class="active"><a href="{{ route('shipping.permits') }}">Shipping Permit</a></li>
       </ol>
     </section>
 
@@ -28,30 +28,31 @@
       <!-- /.row -->
 
       <div id="printArea">
-        <div class="container">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-4">
+              
+            </div>
+            <div class="col-md-4">
+              <p class="text-center">
+                Republic of the Philippines<br>
+                Department of Agriculture<br>
+                Bureau of Animal Industry<br>
+                Visayas Avenue, Quezon City<br>
+                <strong>VETERINARY SHIPPING PERMIT</strong>
+              </p>
+            </div>
+            <div class="col-md-4">
+              
+            </div>
+          </div>
           <div class="row">
             <div class="col-md-12">
               <p class="pull-right">Permit No: <strong>{{ $permit->permit_no }}</strong></p>
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-4">
-            
-          </div>
-          <div class="col-md-4">
-            <p class="text-center">
-              Republic of the Philippines<br>
-              Department of Agriculture<br>
-              Bureau of Animal Industry<br>
-              Visayas Avenue, Quezon City<br>
-              <strong>VETERINARY SHIPPING PERMIT</strong>
-            </p>
-          </div>
-          <div class="col-md-4">
-            
-          </div>
-        </div>
+
         <div class="container">
           <div class="row">
             <div class="col-md-6">
@@ -164,6 +165,9 @@
               </div>
             </div>
           </div>
+        </div>
+
+        <div class="container-fluid">
           <div class="row">
             <div class="col-md-12">
               <div class="table-responsive">
@@ -227,27 +231,38 @@
             </div>
           </div>
           <br><br>
-          <div class="row">
-            <div class="col-md-4 underline">
-              
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-4 underline">
+                
+              </div>
+              <div class="col-md-4"></div>
+              <div class="col-md-4 underline">
+                
+              </div>
             </div>
-            <div class="col-md-4"></div>
-            <div class="col-md-4 underline">
-              
-            </div>
-          </div> 
+          </div>
           <div class="row">
             <div class="col-md-4">
               <p class="text-center"><strong>{{ strtoupper($permit->inspected_by) }}</strong></p>
+              <p class="text-center">{{ $permit->inspectors_address }}</p>
             </div>
             <div class="col-md-4"></div>
             <div class="col-md-4">
               <p class="text-center"><strong>{{ strtoupper($permit->approved_by) }}</strong></p>
+              <p class="text-center">{{ $permit->approvers_address }}</p>
             </div>
-          </div>          
+          </div>
+        </div>       
+        
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12"><p id="page-footer">Tarlac</p></div>
+          </div>
         </div>
       </div>
       <br><br><br>
+
 
       <!-- /.row -->
     </section>

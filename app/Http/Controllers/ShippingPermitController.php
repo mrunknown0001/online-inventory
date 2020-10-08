@@ -91,6 +91,8 @@ class ShippingPermitController extends Controller
             'plate_no' => 'required',
             'inspected_by' => 'required',
             'approved_by' => 'required',
+            'inspectors_address' => 'required',
+            'approvers_address' => 'required'
         ]);
 
 
@@ -107,6 +109,8 @@ class ShippingPermitController extends Controller
         $plate_no = $request['plate_no'];
         $inspected_by = $request['inspected_by'];
         $approved_by = $request['approved_by'];
+        $inspectors_address = $request['inspectors_address'];
+        $approvers_address = $request['approvers_address'];
 
         // get number in starting number if there is no previous permit number
         $last_number = \App\ShippingPermit::orderBy('created_at', 'desc')->first();
@@ -144,6 +148,8 @@ class ShippingPermitController extends Controller
         $new->plate_no = $plate_no;
         $new->inspected_by = $inspected_by;
         $new->approved_by = $approved_by;
+        $new->inspectors_address = $inspectors_address;
+        $new->approvers_address = $approvers_address;
 
         if($new->save()) {
             return redirect()->route('shipping.permits')->with('success', 'Saved Shipping Permit!');
@@ -177,7 +183,7 @@ class ShippingPermitController extends Controller
 
         $pdf = PDF::loadView('common.shipping_permit.print', ['permit' => $permit]);
 
-        return $title = "Shipping Permit No " . $permit->permit_no . ".pdf";
+        $title = "Shipping Permit No " . $permit->permit_no . ".pdf";
 
         return $pdf->download($title);
     }
@@ -195,7 +201,7 @@ class ShippingPermitController extends Controller
     		'action' => NULL,
     	];
 
-        $permits = \App\ShippingPermit::orderBy('created_at', 'desc')->get();
+        $permits = \App\ShippingPermit::orderBy('created_at', 'asc')->get();
 
         if(count($permits) > 0) {
             $data = NULL;

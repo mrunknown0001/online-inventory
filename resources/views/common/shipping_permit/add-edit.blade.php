@@ -134,8 +134,22 @@
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
+                          <label for="inspected_by">Inspector's Address</label>
+                          <input type="text" name="inspectors_address" id="inspectors_address" class="form-control" placeholder="Inspector's Address" required>
+                          
+                        </div> 
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
                           <label for="approved_by">Approved By</label>
                           <input type="text" name="approved_by" id="approved_by" class="form-control" placeholder="Approved By" required>
+                          
+                        </div> 
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="approved_by">Approver's Address</label>
+                          <input type="text" name="approvers_address" id="approvers_address" class="form-control" placeholder="Approver's Address" required>
                           
                         </div> 
                       </div>

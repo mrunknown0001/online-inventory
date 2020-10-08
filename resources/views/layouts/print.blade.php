@@ -9,7 +9,7 @@
   {{-- <link rel="stylesheet" href="{{ asset('dist/css/AdminLTE.min.css') }}"> --}}
   {{-- <link rel="stylesheet" href="{{ asset('dist/css/skins/_all-skins.min.css') }}"> --}}
   <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" media="all">
-  <link rel="stylesheet" type="text/css" href="{{ asset('css/printArea.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('css/printArea.css') }}" media="all">
   {{-- <link rel="stylesheet" href="{{ asset('css/datatables.min.css') }}"> --}}
   {{-- <link rel="stylesheet" href="{{ asset('jvectormap/jquery-jvectormap.css') }}"> --}}
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->

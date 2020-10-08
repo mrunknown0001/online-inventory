@@ -31,7 +31,9 @@ class CreateShippingPermitsTable extends Migration
             $table->string('plate_no', 10)->nullable();
 
             $table->string('inspected_by', 150)->nullable();
+            $table->string('inspectors_address', 150)->nullable();
             $table->string('approved_by', 150)->nullable();
+            $table->string('approvers_address', 150)->nullable();
             $table->timestamps();
         });
     }
