@@ -102,7 +102,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">menu</a>
+                <a class="navbar-brand page-scroll" href="#page-top">Home</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -318,6 +318,16 @@
             </div>
         </div>
     </section>
+
+    <aside class="bg-dark">
+      <div class="container">
+        <div class="call-to-action">
+          <p>Tarlac Provincial Veterinary</p>
+          <p>Provincial Government of Tarlac</p>
+
+        </div>
+      </div>
+    </aside>
 
     <!-- jQuery -->
     <script src="{{ asset('dist/js/jquery.min.js') }}"></script>

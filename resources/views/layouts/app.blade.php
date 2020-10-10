@@ -45,6 +45,7 @@
 
   @yield('content')
 
+  
   @include('includes.footer')
 
 </div>

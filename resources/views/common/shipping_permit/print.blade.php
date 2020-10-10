@@ -1,6 +1,6 @@
 @extends('layouts.print')
 
-@section('title') Shipping Permit @endsection
+@section('title') Shipping Permit No: {{ $permit->permit_no }} @endsection
 
 @section('content')
   <!-- Content Wrapper. Contains page content -->
@@ -13,6 +13,7 @@
       <ol class="breadcrumb">
         <li><a href="{{ route('landing.page') }}"><i class="fa fa-truck"></i> Home</a></li>
         <li class="active"><a href="{{ route('shipping.permits') }}">Shipping Permit</a></li>
+        <li><a href="javascript:void(0)" onClick="window.print()"><i class="fa fa-print"></i></a></li>
       </ol>
     </section>
 
@@ -30,8 +31,13 @@
       <div id="printArea">
         <div class="container-fluid">
           <div class="row">
+            <div class="col-md-12"><p id="page-footer"><br></p></div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
             <div class="col-md-4">
-              
+              <p class="text-center"><img class="img" height="125px" src="{{ asset('/images/bai.png') }}" alt="Bureau of Animal Industries"></p>
             </div>
             <div class="col-md-4">
               <p class="text-center">
@@ -43,9 +49,10 @@
               </p>
             </div>
             <div class="col-md-4">
-              
+              <p class="text-center"><img class="img" height="125px" src="{{ asset('/images/tarlac.jpg') }}" alt="Tarlac Provincial Government"></p>
             </div>
           </div>
+          <br>
           <div class="row">
             <div class="col-md-12">
               <p class="pull-right">Permit No: <strong>{{ $permit->permit_no }}</strong></p>
@@ -167,11 +174,11 @@
           </div>
         </div>
 
-        <div class="container-fluid">
+        <div class="container">
           <div class="row">
             <div class="col-md-12">
               <div class="table-responsive">
-                <table id="animals" class="table table-bordered" style="width: 99%">
+                <table id="animals" class="table table-bordered">
                   <thead>
                     <tr>
                       <th>Animals/Products/By-Products</th>
@@ -255,15 +262,12 @@
           </div>
         </div>       
         
-        <div class="container-fluid">
+        {{-- <div class="container-fluid">
           <div class="row">
-            <div class="col-md-12"><p id="page-footer">Tarlac</p></div>
+            <div class="col-md-12"><p id="page-footer">Tarlac Provincial Veterinary Office</p></div>
           </div>
-        </div>
+        </div> --}}
       </div>
-      <br><br><br>
-
-
       <!-- /.row -->
     </section>
     <!-- /.content -->

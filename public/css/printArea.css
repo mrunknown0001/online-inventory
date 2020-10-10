@@ -2,6 +2,12 @@
   #page-footer {
     display: none !important;
   }
+
+  #page-header {
+    display: none !important;
+  }
+
+
 }
 
 
@@ -10,7 +16,7 @@
 
   @page {
     size: legal landscape;
-    margin: none;
+    margin: 1cm !important;
   }
 
 
@@ -31,8 +37,8 @@
   #printArea {
     left: 0;
     top: 0 !important;
+    position:fixed;
     width: 100%;
-    min-height: 800px;
     height: 100%;
     bottom: 0;
     float: none;

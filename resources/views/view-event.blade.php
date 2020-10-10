@@ -26,14 +26,18 @@
     <a href="javascript:void(0)">{{ strtoupper($event->title) }}</a>
   </div> --}}
   <!-- /.login-logo -->
-  <div class="login-box-body">
+  <div class="login-box-body" width=device-width>
     <div class="login-logo">
       <a href="javascript:void(0)">{{ strtoupper($event->title) }}</a>
     </div>
-    <p class="login-box-msg">Time: {{ $event->time }}</p>
+    <p class="login-box-msg">Date & Time: {{ date('F j, Y', strtotime($event->date)) }} @ {{ $event->time }}</p>
     <p class="login-box-msg">Details: {{ $event->details }}</p>
     <p class="login-box-msg"></p>
-    <p><a href="{{ route('landing.page') }}">to go Home</a></p>
+    <p>
+      <a href="{{ route('landing.page') }}/#public_info">Public Info</a>
+      &nbsp;&nbsp;&nbsp;
+      <a href="{{ route('landing.page') }}">Home</a>
+    </p>
   </div>
 </div>
 <script src="{{ asset('dist/js/jquery.min.js') }}"></script>

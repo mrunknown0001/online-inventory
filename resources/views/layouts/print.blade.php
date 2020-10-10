@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title> @yield('title') :: Online Inventory</title>
+  <title> @yield('title')</title>
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
   {{-- <link rel="stylesheet" href="{{ asset('dist/css/AdminLTE.min.css') }}"> --}}
@@ -51,6 +51,12 @@
 <div class="wrapper">
 
   @yield('content')
+
+  <div class="container">
+    <br><br><br>
+    @include('includes.footer')
+    <br><br><br>
+  </div>
 
 </div>
 </body>
