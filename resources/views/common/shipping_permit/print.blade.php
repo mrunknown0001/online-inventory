@@ -37,7 +37,7 @@
         <div class="container">
           <div class="row">
             <div class="col-md-4">
-              <p class="text-center"><img class="img" height="125px" src="{{ asset('/images/bai.png') }}" alt="Bureau of Animal Industries"></p>
+              {{-- <p class="text-center"><img class="img" height="125px" src="{{ asset('/images/bai_orig.png') }}" alt="Bureau of Animal Industries"></p> --}}
             </div>
             <div class="col-md-4">
               <p class="text-center">
@@ -49,7 +49,7 @@
               </p>
             </div>
             <div class="col-md-4">
-              <p class="text-center"><img class="img" height="125px" src="{{ asset('/images/tarlac.jpg') }}" alt="Tarlac Provincial Government"></p>
+              {{-- <p class="text-center"><img class="img" height="125px" src="{{ asset('/images/dar_orig.png') }}" alt="Tarlac Provincial Government"></p> --}}
             </div>
           </div>
           <br>

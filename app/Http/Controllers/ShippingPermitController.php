@@ -181,13 +181,11 @@ class ShippingPermitController extends Controller
 
         $permit = \App\ShippingPermit::findorfail($id);
 
-        // $pdf = PDF::loadView('common.shipping_permit.print', ['permit' => $permit]);
-
-        $pdf = PDF::loadView('login');
+        $pdf = PDF::loadView('common.shipping_permit.print2', ['permit' => $permit]);
 
         $title = "Shipping Permit No " . $permit->permit_no . ".pdf";
 
-        return $pdf->download('a.pdf');
+        return $pdf->download($title);
 
 
     }
