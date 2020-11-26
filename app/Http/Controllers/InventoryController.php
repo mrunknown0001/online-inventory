@@ -541,6 +541,9 @@ class InventoryController extends Controller
 
         $items = \App\Inventory::get();
 
+
+        return $items; 
+
         if(count($items) > 0) {
             $data = NULL;
 
