@@ -14,7 +14,7 @@ class Item extends Model
 
     public function unit()
     {
-    	return $this->belongsTo('App\UnitOfMeasurement', 'unit_of_measurement_id');
+    	return $this->hasOne('App\UnitOfMeasurement', 'unit_of_measurement_id');
     }
 
 
