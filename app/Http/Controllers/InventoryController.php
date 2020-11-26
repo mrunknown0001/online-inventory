@@ -549,8 +549,7 @@ class InventoryController extends Controller
                 $data[] = [
                     'item' => $i->item->item_name,
                     'code' => $i->item->item_code,
-                    // 'unit' => $i->unit->code,
-                    'unit' => 'unit',
+                    'unit' => $i->unit->name,
                     'quantity' => $i->quantity,
                     'status' => $this->checkCriticalStock($i->item_id),
                     'category' => $i->item->category->item_category_name,
