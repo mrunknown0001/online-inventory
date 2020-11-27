@@ -500,7 +500,7 @@ class InventoryController extends Controller
         // get the percentage of the critcal level
         $critical = $item->max_stock * ($item->critical_level/100);
 
-        if($item_inv->quantity < $critical) {
+        if($item_inv->quantity <= $critical) {
             return "<button class='btn btn-danger btn-xs'><i class='fa fa-exclamation'></i> Critical Level <i class='fa fa-exclamation'></i></button>";
         }
 

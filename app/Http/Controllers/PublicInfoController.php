@@ -149,6 +149,20 @@ class PublicInfoController extends Controller
     }
 
 
+
+    /**
+     * View Previous Activity
+     */
+    public function viewPreviousActivity($id)
+    {
+        $id =  decrypt($id);
+
+        $activity = \App\PreviousActivity::findOrFail($id);
+
+        return view('view-activity', ['activity' => $activity]);
+    }
+
+
     /**
      * All Images in preivous activities
      */
@@ -170,7 +184,7 @@ class PublicInfoController extends Controller
                 $data[] = [
                     'image' => $p->image,
                     'uploaded' => $p->created_at,
-                    'action' => "<button class='btn btn-primary btn-xs'><i class='fa fa-eye'></i> View</button>",
+                    'action' => "<a target='_blank' href='" . route('view.previous.activity', ['id' => encrypt($p->previous_activity_id)]) . "' class='btn btn-primary btn-xs'><i class='fa fa-eye'></i> View</a>",
                 ];
             }
         }
