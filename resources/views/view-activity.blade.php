@@ -29,7 +29,7 @@
   <div class="login-box-body" width=device-width>
     <div class="login-logo">
       <a href="javascript:void(0)">{{ $activity->image }}</a>
-      <img  class="img" src="{{ asset('/uploads/img/'. $activity->image) }}" alt="{{ $activity->image }}">
+      <img  class="img img-responsive" src="{{ asset('/uploads/img/'. $activity->image) }}" alt="{{ $activity->image }}">
     </div>
 
     <p>
