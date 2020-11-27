@@ -144,6 +144,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'prevent-back-histo
 	Route::post('/item/add', 'ItemController@storeItem')->name('store.item');
 
 	// view item details
+	Route::get('/item/info/{id}', 'ItemController@viewItem')->name('view.item');
 
 	// All Items
 	Route::get('/all/items', 'ItemController@all')->name('all.items');

@@ -74,7 +74,7 @@ class PublicInfoController extends Controller
                 $data[] = [
                     'info' => $i->title,
                     'details' => $i->details,
-                    'date_time' => $i->date . ' ' . $i->time,
+                    'date_time' => date('F j, Y', strtotime($i->date)) . ' ' . date('h:i:s a', strtotime($i->time)),
                     'action' => "<button class='btn btn-primary btn-xs' id='view' data-id=" . encrypt($i->public_info_id) . "><i class='fa fa-eye'></i> View</button>"
                 ];
             }
@@ -183,7 +183,7 @@ class PublicInfoController extends Controller
             foreach($previousActivities as $p) {
                 $data[] = [
                     'image' => $p->image,
-                    'uploaded' => $p->created_at,
+                    'uploaded' => date('F j, Y h:i:s a', strtotime($p->created_at)),
                     'action' => "<a target='_blank' href='" . route('view.previous.activity', ['id' => encrypt($p->previous_activity_id)]) . "' class='btn btn-primary btn-xs'><i class='fa fa-eye'></i> View</a>",
                 ];
             }

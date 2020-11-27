@@ -293,7 +293,7 @@ class InventoryController extends Controller
             'reference_number' => 'required',
             'item1' => 'required',
             'quantity1' => 'required',
-            'price1' => 'required',
+            // 'price1' => 'required',
         ]);
 
 
@@ -302,7 +302,8 @@ class InventoryController extends Controller
 
         $item1 = $request['item1'];
         $quantity1 = $request['quantity1'];
-        $price1 = $request['price1'];
+        // $price1 = $request['price1'];
+        $price1 = 0;
 
         // return $this->decryptString($customer);
 

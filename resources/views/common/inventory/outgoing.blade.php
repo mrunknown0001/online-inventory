@@ -118,12 +118,12 @@
                           <input type="number" name="quantity1" id="quantity1" class="form-control" placeholder="Quantity" required>
                         </div>
                       </div>
-                      <div class="col-md-12">
+                      {{-- <div class="col-md-12">
                         <div class="form-group">
                           <label for="price1">Unit Price</label>
                           <input type="number" name="price1" id="price1" class="form-control" placeholder="Unit Price" required>
                         </div>
-                      </div>
+                      </div> --}}
                     </div>
                     {{-- End of Item 1 --}}
 

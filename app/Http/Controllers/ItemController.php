@@ -70,6 +70,20 @@ class ItemController extends Controller
 
 
 
+    /**
+     * View Item
+     */
+    public function viewItem($id)
+    {
+        $id = $this->decryptString($id);
+
+        $item = \App\Item::findorfail($id);
+
+        return view('admin.item.view', ['item' => $item]);
+    }
+
+
+
 
     /**
      * all
@@ -95,7 +109,7 @@ class ItemController extends Controller
                     'code' => $i->item_code,
                     'unit_of_measurement' => $i->unit->name,
                     'category' => $i->category->item_category_name,
-                    'action' => "<button class='btn btn-primary btn-xs'><i class='fa fa-eye'></i> View</button>", 
+                    'action' => "<button class='btn btn-primary btn-xs' id='view' data-id='" . encrypt($i->item_id) . "'><i class='fa fa-eye'></i> View</button>", 
                 ];
             }
         }

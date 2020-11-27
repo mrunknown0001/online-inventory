@@ -1,10 +1,6 @@
 @extends('layouts.app')
 
-@section('title') Public Info @endsection
-
-@section('script')
-  <script src="{{ asset('js/sweetalert.js') }}"></script>
-@endsection
+@section('title') Item Management @endsection
 
 @section('content')
   <!-- Content Wrapper. Contains page content -->
@@ -12,11 +8,11 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Public Info
+        Item Mamangement
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-info"></i> Home</a></li>
-        <li class="active">Public Info</li>
+        <li><a href="#"><i class="fa fa-circle-o"></i> Home</a></li>
+        <li class="active">Item Management</li>
       </ol>
     </section>
 
@@ -34,28 +30,27 @@
       <div class="row">
         <div class="col-md-12">
           <p>
-            <a href="{{ route('public.info') }}" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Back to Public Information</a>
-
+            <a href="{{ route('items') }}" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Back to Items</a>
           </p>
           <!-- TABLE: LATEST ORDERS -->
           <div class="box box-info">
             <div class="box-header with-border">
-              <h3 class="box-title">Public Information Details</h3>
+              <h3 class="box-title">Item Details</h3>
 
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                 </button>
+                {{-- <button type="button" class="btn btn-box-tool" onclick="reloadDatatables()"><i class="fa fa-refresh"></i></button> --}}
               </div>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
               <div class="row">
-                <div class="col-md-6">
-                  <p>Title: {{ $event->title }}</p>
-                  <p>Date: {{ date('F j, Y h:i:s a', strtotime($event->date)) }}</p>
-                  <p>Time: {{ $event->time }}</p>
-                  <p>Description: {{ $event->details }}</p>
-
+                <div class="col-md-12">
+                  <p>Item Name: <strong>{{ $item->item_name }}</strong></p>
+                  <p>Item Code: <strong>{{ $item->item_code }}</strong></p>
+                  <p>Unit of Measurement: <strong>{{ $item->unit->name }}</strong></p>
+                  <p>Category: <strong>{{ $item->category->item_category_name }}</strong></p>
                 </div>
               </div>
             </div>
@@ -73,9 +68,6 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-<script>
 
- 
-</script>
 @endsection
 
