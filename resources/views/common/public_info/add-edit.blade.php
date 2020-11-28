@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title') Add Public Information @endsection
+@section('title') Add Activity Schedule @endsection
 
 @section('style')
   <link rel="stylesheet" href="{{ asset('css/bootstrap-select.css') }}">
@@ -80,7 +80,7 @@
                       </div>
                     </div>
                     <div class="form-group">
-                      <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> {{ $id != NULL ? 'Update' : 'Add' }} Public Info</button>
+                      <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> {{ $id != NULL ? 'Update' : 'Add' }} Activity Schedule</button>
                       <a href="{{ route('public.info') }}" class="btn btn-danger"><i class="fa fa-ban"></i> Cancel</a>
                     </div>
                   </form>

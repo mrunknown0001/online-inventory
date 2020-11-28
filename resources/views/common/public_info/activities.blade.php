@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title') Previous Activities @endsection
+@section('title') Accomplished Activities @endsection
 
 @section('script')
   <script src="{{ asset('js/sweetalert.js') }}"></script>
@@ -12,7 +12,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Previous Activities
+        Accomplished Activities
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-info"></i> Home</a></li>
@@ -40,7 +40,7 @@
           <!-- TABLE: LATEST ORDERS -->
           <div class="box box-info">
             <div class="box-header with-border">
-              <h3 class="box-title">Previous Activities</h3>
+              <h3 class="box-title">Accomplished Activities</h3>
 
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>

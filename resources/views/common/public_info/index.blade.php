@@ -34,8 +34,8 @@
       <div class="row">
         <div class="col-md-12">
           <p>
-            <a href="{{ route('add.public.info') }}" class="btn btn-primary"><i class="fa fa-plus"></i> Add Public Info</a>
-            <a href="{{ route('previous.activities') }}" class="btn btn-primary"><i class="fa fa-arrow-right"></i> Previous Activities</a>
+            <a href="{{ route('add.public.info') }}" class="btn btn-primary"><i class="fa fa-plus"></i> Add Activity Schedule</a>
+            <a href="{{ route('previous.activities') }}" class="btn btn-primary"><i class="fa fa-arrow-right"></i> Accomplished Activities</a>
           </p>
           <!-- TABLE: LATEST ORDERS -->
           <div class="box box-info">
