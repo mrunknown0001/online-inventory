@@ -80,7 +80,7 @@ class GeneralController extends Controller
      */
     public function viewEvent($id)
     {
-        $id = decrypt($id);
+        $id = $this->decryptString($id);
 
         $event = \App\PublicInfo::findOrFail($id);
 

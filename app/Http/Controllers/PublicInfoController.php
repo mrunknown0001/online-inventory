@@ -89,7 +89,7 @@ class PublicInfoController extends Controller
      */
     public function viewPublicInfo($id)
     {
-        $id = decrypt($id);
+        $id = $this->decryptString($id);
 
         $info = \App\PublicInfo::findOrFail($id);
 
@@ -155,7 +155,7 @@ class PublicInfoController extends Controller
      */
     public function viewPreviousActivity($id)
     {
-        $id =  decrypt($id);
+        $id =  $this->decryptString($id);
 
         $activity = \App\PreviousActivity::findOrFail($id);
 
